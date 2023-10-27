@@ -10,6 +10,7 @@
     z-index: 9999;
     color:white;
     font-size: 5rem;
+    font-family: 'Almarai', sans-serif;
 }
 
 .textslider2{
@@ -19,6 +20,7 @@
     z-index: 9999;
     color:white;
     font-size: 5rem;
+    font-family: 'Almarai', sans-serif;
 }
 
 .textslider3{
@@ -28,6 +30,8 @@
     z-index: 9999;
     color:white;
     font-size: 5rem;
+    font-family: 'Almarai', sans-serif;
+
 }
 
 .pgraphslider{
@@ -36,6 +40,7 @@
     left: 27%;
     z-index: 9999;
     color:white;
+    font-family: 'Almarai', sans-serif;
 }
 
 .pgraphslider2{
@@ -44,6 +49,7 @@
     left: 30%;
     z-index: 9999;
     color:white;
+    font-family: 'Almarai', sans-serif;
 }
 
 .pgraphslider3{
@@ -52,6 +58,7 @@
     left: 33%;
     z-index: 9999;
     color:white;
+    font-family: 'Almarai', sans-serif;
 }
 .imgTop{
     position:absolute;
@@ -118,3 +125,6 @@
     from{bottom: 20%}
     to{bottom: 2%}
   }
+
+
+  
