@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CompoundSliderComponent } from './Components/compound-slider/compound-slider.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CompoundSliderComponent
   ],
   imports: [
     BrowserModule,
