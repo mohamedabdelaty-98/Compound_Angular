@@ -1,0 +1,32 @@
+
+  .parent {
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+    background-color: rgba(203,188,179,255);
+
+
+  }
+  .child {
+    display: inline-block;
+    align-items: flex-start;
+    /* border: 1px solid  #e28743; */
+    padding: 1rem 1rem;
+    vertical-align:middle;
+  }
+  
+
+#map iframe{
+   margin-right: 400px;
+   border-radius: 10px;
+
+}
+  
+  
+  i {
+    position: absolute;
+    right: 0;
+    margin-right: 150px;
+    margin-top: 9px;
+
+  }
