@@ -1,18 +1,17 @@
 
   .parent {
-    margin: 1rem;
-    padding: 2rem 2rem;
-    text-align: center;
-    background-color: rgba(203,188,179,255);
+     margin-top: 2rem;
+    text-align: end;
+    margin-right:3.5rem ;
+
+    /* background-color: rgba(203,188,179,255); */
 
 
   }
   .child {
     display: inline-block;
     align-items: flex-start;
-    /* border: 1px solid  #e28743; */
-    padding: 1rem 1rem;
-    vertical-align:middle;
+    
   }
   
 
@@ -30,3 +29,7 @@
     margin-top: 9px;
 
   }
+  .textLandmark{
+    font-family: 'Almarai', sans-serif;
+  }
+ 
