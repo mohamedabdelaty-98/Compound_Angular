@@ -1,0 +1,27 @@
+
+.about-card {
+    position: relative;
+    border-radius: 30px;
+  }
+  .about-card .img-cover {
+    transition: var(--transition-2);
+  }
+ 
+  .about-card .play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 80px;
+    transition: var(--transition-2);
+  }
+  .about-card:is(:hover, :focus) .play-btn {
+    background-color: var(--black_50);
+    border-radius: 30px;
+  }
+  .card-banner {
+    border-radius: 30px;
+  }
+

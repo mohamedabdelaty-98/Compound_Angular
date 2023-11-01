@@ -5,16 +5,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompoundSliderComponent } from './Components/compound-slider/compound-slider.component';
 
+import { StaticVideoComponent } from './Components/Home/static-video/static-video.component';
+import { AboutsectionComponent } from './Components/Home/aboutsection/aboutsection.component';
+
+import { SliderHomeComponent } from './Components/Home/slider-home/slider-home.component';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmarks.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+
     CompoundSliderComponent
+
+    LandmarksComponent,
+    StaticVideoComponent,
+    AboutsectionComponent,
+    SliderHomeComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    CarouselModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
