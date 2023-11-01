@@ -4,34 +4,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LandmarksComponent } from './Components/landmarks/landmarks.component';
-import { StaticVideoComponent } from './Components/static-video/static-video.component';
-import { AboutsectionComponent } from './Components/aboutsection/aboutsection.component';
+import { StaticVideoComponent } from './Components/Home/static-video/static-video.component';
+import { AboutsectionComponent } from './Components/Home/aboutsection/aboutsection.component';
 
-import { SliderHomeComponent } from './component/slider-home/slider-home.component';
+import { SliderHomeComponent } from './Components/Home/slider-home/slider-home.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmarks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     LandmarksComponent,
     StaticVideoComponent,
-    AboutsectionComponent
-
+    AboutsectionComponent,
     SliderHomeComponent,
-    
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
