@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AmmenitiesCompoundComponent } from './component/ammenities-compound/ammenities-compound.component';
 
 import { homeComponent } from './Home/home.component';
 
@@ -21,6 +22,9 @@ import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmark
 @NgModule({
   declarations: [
     AppComponent,
+
+    AmmenitiesCompoundComponent,
+
 
     homeComponent,
    
