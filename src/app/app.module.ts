@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CompoundSliderComponent } from './Components/compound-slider/compound-slider.component';
+import { CompoundSliderComponent } from './Components/CompoundPage/compound-slider/compound-slider.component';
 
 import { StaticVideoComponent } from './Components/Home/static-video/static-video.component';
 import { AboutsectionComponent } from './Components/Home/aboutsection/aboutsection.component';
@@ -18,13 +18,12 @@ import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmark
   declarations: [
     AppComponent,
 
-    CompoundSliderComponent
+    CompoundSliderComponent,
 
     LandmarksComponent,
     StaticVideoComponent,
     AboutsectionComponent,
     SliderHomeComponent,
-
   ],
   imports: [
     BrowserModule,
