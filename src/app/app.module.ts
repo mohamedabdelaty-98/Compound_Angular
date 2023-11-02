@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { FilterComponent } from './Component/filter/filter.component';
+import { CardComponent } from './Component/card/card.component';
+import { FooterComponent } from './Component/footer/footer.component';
+
 import { AmmenitiesCompoundComponent } from './component/ammenities-compound/ammenities-compound.component';
 
 import { homeComponent } from './Home/home.component';
@@ -23,6 +28,10 @@ import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmark
   declarations: [
     AppComponent,
 
+    FilterComponent,
+    CardComponent,
+    FooterComponent
+
     AmmenitiesCompoundComponent,
 
 
@@ -36,6 +45,7 @@ import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmark
     StaticVideoComponent,
     AboutsectionComponent,
     SliderHomeComponent,
+
 
   ],
   imports: [
