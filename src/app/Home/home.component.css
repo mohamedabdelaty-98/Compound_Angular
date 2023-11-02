@@ -3,41 +3,47 @@
     gap: 50px;
     align-items: center;
     justify-content: center;
-    margin: 50px ;
-
 
     }
-   
-    .text li{
-        margin-bottom: 20px;
-        font-family: 'Almarai', sans-serif;
-    } 
-   
-
-    * {
-        box-sizing: border-box;
-    }
-    
-   
-    p {
-        margin: 0;
-        line-height: 1.6;
-        font-weight: bold;
-    }
-
-    
-    li {
+    .image-container{
         position: relative;
-        counter-increment: list;
-        max-width: 45rem;
-        margin: 2rem auto;
-        padding: 2rem 1rem 1rem;
-        box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
-        border-radius: 0.25rem;
-        overflow: hidden;
-        background-color:beige;
-        border-radius: 20px;
+    display: inline-block; 
+    margin: 2rem ;
+
     }
+    .image-container img {
+        max-width: 100%; 
+         top: 50px; 
+        left: 50px; 
+    }
+      
+.text {
+  
+        position: relative;
+        height: 31rem;
+        max-width: 38rem;
+        margin: 10px;;
+        background-color:#F3EDE9;
     
+    }
+    .text h3{
+        margin: 1rem;
+        color: brown;
+        padding-top: 10%;
+        padding-right: 5%;
+        font-family: 'Almarai', sans-serif;
+        
+
+    }
+    .text p{
+        padding-right: 3rem;
+        padding-left: 3rem;
+        color: brown;
+        text-align: right;
+        font-family: 'Almarai', sans-serif;
+       
+    
+        
+    }
 
     
