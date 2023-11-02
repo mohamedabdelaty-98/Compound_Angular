@@ -1,0 +1,131 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل</title>
+</head>
+<body>
+    
+<div class="d-flex justify-content-center ">
+    <div class="container_reg col-7 mt-4 mb-6" style="background-color: #E1AF62;
+    color: #38271E">
+        <div class="title" style="color: #38271E">التسجيل</div>
+        <div class="content">
+            <form method="post" >
+               
+                <input type="hidden" name="ReturnUrl"  />
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                        <label class="details" for="UserName">اسم المستخدم</label>
+                        <input name="UserName" placeholder="أدخل اسم المستخدم الخاص بك" required>
+                        <span for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Email">بريد إلكتروني</label>
+                            <input for="Email" placeholder="أدخل بريد إلكتروني الخاص بك" required>
+                            <span for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Fname">الاسم الأول</label>
+                            <input for="Fname" placeholder="أدخل الاسم الأول الخاص بك" required>
+                            <span for="Fname" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Lname">اسم العائلة</label>
+                            <input for="Lname" placeholder="أدخل الاسم العائلة الخاص بك" required>
+                            <span for="Lname" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="PasswordHash">كلمة المرور</label>
+                            <input for="PasswordHash" placeholder="أدخل كلمة المرور الخاص بك" required>
+                            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" asp-for="ConfiremPassword">تأكيد كلمة المرور</label>
+                        <input asp-for="ConfiremPassword" placeholder="أدخل تأكيد كلمةالمرور الخاص بك" required>
+                        <span asp-validation-for="ConfiremPassword" class="text-danger"></span>
+                    </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" asp-for="Address">عنوان</label>
+                            <input asp-for="Address" placeholder="أدخل العنوان الخاص بك" required>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                         </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" asp-for="City">مدينة</label>
+                        <input asp-for="City" placeholder="أدخل اسم المدينة الخاص بك" required>
+                        <span for="City" class="text-danger"></span>
+                   </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details"for="PhoneNumber">رقم التليفون</label>
+                            <input for="PhoneNumber" placeholder="أدخل رقم التليفون الخاص بك" required>
+                            <span for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="DateOfBirth">تاريخ الميلاد</label>
+                        <input for="DateOfBirth" placeholder="أدخل تاريخ الميلاد الخاص بك" required>
+                        <span for="DateOfBirth" class="text-danger"></span>
+                     </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="DateOfBirth">نوع</label>
+
+                            <select class="options select_gender" name="gender">
+                                <option class="option" value="0">ذكر</option>
+                                <option class="option" value="1">أنثى</option>
+                                </select>
+                            </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%; ">
+                            <!-- <label class="details" for="DateOfBirth"></label>
+                        <input for="DateOfBirth" placeholder="Enter your birthdate" required>
+                        <span for="DateOfBirth" class="text-danger"></span> -->
+                     </div>
+                    </div>
+                
+                </div>
+
+
+
+
+
+
+
+           <div class="button" >
+                    <input type="submit" value="التسجيل"style="background-color:#38271E; color: #E1AF62;">
+                    <!-- @* <input type="submit" value="Register" class="btn btn-primary" /> *@ -->
+    
+                </div>
+    
+    
+            </form>
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>
+
