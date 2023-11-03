@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { FilterComponent } from './Components/Units/filter/filter.component';
 import { CardComponent } from './Components/Units/DisplayUnit/card.component';
@@ -32,7 +31,9 @@ import { RegisterComponent } from './Components/Account/register/register.compon
 import { CompoundCardsComponent } from './Components/CompoundPage/compound-cards/compound-cards.component';
 import { SponsersComponent } from './Components/Home/sponsers/sponsers.component';
 import { TestImageComponent } from './Components/test-image/test-image.component';
-
+import { UnitDetailsComponent } from './Components/Units/unit-details/unit-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,8 @@ import { TestImageComponent } from './Components/test-image/test-image.component
     CompoundCardsComponent,
     SponsersComponent,
     TestImageComponent,
+    UnitDetailsComponent,
+    RyalcurrencyPipe,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { TestImageComponent } from './Components/test-image/test-image.component
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

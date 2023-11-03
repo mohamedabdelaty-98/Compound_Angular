@@ -1,0 +1,47 @@
+<main style="width: 50rem">
+  <h2 mat-dialog-title>Install Angular</h2>
+  <mat-dialog-content class="mat-typography">
+    <div class="card" data-page="1">
+      <div class="head d-flex justify-content-between">
+        <button class="btn btn-success rounded-0 h-25">متاح</button>
+        <div>
+          <h2 class="text-dark fw-bold m-0 p-0">A1</h2>
+          <h3 class="text-dark fw-bold">
+            {{ 1500 | ryalcurrency }}
+          </h3>
+        </div>
+      </div>
+      <div class="icons">
+        <div class="icon ico1">
+          <img
+            src="assets/images/iconunit_2.jpg"
+            alt=""
+            width="30px"
+            height="30px"
+          />
+          <p>الارضي</p>
+        </div>
+        <div class="icon ico1">
+          <img
+            src="assets/images/iconunit_1.png"
+            alt=""
+            width="30px"
+            height="30px"
+          />
+
+          <p>180.03</p>
+        </div>
+        <div class="icon ico1">
+          <span class="material-symbols-outlined"> bed </span>
+          <p>غرفة النوم:3</p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+      Install
+    </button>
+  </mat-dialog-actions>
+</main>
