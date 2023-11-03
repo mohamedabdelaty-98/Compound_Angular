@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import { FilterComponent } from './Components/Units/filter/filter.component';
 import { CardComponent } from './Components/Units/DisplayUnit/card.component';
@@ -60,6 +62,7 @@ import { TestImageComponent } from './Components/test-image/test-image.component
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
