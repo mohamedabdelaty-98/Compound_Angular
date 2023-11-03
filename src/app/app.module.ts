@@ -8,7 +8,6 @@ import { FilterComponent } from './Component/filter/filter.component';
 import { CardComponent } from './Component/card/card.component';
 import { FooterComponent } from './Component/footer/footer.component';
 
-import { AmmenitiesCompoundComponent } from './component/ammenities-compound/ammenities-compound.component';
 
 import { homeComponent } from './Home/home.component';
 
@@ -22,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmarks.component';
+import { AmmenitiesCompoundComponent } from './Component/ammenities-compound/ammenities-compound.component';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { LandmarksComponent } from './Components/CompoundPage/landmarks/landmark
 
     FilterComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
 
     AmmenitiesCompoundComponent,
 
