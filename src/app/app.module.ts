@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import { FilterComponent } from './Component/filter/filter.component';
 import { CardComponent } from './Component/card/card.component';
@@ -54,6 +56,7 @@ import { AmmenitiesCompoundComponent } from './Component/ammenities-compound/amm
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
