@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.dropdown {
+  width: 300px;
+  position: relative;
+}
+.heads {
+  text-align: center;
+  color: #000;
+  padding-top: 15px;
+}
+header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* gap: 2px; */
+  /* margin: 0 15px; */
+  justify-items: center;
+  width: 97%;
+}
+/* responsive for filter */
+
+@media (max-width: 1200px) {
+  .dropdown {
+    width: 250px;
+  }
+}
+@media (max-width: 1000px) {
+  header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dropdown {
+    width: 300px;
+  }
+}
+@media (max-width: 680px) {
+  header {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .dropdown {
+    width: 400px;
+  }
+}
+@media (max-width: 400px) {
+  header {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .dropdown {
+    width: 300px;
+  }
+}
+
+/* ============================= */
+.select {
+  background: #fff; /* weso 8er el color y fanan*/
+  color: #5d5d5d;
+  width: 100%;
+  direction: rtl;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 2px #a2684d solid;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tri {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a65e3d; /* weso 8er el color y fanan*/
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  transition: 0.3s;
+}
+.caret-rotate {
+  transform: rotate(180deg);
+}
+.menu {
+  color: #5d5d5d;
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #fff;
+  border: 1px #a65e3d solid;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 105px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 2;
+}
+.menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.menu li:hover {
+  background: rgba(186, 126, 99, 0.349);
+}
+.active {
+  background: #a2684d;
+  color: #000;
+}
+.menu-open {
+  display: block;
+  opacity: 1;
+}
