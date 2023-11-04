@@ -34,6 +34,7 @@ import { TestImageComponent } from './Components/test-image/test-image.component
 import { UnitDetailsComponent } from './Components/Units/unit-details/unit-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
+import { BuildingDescriptionComponent } from './Components/BuildingPage/building-description/building-description.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
     TestImageComponent,
     UnitDetailsComponent,
     RyalcurrencyPipe,
+    BuildingDescriptionComponent,
   ],
   imports: [
     BrowserModule,
