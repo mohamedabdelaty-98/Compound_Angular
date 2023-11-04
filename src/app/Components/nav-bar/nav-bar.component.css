@@ -19,10 +19,26 @@
 /* Add the brown background when scrolling */
 .navbar-custom.scrolled {
   background-color: #8a6b54;
-
+  height: 100px;
+  z-index: 99999;
   position: fixed; /* Fixed position at the top */
 }
 .custom-logo {
-  height: 50px; /* Set the desired height for your logo */
+  height: 80px; /* Set the desired height for your logo */
   margin-right: 20px; /* Add some right margin for spacing */
+}
+
+
+@media screen and (max-width: 992px) {
+.hideLogo{
+  display: none;
+}
+
+
+}
+
+*{
+  font-family: 'Almarai', sans-serif;
+
+
 }
