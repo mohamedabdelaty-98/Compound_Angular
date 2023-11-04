@@ -3,15 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/Home/home/home.component';
 import { CmpoundComponent } from './Components/CompoundPage/cmpound/cmpound.component';
 import { AboutCompanyComponent } from './Components/about-company/about-company.component';
-import { UnitDetailsComponent } from './Components/Units/unit-details/unit-details.component';
+import { ApplicationComponent } from './Components/application/application.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  {
-    path: 'CompoundPage',
-    component: CmpoundComponent,
-  },
+  { path: 'CompoundPage', component: CmpoundComponent },
   { path: 'AboutUs', component: AboutCompanyComponent },
+  { path: 'ContactUs', component: ApplicationComponent },
 ];
 
 @NgModule({
