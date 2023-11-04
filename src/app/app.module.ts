@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+
+
 import { FilterComponent } from './Components/Units/filter/filter.component';
 import { CardComponent } from './Components/Units/DisplayUnit/card.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -71,6 +74,8 @@ import { ApplicationComponent } from './Components/application/application.compo
     CarouselModule,
     HttpClientModule,
     MatDialogModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

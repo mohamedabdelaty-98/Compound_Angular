@@ -1,1 +1,114 @@
-<p>application works!</p>
+
+
+
+<div class="d-flex justify-content-center " style="margin-bottom:2% ;">
+    <div class="container_reg col-7 mt-4 mb-6" style="padding-bottom:2% ;background-color: #E1AF62;
+    color: #38271E">
+        <div class="title" style="color: #38271E">التسجيل</div>
+        <div class="content">
+            <form method="post" [formGroup]="RegisterationValidation" (ngSubmit)="Add()">
+               
+                <input type="hidden" name="ReturnUrl"  />
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                        <label class="details" for="SSN">رقم المستخدم</label>
+                        <input style="grid-auto-rows: min-content;" formControlName="SSN" name="SSN" placeholder="أدخل رقم المستخدم الخاص بك" required>
+                        <div *ngIf="!SSNValid" class="error-message">رقم المستخدم غير صالح</div>
+                    </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Email">بريد إلكتروني</label>
+                            <input style="grid-auto-rows: min-content;" formControlName="email" for="Email" placeholder="أدخل بريد إلكتروني الخاص بك" required>
+                            <div *ngIf="!EmailValid" class="error-message">البريد الإلكتروني غير صالح</div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Fname">الاسم الأول</label>
+                            <input formControlName="fname" for="Fname" placeholder="أدخل الاسم الأول الخاص بك" required>
+                            <div *ngIf="!FNameValid" class="error-message">الاسم الأول غير صالح</div>
+                        </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Lname">اسم العائلة</label>
+                            <input formControlName="lname" for="Lname" placeholder="أدخل الاسم العائلة الخاص بك" required>
+                            <div *ngIf="!LNameValid" class="error-message">الاسم الأخير غير صالح</div>
+                        </div>
+                    </div> -->
+
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="name">الاسم</label>
+                            <input style="grid-auto-rows: min-content;" formControlName="name" for="name" placeholder="أدخل كلمة المرور الخاص بك" required>
+                            <div *ngIf="!NameValid" class="error-message">الاسم غير صالح</div>
+                        </div>
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="Budget"> ميزانية </label>
+                            <input [value]="0" style="grid-auto-rows: min-content;" formControlName="Budget" for="Budget"  placeholder="أدخل ميزانية الخاص بك" required>
+                            <div *ngIf="!BudgetValid" class="error-message"> الميزانية غير صالحة</div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" asp-for="Address">عنوان</label>
+                            <input asp-for="Address" placeholder="أدخل العنوان الخاص بك" required>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                         </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" asp-for="City">مدينة</label>
+                        <input asp-for="City" placeholder="أدخل اسم المدينة الخاص بك" required>
+                        <span for="City" class="text-danger"></span>
+                   </div>
+                    </div> -->
+
+
+                    <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details"for="PhoneNumber">رقم التليفون</label>
+                            <input [value]="0" style="grid-auto-rows: min-content;" formControlName="number" for="PhoneNumber" placeholder="أدخل رقم التليفون الخاص بك" required>
+                            <div *ngIf="!NumberValid" class="error-message">الرقم غير صالح</div>
+                        </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="DateOfBirth">رقم الدور</label>
+                        <input [value]="0" style="grid-auto-rows: min-content;" formControlName="FON" for="DateOfBirth" placeholder="أدخل رقم الدور المهتم به" required>
+                            <div *ngIf="!FONValid" class="error-message">رقم الدور غير صالح</div>
+                     </div>
+                    </div>
+
+                     <!-- <div class="row">
+                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
+                            <label class="details" for="DateOfBirth">نوع</label>
+
+                            <select class="options select_gender" name="gender">
+                                <option class="option" value="0">ذكر</option>
+                                <option class="option" value="1">أنثى</option>
+                                </select>
+                            </div>
+                        <div class="col-md-6"style="display: grid;margin-bottom: 3%; ">
+                           </div>
+                    </div>  -->
+                
+                </div>
+
+
+
+
+
+
+
+           <div class="button" style="display: flex;justify-content: center;" >
+                    <input type="submit" value="التسجيل"style="background-color:#38271E; color: #E1AF62;">
+                    <!-- @* <input type="submit" value="Register" class="btn btn-primary" /> *@ -->
+    
+                </div>
+    
+    
+            </form>
+        </div>
+    </div>
+    </div>
