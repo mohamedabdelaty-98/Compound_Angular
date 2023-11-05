@@ -36,6 +36,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
 import { BuildingDescriptionComponent } from './Components/BuildingPage/building-description/building-description.component';
 import { ApplicationComponent } from './Components/application/application.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +64,7 @@ import { ApplicationComponent } from './Components/application/application.compo
     RyalcurrencyPipe,
     BuildingDescriptionComponent,
     ApplicationComponent,
+    NewCompoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,8 @@ import { ApplicationComponent } from './Components/application/application.compo
     CarouselModule,
     HttpClientModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
