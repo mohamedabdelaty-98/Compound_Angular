@@ -7,7 +7,7 @@ import { ApplicationComponent } from './Components/application/application.compo
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'CompoundPage', component: CmpoundComponent },
+  { path: 'CompoundPage/:id', component: CmpoundComponent },
   { path: 'AboutUs', component: AboutCompanyComponent },
   { path: 'ContactUs', component: ApplicationComponent },
 ];
