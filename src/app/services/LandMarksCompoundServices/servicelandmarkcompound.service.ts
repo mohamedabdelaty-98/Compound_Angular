@@ -8,7 +8,7 @@ export class ServicelandmarkcompoundService {
   private BaseUrlCompoundlandmarks: string =
     '/api/CompoundLandMarks/GetLandmarkCompoundByCompound/';
   constructor(private http: HttpClient) {}
-  getlandmaksByCompoundId(compoundId: any) {
+  getlandmaksByCompoundId(compoundId: number) {
     return this.http.get(
       `${env.apirooturl}${this.BaseUrlCompoundlandmarks}${compoundId}`
     );
