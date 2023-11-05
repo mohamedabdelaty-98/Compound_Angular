@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup , Validators} from '@angular/forms';
-import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NewCompoundService } from 'src/app/Services/CompoundServices/new-compound.service';
 
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
-  styleUrls: ['./new-compound.component.css']
+  styleUrls: ['./new-compound.component.css'],
 })
 export class NewCompoundComponent {
+  compoundForm: FormGroup;
+  File: File | null = null;
 
-  compoundForm:FormGroup;
-  File:File | null = null;
-
-  constructor(private compoundService: NewCompoundService, private formBuilder: FormBuilder){
+  constructor(
+    private compoundService: NewCompoundService,
+    private formBuilder: FormBuilder
+  ) {
     this.compoundForm = this.formBuilder.group({
       Name: ['', Validators.required],
       Description: ['', Validators.required],
@@ -26,14 +28,14 @@ export class NewCompoundComponent {
     });
   }
 
-  onFileChange (event:any){
+  onFileChange(event: any) {
     this.File = event.target.files[0];
   }
 
-  onSubmit(){
-    console.log("hello");
-    if (this.compoundForm.valid){
-      console.log("valid");
+  onSubmit() {
+    console.log('hello');
+    if (this.compoundForm.valid) {
+      console.log('valid');
 
       const compoundData = new FormData();
       for (const key in this.compoundForm.value) {
@@ -49,17 +51,13 @@ export class NewCompoundComponent {
       this.compoundService.createCompound(compoundData).subscribe(
         (response) => {
           console.log('Compound created:', response);
-          
         },
         (error) => {
           console.error('Error creating compound:', error);
         }
       );
+    } else {
+      console.log('notValid');
     }
-    else{
-      console.log("notValid");
-    }
-    }
-
   }
-
+}
