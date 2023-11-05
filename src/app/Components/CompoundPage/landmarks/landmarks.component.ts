@@ -11,14 +11,17 @@ import { ServicelandmarkcompoundService } from 'src/app/Services/LandMarksCompou
 })
 export class LandmarksComponent implements OnInit {
   landmarkcompound: LandMarksCompound[] = [];
+  compoundId: number = 0;
   constructor(
     private landmarkservice: ServicelandmarkcompoundService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.compoundId = Number(this.route.snapshot.paramMap.get('id'));
+  }
   ngOnInit(): void {
-    const compoundId = this.route.snapshot.paramMap.get('id');
+    // const compoundId = this.route.snapshot.paramMap.get('id');
     this.landmarkservice
-      .getlandmaksByCompoundId(compoundId)
+      .getlandmaksByCompoundId(this.compoundId)
       .subscribe((data: any) => {
         this.landmarkcompound = data.data;
         console.log(this.landmarkcompound);
