@@ -18,15 +18,15 @@
         <div class="landmark" *ngIf="landmarkcompound.length > 0">
           <div class="mb-4" *ngFor="let landmark_compound of landmarkcompound">
             <h3 class="textLandmark" style="color: #873e23">
-              {{ landmark_compound.name
-              }}<i
+              {{ landmark_compound.name }}
+              <i
                 class="fa"
                 [class]="landmark_compound.iConName"
                 style="color: #e1af62"
               ></i>
             </h3>
             <div>
-              <span>{{ landmark_compound.description }}</span>
+              <span> {{ landmark_compound.description }}</span>
             </div>
           </div>
         </div>
