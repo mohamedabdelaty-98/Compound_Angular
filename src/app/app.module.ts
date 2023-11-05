@@ -34,6 +34,8 @@ import { TestImageComponent } from './Components/test-image/test-image.component
 import { UnitDetailsComponent } from './Components/Units/unit-details/unit-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +60,7 @@ import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
     TestImageComponent,
     UnitDetailsComponent,
     RyalcurrencyPipe,
+    NewCompoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,8 @@ import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
     CarouselModule,
     HttpClientModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
