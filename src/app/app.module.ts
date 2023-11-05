@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+
+
 import { FilterComponent } from './Components/Units/filter/filter.component';
 import { CardComponent } from './Components/Units/DisplayUnit/card.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -36,7 +39,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
 import { BuildingDescriptionComponent } from './Components/BuildingPage/building-description/building-description.component';
 import { ApplicationComponent } from './Components/application/application.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
 @NgModule({
