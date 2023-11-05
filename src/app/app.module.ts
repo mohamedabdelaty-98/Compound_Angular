@@ -42,6 +42,10 @@ import { ApplicationComponent } from './Components/application/application.compo
 import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
+import { LandmarksCompoundAdminComponent } from './Components/Admin/LandmarksCompound/landmarks-compound-admin/landmarks-compound-admin.component';
+import { AddLandMarkCompoundComponent } from './Components/Admin/LandmarksCompound/add-land-mark-compound/add-land-mark-compound.component';
+import { EditLandMarkCompoundComponent } from './Components/Admin/LandmarksCompound/edit-land-mark-compound/edit-land-mark-compound.component';
+import { DisplayCompoundAdminComponent } from './Components/Admin/LandmarksCompound/display-compound-admin/display-compound-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +74,10 @@ import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbui
     ApplicationComponent,
     NewCompoundComponent,
     CompoundbuildingComponent,
+    LandmarksCompoundAdminComponent,
+    AddLandMarkCompoundComponent,
+    EditLandMarkCompoundComponent,
+    DisplayCompoundAdminComponent,
   ],
   imports: [
     BrowserModule,
