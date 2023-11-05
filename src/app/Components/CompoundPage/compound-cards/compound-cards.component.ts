@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Compound } from 'src/app/Models/compound';
-import { CompoundService } from 'src/app/Services/compound.service';
+import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
 import * as Aos from 'aos';
 
 @Component({
