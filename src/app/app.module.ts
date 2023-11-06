@@ -46,6 +46,8 @@ import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/n
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
 import { DownloadFileService } from './services/CompoundServices/download-file.service';
 import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
+import { DashBoardModule } from './DashBoard/app.module';
+import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,7 @@ import { ServiceBuildingComponent } from './Components/BuildingPage/service-buil
     CompoundbuildingComponent,
     ServiceBuildingComponent,
     NewCompoundComponent,
+    DashboardadminComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,7 @@ import { ServiceBuildingComponent } from './Components/BuildingPage/service-buil
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
+    DashBoardModule,
   ],
   providers: [DownloadFileService],
   bootstrap: [AppComponent],
