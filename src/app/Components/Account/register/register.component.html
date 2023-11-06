@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="container">
+
+  <div class="wrapper">
+    <h2>Registration</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <div class="input-box">
+        <input type="text" formControlName="username" placeholder="Enter your name" required>
+        <div *ngIf="NameRequired && loginForm.get('username')?.hasError('required')" style="color: red;">
+          Name is required
+        </div>
+        <div *ngIf="loginForm.get('username')?.hasError('minlength') && loginForm.get('username')?.touched" style="color: red;">
+          Name must be much 3
+        </div>
+      </div>
+      <div class="input-box">
+        <input type="text" formControlName="email" placeholder="Enter your email" required>
+        <div *ngIf="EmailRequired && loginForm.get('email')?.hasError('required')" style="color: red;">
+          Email is required
+        </div>
+        <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" style="color: red;">
+          Email Not Valid
+        </div>
+      </div>
+      <div class="input-box">
+        <input type="password" formControlName="password" placeholder="Create password" required>
+        <div *ngIf="PasswordRequired && loginForm.get('password')?.hasError('required')" style="color: red;">
+          Password is required
+        </div>
+
+        <div *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched" style="color: red;">
+          password must be much 3
+        </div>
+      </div>
+      <div class="input-box">
+        <input type="password" formControlName="confirmPassword" placeholder="Confirm password" required>
+         <div *ngIf="confirmPasswordRequired && loginForm.get('confirmPassword')?.hasError('required')" style="color: red;">
+          Confirm Password is required
+        </div> 
+        <div *ngIf="loginForm.hasError('passwordMismatch')"  style="color: red;">
+          Passwords do not match
+        </div>
+      </div>
+      <div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & condition</h3>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Register Now">
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="#">Login now</a></h3>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<img src="assets/images/elsharafia_page-0007.jpg" id="Background">
