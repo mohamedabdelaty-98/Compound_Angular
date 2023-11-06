@@ -13,11 +13,15 @@ export class CardComponent {
 
   cardsPerPage = 9; // Number of cards to display per page
   numPages = Math.ceil(this.numCards / this.cardsPerPage); // Calculate the number of pages
-  /**
-   *
-   */
-  constructor(public dialog: MatDialog) {}
+  cards: any[] = [];
 
+  constructor(public dialog: MatDialog) {
+    for (let i = 1; i <= this.numCards; i++) {
+      const page = Math.ceil(i / this.cardsPerPage);
+      this.cards.push({ id: i, page });
+    }
+    console.log(this.cards);
+  }
   openDialog() {
     const dialogRef = this.dialog.open(UnitDetailsComponent);
 
@@ -25,21 +29,8 @@ export class CardComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
-
   showPage(pageNumber: number) {
     this.currentPage = pageNumber;
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card: any) => {
-      if (parseInt(card.getAttribute('data-page')) === pageNumber) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    document.querySelectorAll('.pagination a').forEach((pageLink) => {
-      pageLink.classList.remove('active');
-    });
   }
 
   previousPage() {

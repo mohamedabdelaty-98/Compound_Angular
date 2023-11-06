@@ -1,13 +1,13 @@
 <header>
-  <div class="dropdown" *ngFor="let option of selectedOptions; let i = index">
+  <div class="dropdown" *ngFor="let item of dropdownItems; let i = index">
     <div class="heads">
       <h3 class="mb-2">الدور</h3>
     </div>
-    <div class="select" (click)="toggleDropdown($event)">
+    <div class="select" (click)="toggleDropdown(i)">
       <div class="tri">
         <div class="caret"></div>
       </div>
-      <span class="selected">{{ option }}</span>
+      <span class="selected">{{ selectedItem[i] }}</span>
     </div>
     <ul class="menu">
       <li

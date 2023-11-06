@@ -1,1 +1,63 @@
-<p>login works!</p>
+<!-- <div class="container">
+  <div class="wrapper">
+    <div class="title"><span>Login</span></div>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <input type="text" formControlName="email" placeholder="Email or Phone">
+        <div *ngIf="submitted && loginForm.get('email')?.hasError('required')" style="color: red;">
+          Email is required
+        </div>
+        <div  *ngIf="loginForm.get('email')?.hasError('email')"  style="color: red;">
+          Email Not Valid
+        </div>
+      </div>
+      <div class="row">
+   
+        <input type="password" formControlName="password" placeholder="Password">
+         
+        <div *ngIf="submitted &&loginForm.get('password')?.hasError('required') "  style="color: red;">
+          Password is required.
+        </div> 
+      </div>
+      
+      <div class="pass"><a href="#">Forgot password?</a></div>
+      <div class="row button">
+        <input type="submit" value="Login" [disabled]="loginForm.invalid">
+      </div>
+      <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+    </form>
+  </div>
+</div>
+-->
+<img src="assets/images/Dubai_Marina_Skyline.jpg" id="Background">
+
+<div class="container">
+  <div class="wrapper">
+    <div class="title"><span>Login</span></div>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <input type="text" formControlName="email" placeholder="Email or Phone">
+        <div *ngIf="EmailRequired && loginForm.get('email')?.hasError('required')" style="color: red;">
+          Email is required
+        </div>
+        <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" style="color: red;">
+          Email Not Valid
+        </div>
+      </div>
+      <div class="row">
+        <input type="password" formControlName="password" placeholder="Password">
+       
+        <div *ngIf="PasswordRequired && loginForm.get('password')?.hasError('required')" style="color: red;">
+          Password is required
+        </div>
+      </div>
+      <div class="pass"><a href="#">Forgot password?</a></div>
+      <div class="row button">
+        <input type="submit" value="Login">
+      </div>
+      <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+    </form>
+  </div>
+</div>
+
+
