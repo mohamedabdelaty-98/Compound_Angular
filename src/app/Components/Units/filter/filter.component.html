@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <div class="dropdown" *ngFor="let item of dropdownItems; let i = index">
     <div class="heads">
       <h3 class="mb-2">الدور</h3>
@@ -11,11 +11,19 @@
     </div>
     <ul class="menu">
       <li
-        *ngFor="let menuOption of floorsdata"
+        *ngFor="
+          let menuOption of [
+            'استوديو غرفة واحدة',
+            'غرفتين نوم',
+            'ثلاث غرف نوم',
+            'Happy'
+          ]
+        "
         (click)="selectOption($event, menuOption, i)"
+        [ngClass]="{ active: option === menuOption }"
       >
         {{ menuOption }}
       </li>
     </ul>
   </div>
-</header>
+</header> -->
