@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import {
   FormControl,
   FormGroup,
@@ -46,6 +45,7 @@ import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
 import { DownloadFileService } from './services/CompoundServices/download-file.service';
+import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
 
 @NgModule({
   declarations: [
@@ -73,13 +73,9 @@ import { DownloadFileService } from './services/CompoundServices/download-file.s
     RyalcurrencyPipe,
     BuildingDescriptionComponent,
     ApplicationComponent,
-    NewCompoundComponent,
     CompoundbuildingComponent,
-    LandmarksCompoundAdminComponent,
-    AddLandMarkCompoundComponent,
-    EditLandMarkCompoundComponent,
-    DisplayCompoundAdminComponent,
     ServiceBuildingComponent,
+    NewCompoundComponent,
   ],
   imports: [
     BrowserModule,

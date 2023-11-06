@@ -13,7 +13,6 @@
       <li
         *ngFor="let menuOption of floorsdata"
         (click)="selectOption($event, menuOption, i)"
-        [ngClass]="{ active: option === menuOption }"
       >
         {{ menuOption }}
       </li>

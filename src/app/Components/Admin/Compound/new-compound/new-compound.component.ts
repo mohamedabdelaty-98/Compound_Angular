@@ -26,9 +26,7 @@ export class NewCompoundComponent {
       GreenArea: [0, Validators.required],
       BuildingArea: [0, Validators.required],
       DateAdded: [0, Validators.required],
-      Location: [0, Validators.required]
-
-
+      Location: [0, Validators.required],
     });
   }
 
