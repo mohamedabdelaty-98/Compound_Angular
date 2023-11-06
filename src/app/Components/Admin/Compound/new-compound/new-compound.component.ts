@@ -23,6 +23,10 @@ export class NewCompoundComponent {
       Street_area: [0, Validators.required],
       GreenArea: [0, Validators.required],
       BuildingArea: [0, Validators.required],
+      DateAdded: [0, Validators.required],
+      Location: [0, Validators.required]
+
+
     });
   }
 

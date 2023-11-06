@@ -39,6 +39,7 @@ import { ApplicationComponent } from './Components/application/application.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
+import { DownloadFileService } from './services/CompoundServices/download-file.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +80,7 @@ import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbui
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [DownloadFileService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
