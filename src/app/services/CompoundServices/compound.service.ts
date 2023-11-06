@@ -13,4 +13,8 @@ export class CompoundService {
   getallcompounds(): Observable<any> {
     return this.httpClient.get(`${env.apirooturl}${this.BaseUrlCompounds}`);
   }
+
+ 
+
+
 }

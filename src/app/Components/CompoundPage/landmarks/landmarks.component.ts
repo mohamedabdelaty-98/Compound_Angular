@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
 import { ActivatedRoute } from '@angular/router';
 import { LandMarksCompound } from 'src/app/Models/land-marks-compound';
 import { Compound } from 'src/app/Models/compound';
-import { ServicelandmarkcompoundService } from 'src/app/Services/LandMarksCompoundServices/servicelandmarkcompound.service';
+import { ServicelandmarkcompoundService } from 'src/app/services/LandMarksCompoundServices/servicelandmarkcompound.service';
+
 @Component({
   selector: 'app-landmarks',
   templateUrl: './landmarks.component.html',
