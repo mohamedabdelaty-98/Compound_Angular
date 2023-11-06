@@ -1,29 +1,16 @@
 <header>
-  <div class="dropdown" *ngFor="let option of selectedOptions; let i = index">
+  <div class="dropdown" *ngFor="let item of dropdownItems; let i = index">
     <div class="heads">
-      <h3>مميزات المشروع</h3>
+      <h3>{{ item.label }}</h3>
     </div>
-    <div class="select" (click)="toggleDropdown($event)">
+    <div class="select" (click)="toggleDropdown(i)">
       <div class="tri">
         <div class="caret"></div>
       </div>
-      <span class="selected">{{ option }}</span>
+      <span class="selected">{{ selectedItem[i] }}</span>
     </div>
-    <ul class="menu">
-      <li
-        *ngFor="
-          let menuOption of [
-            'استوديو غرفة واحدة',
-            'غرفتين نوم',
-            'ثلاث غرف نوم',
-            'Happy'
-          ]
-        "
-        (click)="selectOption($event, menuOption, i)"
-        [ngClass]="{ active: option === menuOption }"
-      >
-        {{ menuOption }}
-      </li>
+    <ul class="menu" *ngIf="isDropdownOpen[i]">
+      <li *ngFor="let option of item.options" (click)="selectOption(i, option)">{{ option }}</li>
     </ul>
   </div>
 </header>

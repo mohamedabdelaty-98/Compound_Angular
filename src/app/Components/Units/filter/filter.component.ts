@@ -6,34 +6,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-
-  public selectedOptions: string[] = ["- الكل -", "Happy", "Happy", "Happy"];
-
-  toggleDropdown(event: Event) {
-    const element = event.target as HTMLElement;
-    element.classList.toggle("select-clicked");
-    const caret = element.querySelector(".caret");
-    if (caret) {
-      caret.classList.toggle("caret-rotate");
+  dropdownItems = [
+    {
+      label: 'مميزات المشروع',
+      options: ['استوديو غرفة واحدة', 'غرفتين نوم', 'ثلاث غرف نوم']
+    },
+    {
+      label: 'عدد الغرف',
+      options: ['Amr', 'Amr', 'Amr', 'Amr']
+    },
+    {
+      label: 'المبنى',
+      options: ['Amr', 'Amr', 'Amr', 'Amr']
+    },
+    {
+      label: 'الدور',
+      options: ['Amr', 'Amr', 'Amr', 'Amr']
     }
-    const menu = element.nextElementSibling as HTMLElement;
-    if (menu) {
-      menu.classList.toggle("menu-open");
-    }
+  ];
+
+  isDropdownOpen: boolean[] = Array(this.dropdownItems.length).fill(false);
+  selectedItem: string[] = Array(this.dropdownItems.length);
+
+  constructor() {
+    this.selectedItem = this.dropdownItems.map(item => item.options[0]); // Initialize with the first option for each dropdown
   }
 
-  selectOption(event: Event, option: string, index: number) {
-    const element = event.target as HTMLElement;
-    this.selectedOptions[index] = option;
-    element.parentElement?.classList.remove("select-clicked");
-    const caret = element.parentElement?.querySelector(".caret");
-    if (caret) {
-      caret.classList.remove("caret-rotate");
-    }
-    const menu = element.parentElement?.nextElementSibling as HTMLElement;
-    if (menu) {
-      menu.classList.remove("menu-open");
-    }
+  toggleDropdown(index: number) {
+    this.isDropdownOpen[index] = !this.isDropdownOpen[index];
+  }
+
+  selectOption(index: number, option: string) {
+    this.selectedItem[index] = option;
+    this.isDropdownOpen[index] = false;
   }
 }
-
