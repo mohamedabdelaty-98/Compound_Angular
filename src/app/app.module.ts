@@ -41,6 +41,8 @@ import { BuildingDescriptionComponent } from './Components/BuildingPage/building
 import { ApplicationComponent } from './Components/application/application.component';
 import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
+import * as L from 'leaflet';
+
 @NgModule({
   declarations: [
     AppComponent,
