@@ -4,12 +4,14 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { CmpoundComponent } from './Components/CompoundPage/cmpound/cmpound.component';
 import { AboutCompanyComponent } from './Components/about-company/about-company.component';
 import { ApplicationComponent } from './Components/application/application.component';
+import { BuildingComponent } from './Components/BuildingPage/building/building.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'CompoundPage/:id', component: CmpoundComponent },
   { path: 'AboutUs', component: AboutCompanyComponent },
   { path: 'ContactUs', component: ApplicationComponent },
+  { path: 'BuildingPage', component: BuildingComponent },
 ];
 
 @NgModule({

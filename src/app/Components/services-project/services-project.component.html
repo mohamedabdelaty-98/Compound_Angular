@@ -15,63 +15,19 @@
       </div>
     </div>
 
-    <div class="col-lg-8 col-md-7 col-sm-12">
+    <div class="col-lg-8 col-md-7 col-sm-12" *ngIf="Amenties.length > 0">
       <div class="row">
-        <div class="col-lg-6 mt-4 col-md-5 col-sm-12 d-flex">
+        <div
+          class="col-lg-6 mt-4 col-md-5 col-sm-12 d-flex"
+          *ngFor="let amenty of Amenties"
+        >
           <div class="ms-auto">
-            <p style="color: #38271e" class="pe-2">حارس أمن</p>
+            <p style="color: #38271e" class="pe-2">{{ amenty.name }}</p>
           </div>
           <div>
             <i
-              class="fa-solid fa-person-military-pointing fa-4x p-2"
-              style="
-                color: #38271e;
-                border: 2px solid #38271e;
-                border-radius: 5px 5px;
-              "
-            ></i>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-5 col-sm-12 d-flex mt-4">
-          <div class="ms-auto">
-            <p style="color: #38271e" class="pe-2">حارس أمن</p>
-          </div>
-          <div>
-            <i
-              class="fas fa-satellite-dish fa-4x p-2"
-              style="
-                color: #38271e;
-                border: 2px solid #38271e;
-                border-radius: 5px 5px;
-              "
-            ></i>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-5 col-sm-12 d-flex mt-4">
-          <div class="ms-auto">
-            <p style="color: #38271e" class="pe-2">حارس أمن</p>
-          </div>
-          <div>
-            <i
-              class="fa-solid fa-person-military-pointing fa-4x p-2"
-              style="
-                color: #38271e;
-                border: 2px solid #38271e;
-                border-radius: 5px 5px;
-              "
-            ></i>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-5 col-sm-12 d-flex mt-4">
-          <div class="ms-auto">
-            <p style="color: #38271e" class="pe-2">حارس أمن</p>
-          </div>
-          <div>
-            <i
-              class="fa-solid fa-person-military-pointing fa-4x p-2"
+              class="fa-solid fa-4x p-2"
+              [class]="amenty.iConName"
               style="
                 color: #38271e;
                 border: 2px solid #38271e;
