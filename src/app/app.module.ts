@@ -39,6 +39,7 @@ import { ApplicationComponent } from './Components/application/application.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
+import { BuildingImagesComponent } from './Components/building-images/building-images.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbui
     ApplicationComponent,
     NewCompoundComponent,
     CompoundbuildingComponent,
+    BuildingImagesComponent,
   ],
   imports: [
     BrowserModule,

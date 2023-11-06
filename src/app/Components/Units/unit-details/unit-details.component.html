@@ -1,9 +1,9 @@
-<main style="width: 50rem">
+<main style="width: 50rem; height:50rem">
   <h2 mat-dialog-title>Install Angular</h2>
   <mat-dialog-content class="mat-typography">
     <div class="card" data-page="1">
       <div class="head d-flex justify-content-between">
-        <button class="btn btn-success rounded-0 h-25">متاح</button>
+        <button class="btn btn-success rounded-1 h-25">متاح</button>
         <div>
           <h2 class="text-dark fw-bold m-0 p-0">A1</h2>
           <h3 class="text-dark fw-bold">
@@ -35,13 +35,36 @@
           <span class="material-symbols-outlined"> bed </span>
           <p>غرفة النوم:3</p>
         </div>
+
+      </div>
+      <div class="row">
+        <form>
+          <div class="mb-3">
+            <label for="Name" class="form-label ms-5">Name</label>
+            <input type="Name" class="form-control w-50 ms-5" id="Name">
+          </div>
+          <div class="mb-3">
+            <label for="PhoneNumber" class="form-label ms-5">Phone Number</label>
+            <input type="text" class="form-control w-50 ms-5" id="PhoneNumber">
+          </div>
+          <div class="mb-3">
+            <label for="E-mail" class="form-label ms-5">Contact E-mail</label>
+            <input type="email" class="form-control w-50 ms-5" id="E-mail">
+          </div>
+          <div class="mb-3">
+            <label for="Buget" class="form-label ms-5">Buget</label>
+            <input type="text" class="form-control w-50 ms-5" id="Buget">
+          </div>
+          <button type="submit" class="btn btn-outline-warning ms-5 me-1">Submit</button>
+          <button class=" btn btn-outline-warning ms-5 " mat-button mat-dialog-close>Cancel</button>
+        </form>
       </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+
+    <!-- <button class=" btn btn-primary" mat-button [mat-dialog-close]="true" cdkFocusInitial>
       Install
-    </button>
+    </button> -->
   </mat-dialog-actions>
 </main>
