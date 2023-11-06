@@ -2,6 +2,16 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup , Validators} from '@angular/forms';
 import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
 
+
+import {  OnInit } from '@angular/core';
+import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
+import { ActivatedRoute } from '@angular/router';
+import { LandMarksCompound } from 'src/app/Models/land-marks-compound';
+import { Compound } from 'src/app/Models/compound';
+import { ServicelandmarkcompoundService } from 'src/app/Services/LandMarksCompoundServices/servicelandmarkcompound.service';
+
+
+
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
@@ -9,10 +19,25 @@ import { NewCompoundService } from 'src/app/services/CompoundServices/new-compou
 })
 export class NewCompoundComponent {
 
+  landmarkcompound: LandMarksCompound[] = [];
+  
+  ngOnInit(): void
+   {
+    const compoundId = this.route.snapshot.paramMap.get('id');
+    this.landmarkservice
+      .getlandmaksByCompoundId(compoundId)
+      .subscribe((data: any) => {
+        this.landmarkcompound = data.data;
+        console.log(this.landmarkcompound);
+      });
+    
+    }
+
   compoundForm:FormGroup;
   File:File | null = null;
 
-  constructor(private compoundService: NewCompoundService, private formBuilder: FormBuilder){
+  constructor(private compoundService: NewCompoundService, private formBuilder: FormBuilder, private landmarkservice: ServicelandmarkcompoundService,
+    private route: ActivatedRoute){
     this.compoundForm = this.formBuilder.group({
       Name: ['', Validators.required],
       Description: ['', Validators.required],
