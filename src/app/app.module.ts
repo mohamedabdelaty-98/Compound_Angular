@@ -5,8 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
-
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 import { FilterComponent } from './Components/Units/filter/filter.component';
 import { CardComponent } from './Components/Units/DisplayUnit/card.component';
@@ -27,7 +31,7 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { CmpoundComponent } from './Components/CompoundPage/cmpound/cmpound.component';
 import { AboutCompanyComponent } from './Components/about-company/about-company.component';
 
-import { ServicesProjectComponent } from './Components/services-project/services-project.component';
+import { ServicesProjectComponent } from './Components/CompoundPage/services-project/services-project.component';
 import { BuildingComponent } from './Components/BuildingPage/building/building.component';
 import { LoginComponent } from './Components/Account/login/login.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
@@ -46,6 +50,7 @@ import { LandmarksCompoundAdminComponent } from './Components/Admin/LandmarksCom
 import { AddLandMarkCompoundComponent } from './Components/Admin/LandmarksCompound/add-land-mark-compound/add-land-mark-compound.component';
 import { EditLandMarkCompoundComponent } from './Components/Admin/LandmarksCompound/edit-land-mark-compound/edit-land-mark-compound.component';
 import { DisplayCompoundAdminComponent } from './Components/Admin/LandmarksCompound/display-compound-admin/display-compound-admin.component';
+import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +83,7 @@ import { DisplayCompoundAdminComponent } from './Components/Admin/LandmarksCompo
     AddLandMarkCompoundComponent,
     EditLandMarkCompoundComponent,
     DisplayCompoundAdminComponent,
+    ServiceBuildingComponent,
   ],
   imports: [
     BrowserModule,
