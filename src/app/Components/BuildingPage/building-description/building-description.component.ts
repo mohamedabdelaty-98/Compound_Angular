@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Building } from 'src/app/Models/building';
-import { BuildingService } from 'src/app/Services/Building/building.service';
+import { BuildingService } from 'src/app/services/Building/building.service';
 
 @Component({
   selector: 'app-building-description',
@@ -9,8 +9,8 @@ import { BuildingService } from 'src/app/Services/Building/building.service';
   styleUrls: ['./building-description.component.css'],
 })
 export class BuildingDescriptionComponent implements OnInit {
-  buildingid: number = 7;
-  buildingdata: Building = {
+  buildingid: number = 0;
+  buildingData: Building = {
     id: 0,
     description: '',
     bulidingNumber: 0,
@@ -23,17 +23,19 @@ export class BuildingDescriptionComponent implements OnInit {
     dateAdded: new Date(),
   };
   constructor(
-    private buildingservice: BuildingService,
+    private buildingService: BuildingService,
     private route: ActivatedRoute
   ) {
-    // this.buildingid = Number(this.route.snapshot.paramMap.get('id'));
+    this.buildingid = Number(this.route.snapshot.paramMap.get('id'));
   }
   ngOnInit(): void {
-    this.buildingservice
+    this.buildingService
       .getbuildingbyid(this.buildingid)
       .subscribe((data: any) => {
-        this.buildingdata = data.data;
-        console.log(this.buildingdata);
+        this.buildingData = data.data;
+        console.log(this.buildingData);
       });
+
+
   }
 }

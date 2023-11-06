@@ -1,5 +1,4 @@
-<!-- <section class="mb-4 py-5">
-  <div class="container">
+ <section class="container mb-4 py-5">
     <div class="parent row justify-content-between">
       <div class="child col-lg-5 mb-9" id="map">
         <div class="map">
@@ -15,9 +14,10 @@
         </div>
       </div>
       <div class="child col-lg-5 mb-6">
-        <div class="landmark" *ngIf="landmarkcompound.length > 0">
-          <div class="mb-4" *ngFor="let landmark_compound of landmarkcompound">
-            <h3 class="textLandmark" style="color: #873e23">
+        <div class="landmark row" *ngIf="landmarkcompound.length > 0">
+
+          <div class="mb-4 col-lg-12" *ngFor="let landmark_compound of landmarkcompound">
+            <h3 class="textLandmark pe-3" style="color: #873e23">
               {{ landmark_compound.name }}
               <i
                 class="fa"
@@ -29,43 +29,9 @@
               <span> {{ landmark_compound.description }}</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
-<section class="mb-4 py-5">
-  <div class="container">
-    <div class="parent row justify-content-between">
-      <div class="child col-lg-5 mb-9" id="map">
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3711.456565081023!2d39.18602027527065!3d21.528995880248495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDMxJzQ0LjQiTiAzOcKwMTEnMTguOSJF!5e0!3m2!1sen!2seg!4v1698360232273!5m2!1sen!2seg"
-            width="600"
-            height="370"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-      <div class="child col-lg-5 mb-6">
-        <div class="landmark">
-          <div class="mb-4">
-            <h3 class="textLandmark" style="color: #873e23">
-              بلابلا<i
-                class="fa fa-home"
-                style="color: #e1af62"
-              ></i>
-            </h3>
-            <div>
-              <span>بلابلا</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
