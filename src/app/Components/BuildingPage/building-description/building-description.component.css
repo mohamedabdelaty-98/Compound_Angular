@@ -1,0 +1,21 @@
+
+*{
+  color: #863604;
+  font-family: "Almarai", sans-serif;
+}
+
+.containerImg{
+  overflow: hidden;
+}
+
+.imgBuilding{
+transition: transform 0.5s ease;
+filter: brightness(1);
+
+}
+
+.imgBuilding:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  filter: brightness(1.2);
+}

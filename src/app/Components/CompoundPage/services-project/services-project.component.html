@@ -1,0 +1,42 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+/>
+<section class="container py-4">
+  <div class="row backImg">
+    <div class="col-lg-4 col-md-5 col-sm-12">
+      <div id="hiddenScale">
+        <img
+          class="img-fluid"
+          src="assets/images/compound2.JPG"
+          style="height: 30rem"
+          id="scaleImg"
+        />
+      </div>
+    </div>
+
+    <div class="col-lg-8 col-md-7 col-sm-12" *ngIf="Amenties.length > 0">
+      <div class="row">
+        <div
+          class="col-lg-6 mt-4 col-md-5 col-sm-12 d-flex"
+          *ngFor="let amenty of Amenties"
+        >
+          <div class="ms-auto">
+            <p style="color: #38271e" class="pe-2">{{ amenty.name }}</p>
+          </div>
+          <div>
+            <i
+              class="fa-solid fa-4x p-2"
+              [class]="amenty.iConName"
+              style="
+                color: #38271e;
+                border: 2px solid #38271e;
+                border-radius: 5px 5px;
+              "
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

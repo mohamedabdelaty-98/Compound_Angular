@@ -1,21 +1,23 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment as env } from 'src/environments/environment.development';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewCompoundService {
-  private apiURL= 'http://localhost:5117/api/Compound';
-  
-  
-  constructor(private httpClient: HttpClient) { }
+  private apiURL = '/api/Compound/NewCompound';
 
-  createCompound(compoundData:FormData): Observable <any>{
+  constructor(private httpClient: HttpClient) {}
+
+  createCompound(compoundData: FormData): Observable<any> {
     const headers = new HttpHeaders();
     //authorization
 
-    return this.httpClient.post(`${this.apiURL}/NewCompound`, compoundData);
-
+    return this.httpClient.post(
+      `${env.apirooturl}${this.apiURL}`,
+      compoundData
+    );
   }
 }

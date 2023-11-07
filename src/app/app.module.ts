@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-
-import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
-
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 import { FilterComponent } from './Components/Units/filter/filter.component';
 import { CardComponent } from './Components/Units/DisplayUnit/card.component';
@@ -27,7 +29,7 @@ import { HomeComponent } from './Components/Home/home/home.component';
 import { CmpoundComponent } from './Components/CompoundPage/cmpound/cmpound.component';
 import { AboutCompanyComponent } from './Components/about-company/about-company.component';
 
-import { ServicesProjectComponent } from './Components/services-project/services-project.component';
+import { ServicesProjectComponent } from './Components/CompoundPage/services-project/services-project.component';
 import { BuildingComponent } from './Components/BuildingPage/building/building.component';
 import { LoginComponent } from './Components/Account/login/login.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
@@ -42,6 +44,14 @@ import { ApplicationComponent } from './Components/application/application.compo
 import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import * as L from 'leaflet';
+
+import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
+import { DownloadFileService } from './services/CompoundServices/download-file.service';
+import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
+import { DashBoardModule } from './DashBoard/app.module';
+import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
+import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
+import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 
 @NgModule({
   declarations: [
@@ -69,20 +79,27 @@ import * as L from 'leaflet';
     RyalcurrencyPipe,
     BuildingDescriptionComponent,
     ApplicationComponent,
+    CompoundbuildingComponent,
+    ServiceBuildingComponent,
     NewCompoundComponent,
+    DashboardadminComponent,
+    EditCompoundComponent,
+    GetCompoundsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     CarouselModule,
     HttpClientModule,
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
+    DashBoardModule,
   ],
-  providers: [],
+  providers: [DownloadFileService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
