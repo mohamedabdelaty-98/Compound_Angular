@@ -43,6 +43,8 @@ import { BuildingDescriptionComponent } from './Components/BuildingPage/building
 import { ApplicationComponent } from './Components/application/application.component';
 import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
+import * as L from 'leaflet';
+
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
 import { DownloadFileService } from './services/CompoundServices/download-file.service';
 import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
