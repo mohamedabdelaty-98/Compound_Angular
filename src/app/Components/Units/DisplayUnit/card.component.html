@@ -1,22 +1,21 @@
 <main>
-  <div class="card" *ngFor="let card of cards" [style.display]="card.page === currentPage ? 'block' : 'none'">
+  <div
+    class="card"
+    *ngFor="let card of cards"
+    [style.display]="card.page === currentPage ? 'block' : 'none'"
+  >
     <div class="head">
-      <h3>{{currentPage}}</h3>
+      <h3>{{ currentPage }}</h3>
       <button>متاح</button>
     </div>
     <div class="icons">
       <div class="icon ico1">
-        <img
-          src="assets/Images/2.jpg"
-          alt=""
-          width="30px"
-          height="30px"
-        />
+        <img src="assets/Images/2.jpg" alt="" width="30px" height="30px" />
         <p>الارضي</p>
       </div>
       <div class="icon ico1">
         <img src="assets/Images/1.png" alt="" width="30px" height="30px" />
-  
+
         <p>180.03</p>
       </div>
       <div class="icon ico1">
@@ -31,13 +30,12 @@
       </button>
     </div>
   </div>
-  </main>
-  
-  <div class="pagination">
-    <a id="before" (click)="previousPage()">السابق</a>
-    <a id="page-1" [class.active]="currentPage === 1" (click)="showPage(1)">1</a>
-    <a id="page-2" [class.active]="currentPage === 2" (click)="showPage(2)">2</a>
-    <a id="page-3" [class.active]="currentPage === 3" (click)="showPage(3)">3</a>
-    <a id="next" (click)="nextPage()">التالي</a>
-  </div>
-  
+</main>
+
+<div class="pagination">
+  <a id="before" (click)="previousPage()">السابق</a>
+  <a id="page-1" [class.active]="currentPage === 1" (click)="showPage(1)">1</a>
+  <a id="page-2" [class.active]="currentPage === 2" (click)="showPage(2)">2</a>
+  <a id="page-3" [class.active]="currentPage === 3" (click)="showPage(3)">3</a>
+  <a id="next" (click)="nextPage()">التالي</a>
+</div>
