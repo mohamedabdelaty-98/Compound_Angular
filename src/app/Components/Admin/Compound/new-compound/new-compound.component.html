@@ -243,13 +243,28 @@ justify-content: center;">
     </div>
     </div>
   </div>
- 
+ <div class="row">
+  <div class="form-group">
+    <label for="Address">Address</label>
+    <input type="text" id="Address" formControlName="Address">
+    <div *ngIf="compoundForm.get('Address')?.hasError('required')" style="color: red;">
+      Address is required.
+    </div>
+  </div>
+<div class="form-group">
+    <label for="DateAdded">Datetime Field</label>
+    <input type="datetime-local" id="DateAdded" formControlName="DateAdded">
+    <div *ngIf="compoundForm.get('DateAdded')?.hasError('required')" style="color: red;">
+      Datetime is required.
+    </div>
+  </div>
+ </div>
 
   <div style="display: flex;justify-content: center;align-items: center;">
     <button type="submit" style="	border-radius: 40px;
     background-color: rgba(133, 104, 73, 1);width: 30%;">تاكيد</button>
   </div>
-  <div class="row"  >
+   <div class="row"  >
     <div class="col-md-6">
 
       <div class="form-group" style="display: grid;">
@@ -263,8 +278,8 @@ justify-content: center;">
       </div>
       </div>
     
-  </div>
-  </form>
+  </div> 
+  </form> 
 </div>
 </div>
 </div> 
