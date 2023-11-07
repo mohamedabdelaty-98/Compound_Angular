@@ -11,22 +11,30 @@
     <div class="icons">
       <div class="icon ico1">
         <img src="assets/Images/2.jpg" alt="" width="30px" height="30px" />
+        <img
+          src="assets/images/iconunit_2.jpg"
+          alt=""
+          width="30px"
+          height="30px"
+        />
         <p>الارضي</p>
       </div>
       <div class="icon ico1">
         <img src="assets/Images/1.png" alt="" width="30px" height="30px" />
 
+        <img src="assets/images/1.png" alt="" width="30px" height="30px" />
+
         <p>180.03</p>
       </div>
-      <div class="icon ico1">
+      <!-- <div class="icon ico1">
         <span class="material-symbols-outlined"> bed </span>
         <p>غرفة النوم:3</p>
-      </div>
+      </div> -->
     </div>
     <div class="details">
       <button mat-button (click)="openDialog()">
         اضغط لتفصيل اكثر
-        <span class="material-symbols-outlined"> arrow_back </span>
+        <!-- <span class="material-symbols-outlined"> arrow_back </span> -->
       </button>
     </div>
   </div>
@@ -39,3 +47,13 @@
   <a id="page-3" [class.active]="currentPage === 3" (click)="showPage(3)">3</a>
   <a id="next" (click)="nextPage()">التالي</a>
 </div>
+
+  </main>
+
+  <div class="pagination">
+    <a id="before" (click)="previousPage()">السابق</a>
+    <a id="page-1" [class.active]="currentPage === 1" (click)="showPage(1)">1</a>
+    <a id="page-2" [class.active]="currentPage === 2" (click)="showPage(2)">2</a>
+    <a id="page-3" [class.active]="currentPage === 3" (click)="showPage(3)">3</a>
+    <a id="next" (click)="nextPage()">التالي</a>
+  </div>

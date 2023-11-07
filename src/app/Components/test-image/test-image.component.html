@@ -1,1 +1,28 @@
-<p>test-image works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Upload Image</h4>
+      </div>
+      <form #imageForm="ngForm">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" ngModel name="Id" #Id="ngModel" [(ngModel)]="formData.Id">
+            <label for="Id">Building ID</label>
+          </div>
+        </div>
+
+        <img style="width: 250px; height: 200px" [src]="imageUrl">
+        <br>
+        <br>
+
+        <input type="file" ngModel name="image" #image="ngModel" (change)="onFileSelected($event)">
+        <br>
+        <br>
+
+        <button type="submit" class="btn-large btn-submit" (click)="handleFileInput()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
