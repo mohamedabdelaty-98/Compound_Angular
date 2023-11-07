@@ -16,69 +16,36 @@ export class BuildingImagesComponent implements OnInit {
   constructor(private http: HttpClient,private Sanitizer:DomSanitizer) {}
 
   ngOnInit() {
-    //this.loadBuildingImages();
-    this.loadImages();
+    this.loadBuildingImages();
   }
-  getImage() {
-    return this.http.get(`http://localhost:52141/api/BuildingImage/GetBuildingImages/${this.buildingId}`, { responseType: 'arraybuffer' });
-  }
-  loadImages() {
-    this.getImage().subscribe((imageData: ArrayBuffer) => {
-      if (imageData) {
-        const contentType = 'image/jpeg'; // Replace with the appropriate content type.
-        const imageUrl = this.convertArrayBufferToDataURL(imageData, contentType);
-        this.imageUrls = [imageUrl];
-        console.log(imageUrl);
+  loadBuildingImages() {
+    const apiUrl = `http://localhost:52141/api/BuildingImage/GetBuildingImages/${this.buildingId}`;
+    this.http.get(apiUrl,{ responseType: 'json' }).subscribe(
+      (data: any) => {
+        console.log(data);
+        if (data) {
+          console.log(data.data);
+          ///////////////////////////////////////////
+          const binaryData= atob(data.data[1]);
+          const uint8Array = new Uint8Array(binaryData.length);
+          for (let i = 0; i < binaryData.length; i++) {
+            uint8Array[i] = binaryData.charCodeAt(i);
+          }
+          const imageBlob = new Blob([uint8Array], { type: 'image/jpeg' }); // Adjust 'image/jpeg' to the appropriate image type if needed
+          console.log(imageBlob);
+          const imageUrl = URL.createObjectURL(imageBlob);
+          console.log(imageUrl);
+          this.imageUrls.push(imageUrl);
+          ////////////////////////////////////////////////////////
+          console.log(this.imageUrls);
+        } else {
+          console.error('No building images found.');
+        }
+      },
+      (error) => {
+        console.error('Error fetching building images:', error);
       }
-    });
-    }
-    convertArrayBufferToDataURL(arrayBuffer: ArrayBuffer, contentType: string): string {
-      const blob = new Blob([new Uint8Array(arrayBuffer)], { type: contentType });
-      const urlCreator = window.URL || window.webkitURL;
-      return urlCreator.createObjectURL(blob);
-    }
+    );
   }
+}
 
-  // loadImages() {
-  //   this.getImage().subscribe((data: any) => {
-  //     console.log(data);
-  //     this.imageUrls = data[1].map((imageData:any) => {
-  //       const blob = new Blob([imageData], { type: 'image/*' }); // Specify the appropriate content type here.
-  //       return URL.createObjectURL(blob);
-  //       console.log(blob);
-  //     });
-  //   });
-  // loadImage() {
-  //   this.getImage().subscribe((data: any) => {
-  //     // const bytes = new Uint8Array(data);
-  //     //  console.log(data);
-  //     const blob : Blob= data.body as Blob; // Adjust the content type based on the image type
-  //     console.log(blob);
-  //     this.imageData = this.Sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
-  //     console.log(this.imageData);
-  //     this.imageUrls.push(this.imageData);
-  //   });
-  // }
-  // loadBuildingImages() {
-  //   const apiUrl = `http://localhost:52141/api/BuildingImage/GetBuildingImages/${this.buildingId}`;
-  //   this.http.get(apiUrl,{ responseType: 'arraybuffer' }).subscribe(
-  //     (data: any) => {
-  //       if (data.data.length > 0) {
-  //         // const imageBytes = new Uint8Array(data.data[0]);
-  //         // console.log(data.data[0]);
-  //         // console.log([imageBytes]);
-  //         const imageBlob = new Blob([data.data[0]], { type: 'image/*' }); // Adjust 'image/jpeg' to the appropriate image type if needed
-  //         console.log(imageBlob);
-  //         const imageUrl = URL.createObjectURL(imageBlob);
-  //         console.log(imageUrl);
-  //         this.imageUrls.push(imageUrl);
-  //         console.log(this.imageUrls);
-  //       } else {
-  //         console.error('No building images found.');
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching building images:', error);
-  //     }
-  //   );
-  // }
