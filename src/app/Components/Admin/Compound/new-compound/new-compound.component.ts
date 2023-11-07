@@ -1,37 +1,42 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup , Validators} from '@angular/forms';
-import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
-
-
-import {  OnInit } from '@angular/core';
-import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
-import { ActivatedRoute } from '@angular/router';
-import { LandMarksCompound } from 'src/app/Models/land-marks-compound';
-import { Compound } from 'src/app/Models/compound';
-import { ServicelandmarkcompoundService } from 'src/app/Services/LandMarksCompoundServices/servicelandmarkcompound.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NewCompoundService } from 'src/app/Services/CompoundServices/new-compound.service';
 import * as L from 'leaflet';
-
-
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
   styleUrls: ['./new-compound.component.css'],
 })
-export class NewCompoundComponent {
+export class NewCompoundComponent implements OnInit {
   compoundForm: FormGroup;
   File: File | null = null;
-
-  landmarkcompound: LandMarksCompound[] = [];
   private map!: L.Map;
   private marker!: L.Marker;
-  ngOnInit(): void
-   {
-    
+
+  constructor(
+    private compoundService: NewCompoundService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
+  ) {
+    this.compoundForm = this.formBuilder.group({
+      Name: ['', Validators.required],
+      Description: ['', Validators.required],
+      Address: ['', Validators.required],
+      Latitude: [0, Validators.required],
+      Longitude: [0, Validators.required],
+      File: [null, Validators.required],
+      Street_area: [0, Validators.required],
+      GreenArea: [0, Validators.required],
+      BuildingArea: [0, Validators.required],
+    });
+  }
+  ngOnInit(): void {
     this.map = L.map('map').setView([0, 0], 2); // Initial center and zoom level
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.map);
 
     this.map.on('click', (e) => {
@@ -45,38 +50,6 @@ export class NewCompoundComponent {
       const latitude = e.latlng.lat;
       const longitude = e.latlng.lng;
       console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-    });
-    const compoundId = this.route.snapshot.paramMap.get('id');
-    this.landmarkservice
-      .getlandmaksByCompoundId(compoundId)
-      .subscribe((data: any) => {
-        this.landmarkcompound = data.data;
-        console.log(this.landmarkcompound);
-      });
-    
-    }
-
-  compoundForm:FormGroup;
-  File:File | null = null;
-
-  constructor(
-    private compoundService: NewCompoundService,
-    private formBuilder: FormBuilder
-  ) {
-  constructor(private compoundService: NewCompoundService, private formBuilder: FormBuilder, private landmarkservice: ServicelandmarkcompoundService,
-    private route: ActivatedRoute){
-    this.compoundForm = this.formBuilder.group({
-      Name: ['', Validators.required],
-      Description: ['', Validators.required],
-      Address: ['', Validators.required],
-      Latitude: [0, Validators.required],
-      Longitude: [0, Validators.required],
-      File: [null, Validators.required],
-      Street_area: [0, Validators.required],
-      GreenArea: [0, Validators.required],
-      BuildingArea: [0, Validators.required],
-      DateAdded: [0, Validators.required],
-      Location: [0, Validators.required],
     });
   }
 

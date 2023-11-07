@@ -50,6 +50,8 @@ import { DownloadFileService } from './services/CompoundServices/download-file.s
 import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
 import { DashBoardModule } from './DashBoard/app.module';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
+import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
+import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,8 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
     ServiceBuildingComponent,
     NewCompoundComponent,
     DashboardadminComponent,
+    EditCompoundComponent,
+    GetCompoundsComponent,
   ],
   imports: [
     BrowserModule,
