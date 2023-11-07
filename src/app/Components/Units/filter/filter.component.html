@@ -1,18 +1,21 @@
 <header class="mt-5">
-  <div class="dropdown" *ngFor="let option of selectedOptions; let i = index">
+  <div class="dropdown" *ngFor="let options of dropdownOptions; let i = index">
     <div class="heads mb-2">
-      <h3>مميزات المشروع</h3>
+      <h3>{{ dropdownHeadings[i] }}</h3>
     </div>
-    <div class="select" (click)="toggleDropdown($event)">
+    <div class="select" (click)="toggleDropdown(i)">
       <div class="tri">
-        <div class="caret"></div>
+        <div
+          class="caret"
+          [ngClass]="{ 'caret-rotate': isDropdownOpen[i] }"
+        ></div>
       </div>
-      <span class="selected">{{ option }}</span>
+      <span class="selected">{{ selectedOptions[i] }}</span>
     </div>
-    <ul class="menu">
+    <ul class="menu" [ngClass]="{ 'menu-open': isDropdownOpen[i] }">
       <li
-        *ngFor="let menuOption of floorsdata"
-        (click)="selectOption($event, menuOption, i)"
+        *ngFor="let menuOption of options"
+        (click)="selectOption(menuOption, i)"
       >
         {{ menuOption }}
       </li>

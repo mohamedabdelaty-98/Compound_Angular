@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Building } from 'src/app/Models/building';
-import { BuildingService } from 'src/app/services/Building/building.service';
+import { BuildingService } from 'src/app/Services/Building/building.service';
 
 @Component({
   selector: 'app-building-description',
@@ -26,7 +26,7 @@ export class BuildingDescriptionComponent implements OnInit {
     private buildingService: BuildingService,
     private route: ActivatedRoute
   ) {
-    this.buildingid = Number(this.route.snapshot.paramMap.get('id'));
+    this.buildingid = Number(this.route.snapshot.paramMap.get('buildingid'));
   }
   ngOnInit(): void {
     this.buildingService
@@ -35,7 +35,5 @@ export class BuildingDescriptionComponent implements OnInit {
         this.buildingData = data.data;
         console.log(this.buildingData);
       });
-
-
   }
 }
