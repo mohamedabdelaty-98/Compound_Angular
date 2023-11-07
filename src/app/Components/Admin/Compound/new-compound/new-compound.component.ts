@@ -29,6 +29,8 @@ export class NewCompoundComponent implements OnInit {
       Street_area: [0, Validators.required],
       GreenArea: [0, Validators.required],
       BuildingArea: [0, Validators.required],
+      DateAdded: [0, Validators.required],
+      Location: [0, Validators.required],
     });
   }
   ngOnInit(): void {

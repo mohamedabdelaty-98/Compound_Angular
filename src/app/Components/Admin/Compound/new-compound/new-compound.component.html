@@ -115,6 +115,30 @@
           </div>
           <div class="row">
             <div class="col-md-6">
+              <div class="form-group">
+                <label for="DateAdded">Datetime Field</label>
+                <input
+                  type="datetime-local"
+                  id="DateAdded"
+                  formControlName="DateAdded"
+                />
+                <div
+                  *ngIf="compoundForm.get('DateAdded')?.hasError('required')"
+                  style="color: red"
+                >
+                  Datetime is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Location">Location</label>
+                <input type="text" id="Location" formControlName="Location" />
+                <div
+                  *ngIf="compoundForm.get('Location')?.hasError('required')"
+                  style="color: red"
+                >
+                  Location is required.
+                </div>
+              </div>
               <div class="form-group" style="display: grid">
                 <label for="File">تحميل الملف</label>
                 <div class="custom-file-input">
