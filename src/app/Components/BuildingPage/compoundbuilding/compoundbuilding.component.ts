@@ -39,7 +39,7 @@ export class CompoundbuildingComponent implements OnInit {
     console.log('ddddd');
     this.Buildings.forEach((element) => {
       element.buildingimages = [];
-      this.buildingService.get(7).subscribe((data: any) => {
+      this.buildingService(7).subscribe((data: any) => {
         // console.log(this.compoundimage);
         // element.compoundimages=data.data;
         if (data) {
