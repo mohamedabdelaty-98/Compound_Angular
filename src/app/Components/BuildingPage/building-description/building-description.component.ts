@@ -17,8 +17,6 @@ export class BuildingDescriptionComponent implements OnInit {
     description: '',
     bulidingNumber: 0,
     compoundId: 0,
-    latitude: 0,
-    longitude: 0,
     numberOfFloor: 0,
     sizeArea: 0,
     status: '',

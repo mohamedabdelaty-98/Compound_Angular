@@ -1,0 +1,28 @@
+<div class="container">
+<table class="table table-striped table-hover">
+  <tr>
+      <th>ID</th>
+      <th>Building Number</th>
+      <th>Description</th>
+      <th>Number Of Floors</th>
+      <th>Status</th>
+      <th>Date Added</th>
+      <th>Building Area</th>
+      <th>Compound</th>
+  </tr>
+  <tr *ngFor="let building of buildingdata">
+    <td>{{building.id}}</td>
+    <td>{{building.bulidingNumber}}</td>
+    <td>{{building.description}}</td>
+    <td>{{building.numberOfFloor}}</td>
+    <td>{{building.status}}</td>
+    <td>{{building.dateAdded}}</td>
+    <td>{{building.sizeArea}}</td>
+    <td>{{building.compoundId}}</td>
+    <td><button class="btn btn-outline-primary">Edit Building</button></td>
+
+  </tr>
+  <button class="btn btn-outline-success me-2">Add Building</button>
+  <button class="btn btn-outline-danger">Delete Building</button>
+</table>
+</div>
