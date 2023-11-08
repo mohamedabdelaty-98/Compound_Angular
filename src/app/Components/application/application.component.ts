@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AuthService } from 'src/app/account/auth.service';
 import { ApplicationsService } from 'src/app/services/Admin/applications.service';
 import { CreateApplicationService } from 'src/app/services/Application/create-application.service';
 
@@ -12,7 +13,7 @@ import { CreateApplicationService } from 'src/app/services/Application/create-ap
 export class ApplicationComponent {
   ApplicationForm: FormGroup;
 
-  constructor(private formBuilder:FormBuilder,private applicationServices:CreateApplicationService) {
+  constructor(private formBuilder:FormBuilder,private applicationServices:CreateApplicationService,private authService: AuthService) {
     this.ApplicationForm= this.formBuilder.group({
      ssn:['', [Validators.required,Validators.maxLength(10)]],
       name:['',[Validators.required,Validators.minLength(3), Validators.maxLength(12)]],
@@ -33,6 +34,9 @@ export class ApplicationComponent {
 for (const key in this.ApplicationForm.value) {
     ApplicationData.append(key, this.ApplicationForm.value[key])
 }
+const userId= this.authService.getUserId();
+ApplicationData.append('UserId',userId);
+
 console.log(ApplicationData);
 
 console.log(ApplicationData);

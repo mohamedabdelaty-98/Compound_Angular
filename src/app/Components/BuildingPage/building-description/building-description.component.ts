@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Building } from 'src/app/Models/building';
-import { BuildingService } from 'src/app/Services/Building/building.service';
+
 import { DisplaybuildingimagesService } from 'src/app/Services/Building/displaybuildingimages.service';
+import { BuildingService } from 'src/app/services/Building/building.service';
 
 @Component({
   selector: 'app-building-description',
@@ -26,7 +27,7 @@ export class BuildingDescriptionComponent implements OnInit {
   };
   arr: string[] = [];
   constructor(
-    private buildingService: BuildingService,
+    private buildingService:BuildingService,
     private buildingimageservice: DisplaybuildingimagesService,
     private route: ActivatedRoute
   ) {

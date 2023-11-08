@@ -53,6 +53,9 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -87,6 +90,7 @@ import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/ne
     EditCompoundComponent,
     GetCompoundsComponent,
     NewbuildingComponent,
+    AuthInterceptorComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +105,14 @@ import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/ne
     FormsModule,
     DashBoardModule,
   ],
-  providers: [DownloadFileService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorComponent,
+      multi: true,
+    },
+    DownloadFileService,
+    CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
