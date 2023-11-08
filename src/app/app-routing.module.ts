@@ -12,8 +12,11 @@ const routes: Routes = [
   { path: 'CompoundPage/:id', component: CmpoundComponent },
   { path: 'AboutUs', component: AboutCompanyComponent },
   { path: 'ContactUs', component: ApplicationComponent },
-  { path: 'CompoundPage/:id/BuildingPage/:id', component: BuildingComponent },
-    {
+  {
+    path: 'CompoundPage/:id/BuildingPage/:buildingid',
+    component: BuildingComponent,
+  },
+  {
     path: 'admin',
     component: DashboardadminComponent,
   },

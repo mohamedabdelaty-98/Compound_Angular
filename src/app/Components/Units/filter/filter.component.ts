@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FilterServiceService } from 'src/app/Services/FilterServices/filter-service.service';
+import { GetBuildingNumberService } from 'src/app/Services/Units/get-building-number.service';
+import { GitBedRoomsNumberService } from 'src/app/Services/Units/git-bed-rooms-number.service';
 import { GitFloorsService } from 'src/app/Services/Units/git-floors.service';
 
 @Component({
@@ -8,48 +11,89 @@ import { GitFloorsService } from 'src/app/Services/Units/git-floors.service';
   styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent {
-  compoundid: number = 3;
+  compoundid: number = 0;
   floorsdata: string[] = [];
+  buildingnumberdata: string[] = [];
+  bedroomsnumberdata: string[] = [];
+  unitareadata: string[] = [
+    '-الكل-',
+    'أقل من ١٥٠م',
+    'أقل من ١٨٠م',
+    'أكبر من ١٨٠م',
+    'أكبر من ١٥٠م',
+  ];
+  dropdownOptions: string[][] = [];
   constructor(
     private floorsservice: GitFloorsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private filterservice: FilterServiceService,
+    private buildingnumberservice: GetBuildingNumberService,
+    private bedroomsnumberservice: GitBedRoomsNumberService
   ) {
-    // this.compoundid = Number(this.route.snapshot.paramMap.get('id'));
+    this.compoundid = Number(this.route.snapshot.paramMap.get('id'));
   }
   ngOnInit(): void {
+    this.getfloors();
+    this.getbuildingsnumber();
+    this.getbedroomsnumber();
+  }
+  getfloors() {
     this.floorsservice
       .getfloorsbycompoundid(this.compoundid)
       .subscribe((data: any) => {
-        this.floorsdata = data.data;
-        console.log(this.floorsdata);
+        this.floorsdata = ['-الكل-', ...data.data];
+        this.dropdownOptions = [
+          this.unitareadata,
+          this.bedroomsnumberdata,
+          this.buildingnumberdata,
+          this.floorsdata,
+        ];
       });
   }
-  public selectedOptions: string[] = ['- الكل -', 'Happy', 'Happy', 'Happy'];
+  getbuildingsnumber() {
+    this.buildingnumberservice
+      .getbuildingsNumberbycompoundid(this.compoundid)
+      .subscribe((data: any) => {
+        this.buildingnumberdata = ['-الكل-', ...data.data];
+        this.dropdownOptions = [
+          this.unitareadata,
+          this.bedroomsnumberdata,
+          this.buildingnumberdata,
+          this.floorsdata,
+        ];
+      });
+  }
+  getbedroomsnumber() {
+    this.bedroomsnumberservice
+      .getbedroomsnumberbycompoundid(this.compoundid)
+      .subscribe((data: any) => {
+        this.bedroomsnumberdata = ['-الكل-', ...data.data];
+        this.dropdownOptions = [
+          this.unitareadata,
+          this.bedroomsnumberdata,
+          this.buildingnumberdata,
+          this.floorsdata,
+        ];
+      });
+  }
+  isDropdownOpen: boolean[] = [false, false, false, false];
+  selectedOptions: string[] = ['- الكل -'];
+  dropdownHeadings: string[] = [
+    ' مساحه الوحدة',
+    'عدد الغرف',
+    'المبنى',
+    'الدور',
+  ];
 
-  toggleDropdown(event: Event) {
-    const element = event.target as HTMLElement;
-    element.classList.toggle('select-clicked');
-    const caret = element.querySelector('.caret');
-    if (caret) {
-      caret.classList.toggle('caret-rotate');
-    }
-    const menu = element.nextElementSibling as HTMLElement;
-    if (menu) {
-      menu.classList.toggle('menu-open');
-    }
+  // Define your dropdown options here
+
+  toggleDropdown(index: number) {
+    this.isDropdownOpen[index] = !this.isDropdownOpen[index];
   }
 
-  selectOption(event: Event, option: string, index: number) {
-    const element = event.target as HTMLElement;
+  selectOption(option: string, index: number) {
     this.selectedOptions[index] = option;
-    element.parentElement?.classList.remove('select-clicked');
-    const caret = element.parentElement?.querySelector('.caret');
-    if (caret) {
-      caret.classList.remove('caret-rotate');
-    }
-    const menu = element.parentElement?.nextElementSibling as HTMLElement;
-    if (menu) {
-      menu.classList.remove('menu-open');
-    }
+    this.isDropdownOpen[index] = false;
+    this.filterservice.updateSelectedOption(this.selectedOptions);
   }
 }

@@ -43,11 +43,16 @@ import { BuildingDescriptionComponent } from './Components/BuildingPage/building
 import { ApplicationComponent } from './Components/application/application.component';
 import { FormsModule } from '@angular/forms';
 import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
+import * as L from 'leaflet';
+
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
 import { DownloadFileService } from './services/CompoundServices/download-file.service';
 import { ServiceBuildingComponent } from './Components/BuildingPage/service-building/service-building.component';
 import { DashBoardModule } from './DashBoard/app.module';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
+import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
+import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
+import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +84,9 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
     ServiceBuildingComponent,
     NewCompoundComponent,
     DashboardadminComponent,
+    EditCompoundComponent,
+    GetCompoundsComponent,
+    NewbuildingComponent,
   ],
   imports: [
     BrowserModule,

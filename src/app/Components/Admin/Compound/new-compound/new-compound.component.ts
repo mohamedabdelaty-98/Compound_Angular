@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
-
+import { NewCompoundService } from 'src/app/Services/CompoundServices/new-compound.service';
+import * as L from 'leaflet';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
   styleUrls: ['./new-compound.component.css'],
 })
-export class NewCompoundComponent {
+export class NewCompoundComponent implements OnInit {
   compoundForm: FormGroup;
   File: File | null = null;
+  private map!: L.Map;
+  private marker!: L.Marker;
 
   constructor(
     private compoundService: NewCompoundService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) {
     this.compoundForm = this.formBuilder.group({
       Name: ['', Validators.required],
@@ -27,6 +31,27 @@ export class NewCompoundComponent {
       BuildingArea: [0, Validators.required],
       DateAdded: [0, Validators.required],
       Location: [0, Validators.required],
+    });
+  }
+  ngOnInit(): void {
+    this.map = L.map('map').setView([0, 0], 2); // Initial center and zoom level
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(this.map);
+
+    this.map.on('click', (e) => {
+      if (this.marker) {
+        this.marker.setLatLng(e.latlng);
+      } else {
+        this.marker = L.marker(e.latlng).addTo(this.map);
+      }
+
+      // Access latitude and longitude from e.latlng.lat and e.latlng.lng
+      const latitude = e.latlng.lat;
+      const longitude = e.latlng.lng;
+      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
     });
   }
 
