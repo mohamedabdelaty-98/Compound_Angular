@@ -52,6 +52,7 @@ import { DashBoardModule } from './DashBoard/app.module';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
+import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds
     DashboardadminComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
+    NewbuildingComponent,
   ],
   imports: [
     BrowserModule,
