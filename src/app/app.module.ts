@@ -52,8 +52,8 @@ import { DashBoardModule } from './DashBoard/app.module';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
+import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
 
-import { BuildingImagesComponent } from './Components/building-images/building-images.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,9 +84,9 @@ import { BuildingImagesComponent } from './Components/building-images/building-i
     ServiceBuildingComponent,
     NewCompoundComponent,
     DashboardadminComponent,
-    BuildingImagesComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
+    NewbuildingComponent,
   ],
   imports: [
     BrowserModule,
