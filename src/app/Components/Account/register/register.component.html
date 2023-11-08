@@ -13,6 +13,31 @@
         </div>
       </div>
       <div class="input-box">
+        <input type="text" formControlName="firstName" placeholder="Enter your firstName" required>
+        <div *ngIf="NameRequired && loginForm.get('firstName')?.hasError('required')" style="color: red;">
+          firstName is required
+        </div>
+        <div *ngIf="loginForm.get('firstName')?.hasError('minlength') && loginForm.get('firstName')?.touched" style="color: red;">
+          firstName must be much 3
+        </div>
+      </div>
+      <div class="input-box">
+        <input type="text" formControlName="lastName" placeholder="Enter your lastName" required>
+        <div *ngIf="firstNameRequired && loginForm.get('lastName')?.hasError('required')" style="color: red;">
+          lastName is required
+        </div>
+        <div *ngIf="loginForm.get('lastName')?.hasError('minlength') && loginForm.get('lastName')?.touched" style="color: red;">
+          lastName must be much 3
+        </div>
+      </div>
+
+      <div class="input-box">
+        <input type="date" formControlName="birthdate" placeholder="Enter your birthdate" required>
+        <div *ngIf="birthdateRequired && loginForm.get('birthdate')?.hasError('required')" style="color: red;">
+          birthdate is required
+        </div>
+      </div>
+      <div class="input-box">
         <input type="text" formControlName="email" placeholder="Enter your email" required>
         <div *ngIf="EmailRequired && loginForm.get('email')?.hasError('required')" style="color: red;">
           Email is required
