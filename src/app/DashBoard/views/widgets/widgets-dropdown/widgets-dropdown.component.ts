@@ -9,12 +9,13 @@ import {
 } from '@angular/core';
 import { getStyle } from '@coreui/utils';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
-import { ApplicationsService } from 'src/app/services/Admin/applications.service';
+
 import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
 import { Building } from 'src/app/Models/building';
 import { Reviews } from 'src/app/Models/reviews';
 import { BuildingService } from 'src/app/Services/Building/building.service';
 import { UsersService } from 'src/app/Services/Admin/users.service';
+import { ApplicationsService } from 'src/app/Services/Admin/applications.service';
 
 @Component({
   selector: 'app-widgets-dropdown',

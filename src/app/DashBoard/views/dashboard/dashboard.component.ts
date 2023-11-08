@@ -9,8 +9,9 @@ import { Building } from 'src/app/Models/building';
 import { Compound } from 'src/app/Models/compound';
 
 import { Reviews } from 'src/app/Models/reviews';
-import { BuildingService } from 'src/app/Services/Building/building.service';
+// import { BuildingService } from 'src/app/Services/Building/building.service';
 import { ReviewsService } from 'src/app/Services/Admin/reviews.service';
+import { BuildingService } from 'src/app/Services/Building/building.service';
 
 interface IUnit {
   id: number;
