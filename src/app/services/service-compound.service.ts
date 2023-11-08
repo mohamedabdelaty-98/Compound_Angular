@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class ServiceCompoundService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getServiceByCompoundId(compoundId: number) {
+  getServiceByCompoundId(compoundId: number) : Observable<any>{
     return this.httpClient.get(this.BaseUrl + compoundId);
   } 
 }

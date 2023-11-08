@@ -9,6 +9,13 @@ import {
 } from '@angular/core';
 import { getStyle } from '@coreui/utils';
 import { ChartjsComponent } from '@coreui/angular-chartjs';
+import { ApplicationsService } from 'src/app/services/Admin/applications.service';
+import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
+import { BuildingService } from 'src/app/services/Building/building.service';
+import { Building } from 'src/app/Models/building';
+import { UsersService } from 'src/app/services/Admin/users.service';
+import { ReviewsService } from 'src/app/services/Admin/reviews.service';
+import { Reviews } from 'src/app/Models/reviews';
 
 @Component({
   selector: 'app-widgets-dropdown',
@@ -19,11 +26,29 @@ import { ChartjsComponent } from '@coreui/angular-chartjs';
 export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
 
   constructor(
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,private ApplicationServices: ApplicationsService,
+     private CompoundServices: CompoundService,
+     private BuildingServices: BuildingService,
+     private UserServices: UsersService,
   ) {}
-
+  applications:any[]=[];
+  compounds:any[]=[];
+  buildings:Building[]=[];
+  users:any;
+  numOfUsers:number=0;
+  numOfApplications:number=0;
+  numOfBuildings:number=0;
+  TotalBuildingsFloor:number=0;
+  AvgFloors:number=0;
+  TotalAreaAllBuildings:number=0;
+  AvgArea:string="";
   data: any[] = [];
   options: any[] = [];
+
+
+
+
+  
   labels = [
     'January',
     'February',
@@ -117,6 +142,50 @@ export class WidgetsDropdownComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     this.setData();
+ 
+
+    this.ApplicationServices.getAllApplications().subscribe((data:any)=>{
+    this.applications= data.data;
+    this.numOfApplications= this.applications.length;
+    })
+
+    this.CompoundServices.getallcompounds().subscribe((data:any)=>{
+    this.compounds= data.data;
+    this.compounds.forEach((compound)=>{
+    this.TotalAreaAllBuildings+= Number(compound.street_area);
+    this.TotalAreaAllBuildings+= Number(compound.greenArea);
+    this.TotalAreaAllBuildings+= Number(compound.buildingArea);
+
+
+    })
+    this.AvgArea= (this.TotalAreaAllBuildings/this.compounds.length).toFixed(2);
+    console.log('Data:', this.compounds);
+    console.log('area:', this.TotalAreaAllBuildings);
+
+   
+  });
+
+
+  this.BuildingServices.getAllbuildings().subscribe((data:any)=>{
+  this.buildings= data.data;
+  this.numOfBuildings= this.buildings.length;
+  this.buildings.forEach(building => {
+    this.TotalBuildingsFloor+= Number(building.numberOfFloor);
+    
+  });
+  this.AvgFloors= (this.TotalBuildingsFloor/this.buildings.length);
+
+  })
+
+  this.UserServices.getAllusers().subscribe((data:any)=>{
+    this.users=data.data;
+    this.numOfUsers= this.users.length;
+
+
+  })
+
+
+    
   }
 
   ngAfterContentInit(): void {
