@@ -1,0 +1,64 @@
+*{
+    font-family: 'Almarai', sans-serif;
+
+}
+
+#hiddenScale {
+    overflow: hidden;
+
+
+  }
+
+  .backImg{
+    position: relative;
+
+  }
+
+
+  .backImg::after {
+    position: absolute;
+    top: -10%;
+    right: 62%;
+    width: 20%;
+    height: 50%;
+    background-color: #e1af62;
+    opacity: .5;
+    content: "";
+    z-index: -1;
+  }
+
+  .backImg::before {
+    position: absolute;
+    top: 60%;
+    right: 85%;
+    width: 20%;
+    height: 50%;
+    background-color: #e1af62;
+    opacity: .5;
+    content: "";
+    z-index: -1;
+  }
+
+  
+  #scaleImg{
+    transition: transform 0.5s ease;
+filter:grayscale(.5)
+  }
+
+  #scaleImg:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+
+  @media screen and (max-width: 1000px) {
+    .backImg::after{
+        display: none;
+    }
+
+    .backImg::before{
+        display: none;
+    }
+
+
+}

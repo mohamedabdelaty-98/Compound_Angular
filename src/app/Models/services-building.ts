@@ -1,7 +1,7 @@
 export interface ServicesBuilding {
-    Id:number;
-    Name:string;
-    Description:string;
-    BuildingId:number;
-    ServiceId:number;
+  id: number;
+  name: string;
+  description: string;
+  iConName: string;
+  buildingId: number;
 }
