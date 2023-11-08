@@ -9,4 +9,5 @@ export interface Building {
   latitude: number;
   longitude: number;
   compoundId: number;
+  buildingimages: string[];
 }

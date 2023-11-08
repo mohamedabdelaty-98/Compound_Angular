@@ -21,6 +21,7 @@ export class BuildingDescriptionComponent implements OnInit {
     sizeArea: 0,
     status: '',
     dateAdded: new Date(),
+    buildingimages: [],
   };
   constructor(
     private buildingService: BuildingService,
