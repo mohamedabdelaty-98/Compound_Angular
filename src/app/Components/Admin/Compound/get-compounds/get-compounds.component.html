@@ -1,1 +1,39 @@
-<p>get-compounds works!</p>
+<div class="container">
+    <h1>All compounds </h1>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th> اسم</th>
+            <th>وصف</th>
+            <th>عنوان</th>
+            <th>خط العرض</th>
+            <th>خط الطول</th>
+            <th>تم إضافة التاريخ</th>
+            <th>مساحة الشارع</th>
+            <th>المنطقة الخضراء</th>
+            <th>منطقة بناء</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          
+          <tr *ngFor="let item of compounddata">
+            <td>{{item.id}}</td>
+            <td>{{item.name}} </td>
+            <td>{{item.description}} </td>
+            <td>{{item.address}} </td>
+            <td>{{item.latitude}} </td>
+            <td>{{item.longitude}} </td>
+            <td>{{item.dateAdded}} </td>
+            <td>{{item.street_area}} </td>
+            <td>{{item.greenArea}} </td>
+            <td>{{item.buildingArea}} </td>
+          </tr>
+       
+          <!-- Add more rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>

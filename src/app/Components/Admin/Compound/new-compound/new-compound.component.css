@@ -22,7 +22,7 @@
   
   .custom-file-input label {
     background-color:rgba(133, 104, 73, 1);
-    color: #fff;
+    color: hsl(0, 0%, 100%);
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;

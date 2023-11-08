@@ -5,11 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServiceCompoundService {
-  private BaseUrl: string = 'http://localhost:5117/api/ServicesCompound/GetServicesCompoundByCompound/';
+  private BaseUrl: string = 'http://localhost:5117/api/Compound/GetbyCompoundid/';
 
   constructor(private httpClient: HttpClient) { }
 
   getServiceByCompoundId(compoundId: number) {
-    return this.httpClient.get(this.BaseUrl + compoundId);
+    const url = `${this.BaseUrl}${compoundId}`;
+    return this.httpClient.get(url);
   } 
 }

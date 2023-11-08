@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Compound } from 'src/app/Models/compound';
 import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-get-compounds',
