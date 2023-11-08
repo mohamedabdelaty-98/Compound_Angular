@@ -53,7 +53,7 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
-
+import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-buildings/get-all-buildings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +87,7 @@ import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/ne
     EditCompoundComponent,
     GetCompoundsComponent,
     NewbuildingComponent,
+    GetAllBuildingsComponent,
   ],
   imports: [
     BrowserModule,
