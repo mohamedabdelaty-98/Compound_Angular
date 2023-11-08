@@ -112,7 +112,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       multi: true,
     },
     DownloadFileService,
-    CookieService],
+    CookieService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
