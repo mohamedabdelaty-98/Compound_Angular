@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { jwtDecode, JwtPayload } from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
-import {jwtDecode, JwtPayload} from "jwt-decode";
-
-
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private cookieService: CookieService, private router: Router) {}
 
-  constructor(private cookieService: CookieService, private router: Router) { }
-
-    // get token
+  // get token
   getToken(): string {
-    return this.cookieService.get('User'); 
-
+    return this.cookieService.get('User');
   }
 
-
-    // get token decoded
+  // get token decoded
   getTokenDecoded(): JwtPayload | null {
     try {
       const token = this.getToken();
@@ -29,17 +25,24 @@ export class AuthService {
     }
   }
 
-    // get userId
+  // get userId
   getUserId(): string {
     const decodedToken = this.getTokenDecoded();
-    return decodedToken ? (decodedToken as any)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"] || '' : '';  
+    return decodedToken
+      ? (decodedToken as any)[
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
+        ] || ''
+      : '';
   }
 
-    // get all user roles
+  // get all user roles
   getUserRoles(): string[] {
     const decodedToken = this.getTokenDecoded();
-    return decodedToken ? (decodedToken as any)["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] || [] : [];  
-
+    return decodedToken
+      ? (decodedToken as any)[
+          'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+        ] || []
+      : [];
   }
 
   // Check if the user is authenticated
@@ -54,20 +57,9 @@ export class AuthService {
     return userRoles.includes(role);
   }
 
-
   // Log out the user and clear the token
   logout() {
-    this.cookieService.delete('token'); 
-    this.router.navigate(['/login']); 
+    this.cookieService.delete('User');
+    this.router.navigate(['/login']);
   }
 }
-
-
-
-
-
-
-
-
-
-
