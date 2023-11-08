@@ -5,6 +5,9 @@ import { getCookie, setCookie } from 'typescript-cookie';
 import { LoginService } from 'src/app/account/login.service';
 import { UserLogin } from 'src/app/interfaces/user-login';
 import {jwtDecode} from "jwt-decode";
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/account/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -17,14 +20,15 @@ export class LoginComponent {
   PasswordRequired=false;
   confirmPasswordRequired=false;
   user!: UserLogin;
-  constructor(private fb: FormBuilder, private loginService: LoginService) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router, private authService:AuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)],],
       // confirmPassword: ['', [Validators.required]]
     });}
-
+    errorMessage: string = '';
     submitForm() {
+      this.checkCookie();
       const formValue = this.loginForm.value;
       if (this.loginForm.valid) {
         this.loginService.login({
@@ -38,7 +42,10 @@ export class LoginComponent {
             setCookie('User', jsonTokenWithoutDecode, {
               expires: tokenExpiration,
               path: '',
-            });
+            }); this.router.navigate(['AboutUs']);
+          },
+          error: err => {
+            this.errorMessage = 'Authentication failed. Please check your credentials.';
           }
         })
       } 
@@ -58,5 +65,10 @@ export class LoginComponent {
         // }
         
       }
+    }
+
+
+    checkCookie(){
+      console.log(this.authService.getUserRoles());
     }
 }

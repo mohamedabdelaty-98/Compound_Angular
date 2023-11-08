@@ -6,6 +6,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/account/register.service';
 import { UserRegister } from 'src/app/interfaces/user-register';
 @Component({
@@ -39,6 +40,7 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private registerService: RegisterService
+    , private router: Router
   ) {
     this.loginForm = this.fb.group(
       {
@@ -55,6 +57,7 @@ export class RegisterComponent {
       }
     );
   }
+  registrationError: string = '';
 
   submitForm() {
     const formValue = this.loginForm.value;
@@ -80,7 +83,13 @@ export class RegisterComponent {
           dateOfBirth: formValue.birthdate,
         })
         .subscribe({
-          next: (data) => console.log(data),
+          next: (data) => {
+            console.log(data);
+            this.router.navigate(['login']);
+          },error: (error) => {
+            // Handle registration errors
+            this.registrationError = 'An error occurred during registration.';
+          },
         });
     } else {
       if (this.loginForm.get('username')?.value == '') {
