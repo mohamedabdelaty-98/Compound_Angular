@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Building } from 'src/app/Models/building';
 import { BuildingsCompoundService } from 'src/app/Services/Building/buildings-compound.service';
+import { DisplaybuildingimagesService } from 'src/app/Services/Building/displaybuildingimages.service';
+// import { GetbuildingimagesService } from 'src/app/Services/Building/getbuildingimages.service';
 import { FilterServiceService } from 'src/app/Services/FilterServices/filter-service.service';
-import { GetBuidingImagesService } from '../../building-images/get-building-images.service';
 
 @Component({
   selector: 'app-compoundbuilding',
@@ -17,13 +18,14 @@ export class CompoundbuildingComponent implements OnInit {
   buildingBedrromnumber: number = 0;
   buildingarea: string = '';
   Buildings: Building[] = [];
+  imgursls: string[] = [];
   selectedOption: string[] = ['- الكل -'];
 
   constructor(
     private buildingService: BuildingsCompoundService,
     private route: ActivatedRoute,
     private filterservice: FilterServiceService,
-    private buildingimageservice: GetBuidingImagesService
+    private displayimages: DisplaybuildingimagesService // private buildingimageservice: GetbuildingimagesService
   ) {
     this.compoundId = Number(this.route.snapshot.paramMap.get('id'));
   }
@@ -35,34 +37,6 @@ export class CompoundbuildingComponent implements OnInit {
     });
   }
 
-  getbuildingImages() {
-    console.log('ddddd');
-    this.Buildings.forEach((element) => {
-      element.buildingimages = [];
-      this.buildingService.get(7).subscribe((data: any) => {
-        // console.log(this.compoundimage);
-        // element.compoundimages=data.data;
-        if (data) {
-          ///////////////////////////////////////////
-          const binaryData = atob(data.data[0]);
-          const uint8Array = new Uint8Array(binaryData.length);
-          for (let i = 0; i < binaryData.length; i++) {
-            uint8Array[i] = binaryData.charCodeAt(i);
-          }
-          const imageBlob = new Blob([uint8Array], { type: 'image/jpeg' }); // Adjust 'image/jpeg' to the appropriate image type if needed
-          // console.log(imageBlob);
-          const imageUrl = URL.createObjectURL(imageBlob);
-          console.log(element.id);
-          console.log(imageUrl);
-          element.buildingimages.push(imageUrl);
-          ////////////////////////////////////////////////////////
-          console.log(element.buildingimages);
-        } else {
-          console.error('No building images found.');
-        }
-      });
-    });
-  }
   parseSelectedOption() {
     const [, bedroom, building, floor] = this.selectedOption.map((str) =>
       parseInt(str)
@@ -101,14 +75,43 @@ export class CompoundbuildingComponent implements OnInit {
       .getbuildingsbycompound(this.compoundId)
       .subscribe((data: any) => {
         this.Buildings = data.data;
+        this.getbuildingimagebyid();
       });
-    this.getbuildingImages();
+  }
+
+  getbuildingimagebyid() {
+    this.Buildings.forEach((element) => {
+      element.buildingimages = [];
+      this.displayimages
+        .displaybuildingimage(element.id)
+        .subscribe((data: any) => {
+          console.log(data.data);
+          if (data) {
+            ///////////////////////////////////////////
+            const binaryData = atob(data.data[0]);
+            const uint8Array = new Uint8Array(binaryData.length);
+            for (let i = 0; i < binaryData.length; i++) {
+              uint8Array[i] = binaryData.charCodeAt(i);
+            }
+            const imageBlob = new Blob([uint8Array], { type: 'image/jpeg' }); // Adjust 'image/jpeg' to the appropriate image type if needed
+            // console.log(imageBlob);
+            const imageUrl = URL.createObjectURL(imageBlob);
+            console.log(imageUrl);
+            element.buildingimages.push(imageUrl);
+            ////////////////////////////////////////////////////////
+            console.log(element.buildingimages);
+          } else {
+            console.error('No building images found.');
+          }
+        });
+    });
   }
   getBuildingsbyfloor(floor: number) {
     this.buildingService
       .getbuildingbyfloorunits(floor, this.compoundId)
       .subscribe((data: any) => {
         this.Buildings = data.data;
+        this.getbuildingimagebyid();
       });
   }
   getBuildingsbybuildingnumber(building: number) {
@@ -119,6 +122,7 @@ export class CompoundbuildingComponent implements OnInit {
         console.log(this.buildingnumbernumber);
 
         this.Buildings = data.data;
+        this.getbuildingimagebyid();
       });
   }
   getBuildingsbybedroomunit(bedroom: number) {
@@ -126,6 +130,7 @@ export class CompoundbuildingComponent implements OnInit {
       .getbuildingbybedroomsinunit(bedroom, this.compoundId)
       .subscribe((data: any) => {
         this.Buildings = data.data;
+        this.getbuildingimagebyid();
       });
   }
   getBuildingsbyBigarea(area: number) {
@@ -133,6 +138,7 @@ export class CompoundbuildingComponent implements OnInit {
       .getbuildingbigarea(area, this.compoundId)
       .subscribe((data: any) => {
         this.Buildings = data.data;
+        this.getbuildingimagebyid();
       });
   }
   getBuildingsSamllarea(area: number) {
@@ -140,6 +146,7 @@ export class CompoundbuildingComponent implements OnInit {
       .getbuildingbysmallarea(area, this.compoundId)
       .subscribe((data: any) => {
         this.Buildings = data.data;
+        this.getbuildingimagebyid();
       });
   }
 }

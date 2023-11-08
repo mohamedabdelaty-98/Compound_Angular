@@ -3,6 +3,7 @@ import { Compound } from 'src/app/Models/compound';
 import { CompoundService } from 'src/app/Services/CompoundServices/compound.service';
 import * as Aos from 'aos';
 import { GetCompoundImagesService } from 'src/app/Services/CompoundServices/get-compound-images.service';
+import { DisplaybuildingimagesService } from 'src/app/Services/Building/displaybuildingimages.service';
 
 @Component({
   selector: 'app-compound-cards',

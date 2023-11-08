@@ -53,7 +53,6 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 
-import { BuildingImagesComponent } from './Components/building-images/building-images.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +83,6 @@ import { BuildingImagesComponent } from './Components/building-images/building-i
     ServiceBuildingComponent,
     NewCompoundComponent,
     DashboardadminComponent,
-    BuildingImagesComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
   ],
