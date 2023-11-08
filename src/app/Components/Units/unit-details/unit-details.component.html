@@ -1,9 +1,11 @@
-<main style="width: 50rem">
-  <h2 mat-dialog-title>Install Angular</h2>
+<!-- validation , display components , responsive , service to get the data from the -->
+<!--<main style="width: 50rem"> -->
+<main class="sm-col-8">
+  <!-- <h2 mat-dialog-title>Install Angular</h2> -->
   <mat-dialog-content class="mat-typography">
-    <div class="card" data-page="1">
+    <div class="card sm-col-8" data-page="1">
       <div class="head d-flex justify-content-between">
-        <button class="btn btn-success rounded-0 h-25">متاح</button>
+        <button  class="btn btn-success rounded-1 h-25">متاح</button>
         <div>
           <h2 class="text-dark fw-bold m-0 p-0">A1</h2>
           <h3 class="text-dark fw-bold">
@@ -11,37 +13,76 @@
           </h3>
         </div>
       </div>
-      <div class="icons">
-        <div class="icon ico1">
-          <img
-            src="assets/images/iconunit_2.jpg"
-            alt=""
-            width="30px"
-            height="30px"
-          />
-          <p>الارضي</p>
+      <!-- /////////////////////////////unit component/////////////////////////////////////// -->
+      <div class="row">
+        <h3 class="text-dark fw-bold" dir="rtl">مكونات الوحدة </h3>
+      </div>
+      <div class="icons container" dir="rtl">
+        <div class="row">
+        <div class="icon ico1 col-sm-6">
+          <img src="assets/images/iconunit_2.jpg" alt="" width="30px" height="30px"/>
+          <p >الدور:</p>
+          <p col-sm-2> </p>
         </div>
-        <div class="icon ico1">
-          <img
-            src="assets/images/iconunit_1.png"
-            alt=""
-            width="30px"
-            height="30px"
-          />
+        <div class="icon ico1 col-sm-6">
+          <img src="assets/images/iconunit_1.png" alt="" width="30px" height="30px"/>
+          <p>المساحه:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="icon ico1 col-sm-6">
+          <!-- <span class="material-symbols-outlined"> </span> -->
+          <p>غرف النوم:</p>
+        </div>
+      </div>
+    </div>
 
-          <p>180.03</p>
+      <!-- ////////////////////////////////////Form//////////////////////////////////////////////////////// -->
+      <div class="row">
+        <form dir="rtl" class="mb-5 mt-5"  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+          <div class="mb-3 col-lg-6 col-sm-8 ">
+            <label for="name" class="form-label ms-5 " >الاسم</label>
+            <input type="text" class="form-control w-75 ms-5" id="name" formControlName="name">
+            <div *ngIf="form.get('name')?.hasError('required')" style="color:red" class="ms-5">الاسم مطلوب</div>
+            <div *ngIf="form.get('name')?.hasError('minlength')" style="color:red" class="ms-5">الاسم غير صالح</div>
+
+          </div>
+          <div class="mb-3 col-lg-6 col-sm-8 ">
+            <label for="PhoneNumber" class="form-label ms-5">رقم الجوال</label>
+            <input type="tel" class="form-control w-75 ms-5" id="PhoneNumber"formControlName="PhoneNumber">
+            <div *ngIf="form.get('PhoneNumber')?.hasError('required')" style="color:red" class="ms-5">الرقم مطلوب</div>
+            <div *ngIf="form.get('PhoneNumber')?.hasError('pattern')" style="color:red" class="ms-5">الرقم غير صالح</div>
+
+          </div>
         </div>
-        <div class="icon ico1">
-          <span class="material-symbols-outlined"> bed </span>
-          <p>غرفة النوم:3</p>
+        <div class="row">
+          <div class="mb-3 col-lg-6 col-sm-8">
+            <label for="email" class="form-label ms-5">البريد الإلكتروني</label>
+            <input type="email" class="form-control w-75 ms-5" id="email" formControlName="email">
+            <div *ngIf="form.get('email')?.hasError('required')" style="color:red" class="ms-5">البريد الإلكتروني مطلوب </div>
+            <div *ngIf="form.get('email')?.hasError('email')" style="color:red" class="ms-5">البريد الإلكتروني مطلوب</div>
+          </div>
+          <div class="mb-3 col-lg-6 col-sm-8">
+            <label for="budget" class="form-label ms-5">الميزانية</label>
+            <input type="text" class="form-control w-75 ms-5" id="budget" formControlName="budget">
+            <div *ngIf="form.get('budget')?.hasError('required')" style="color:red" class="ms-5"> الميزانية مطلوبة</div>
+            <div *ngIf="form.get('budget')?.hasError('min')" style="color:red" class="ms-5"> الميزانية غير صالحة</div>
+
+          </div>
         </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" [disabled]="form.invalid"class="btn btn-outline-warning w-25">سجل </button>
+          <button class=" btn btn-outline-warning ms-3 w-25" mat-button mat-dialog-close>اغلاق</button>
+        </div>
+        </form>
       </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+
+    <!-- <button class=" btn btn-primary" mat-button [mat-dialog-close]="true" cdkFocusInitial>
       Install
-    </button>
+    </button> -->
   </mat-dialog-actions>
 </main>

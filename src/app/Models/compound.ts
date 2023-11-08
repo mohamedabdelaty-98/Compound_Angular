@@ -11,4 +11,5 @@ export interface Compound {
   greenArea: number;
   buildingArea: number;
   location: string;
+  compoundimages: string[];
 }
