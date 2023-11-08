@@ -1,0 +1,15 @@
+*{
+    font-family: 'Almarai', sans-serif;
+    color: #38271E;
+}
+
+
+.buildingShadow{
+    box-shadow: 1px 1px 25px 1px #e1ae6288;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.buildingShadow:hover{
+    transform: translate(3px, 3px); 
+}

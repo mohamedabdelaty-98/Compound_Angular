@@ -1,107 +1,123 @@
 .parent {
-    font-family: 'Almarai', sans-serif;
-    font-size: larger;
-   margin-top: 2rem;
-   text-align: center;
-   margin-right:3.5rem ;
-   /* justify-content:space-between; */
+  font-family: "Almarai", sans-serif;
+  text-align: center;
+}
 
- }
- .child {
-    flex: 0 0 calc(33.33% - 10px); 
-    height: 250px;
-   display: inline-block;
-   align-items:center;
-   background-color: #CBBCB3;
-   /* box-shadow:2px 2px 2px 2px #863604; */
-   
- }
+.child {
+  height: 22rem;
+  align-items: center;
+  background-color: #e1ae6266;
+  position: relative;
+}
 
- .main{
-    width: 100rem;
-    height: 10rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
+.main {
+  width: 100rem;
+  height: 10rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
 }
 
 .btn {
-    padding: 0.5em 1em;
-    background-color: #CBBCB3;
-    border: none;
-    user-select: none;
-    cursor: pointer;
-    font-size: 20px;
-    text-transform: uppercase;
-    transition: all 0.5s linear;
-    color: #fff;
-    position: relative;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 0.5em 1em;
+  background-color: #cbbcb3;
+  border: none;
+  user-select: none;
+  cursor: pointer;
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: all 0.5s linear;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-.btn:hover::after, .btn:hover::before {
-    content: '';
-    background: linear-gradient(90deg, #E1AF62 0%, #CBBCB3 100%);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-    z-index: -1;
+.btn:hover::after,
+.btn:hover::before {
+  content: "";
+  background: linear-gradient(90deg, #e1af62 0%, #cbbcb3 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 
-    animation: move-right-side 1s ease infinite;
+  animation: move-right-side 1s ease infinite;
 }
 
 .btn:hover::before {
-    background: linear-gradient(90deg, #E1AF62 0%, #CBBCB3 100%);
-    inset: 0;
-    animation: move-left-side 1s ease infinite;
-    z-index: -2;
+  background: linear-gradient(90deg, #e1af62 0%, #cbbcb3 100%);
+  inset: 0;
+  animation: move-left-side 1s ease infinite;
+  z-index: -2;
 }
 
 .btn:hover {
-    background-color:#863604;
-    color: #E1AF62;
+  background-color: #863604;
+  color: #e1af62;
 }
 
 @keyframes move-right-side {
-    0% {
-        inset: 0.3em 0 0 0.3em; /*top | left */
-    }
+  0% {
+    inset: 0.3em 0 0 0.3em; /*top | left */
+  }
 
-    33% {
-        inset: 0 0.3em 0.3em 0; /*right| bottom*/
-    }
-        
-    66% {
-        /* top | right | bottom | left */
-        inset: 1em 0 0 0.5em; /*top | right */
-    }
+  33% {
+    inset: 0 0.3em 0.3em 0; /*right| bottom*/
+  }
 
-    100% {
-        inset:0  1em 0.5em 0;
-    }
+  66% {
+    /* top | right | bottom | left */
+    inset: 1em 0 0 0.5em; /*top | right */
+  }
+
+  100% {
+    inset: 0 1em 0.5em 0;
+  }
 }
 
 /* Move left Side */
 
 @keyframes move-left-side {
-    0% {
-        right: -1em;
-        top: -0.5em;
-    }
+  0% {
+    right: -1em;
+    top: -0.5em;
+  }
 
-    33% {
-        bottom: -1em;
-        left: -0.5em;
-    }
+  33% {
+    bottom: -1em;
+    left: -0.5em;
+  }
 
-    66% {
-        top: 0;
-        right:-0.7;
-    }
+  66% {
+    top: 0;
+    right: -0.7;
+  }
 
-    100% {
-        right: -1em;
-        top: -0.5em;
-    }
+  100% {
+    right: -1em;
+    top: -0.5em;
+  }
 }
+
+
+
+.child::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../../../assets/images/aboutimg.jpg');
+  background-size: cover;
+  opacity: 0.15;
+  z-index: -2; 
+}
+
+.child > * {
+  position: relative;
+  z-index: 1;
+}
+
+

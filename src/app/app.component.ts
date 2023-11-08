@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+// Import the AOS styles
 
 @Component({
   selector: 'app-root',
