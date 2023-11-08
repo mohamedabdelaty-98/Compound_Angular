@@ -18,7 +18,7 @@ import { DashBoardComponent } from './app.component';
 
 // Import containers
 import {
-  DefaultFooterComponent,
+ 
   DefaultHeaderComponent,
   DefaultLayoutComponent,
 } from './containers';
@@ -47,7 +47,6 @@ import {
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 
 const APP_CONTAINERS = [
-  DefaultFooterComponent,
   DefaultHeaderComponent,
   DefaultLayoutComponent,
 ];

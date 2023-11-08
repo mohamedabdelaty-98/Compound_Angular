@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewCompoundService } from 'src/app/Services/CompoundServices/new-compound.service';
+import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
 
 @Component({
   selector: 'app-new-compound',

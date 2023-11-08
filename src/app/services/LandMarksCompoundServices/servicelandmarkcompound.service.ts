@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment as env } from 'src/environments/environment.development';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,13 +14,13 @@ export class ServicelandmarkcompoundService {
     '/api/Compound/DownloadFile/{id}';
 
   constructor(private http: HttpClient) {}
-  getlandmaksByCompoundId(compoundId: number) {
+  getlandmaksByCompoundId(compoundId: number): Observable<any> {
     return this.http.get(
       `${env.apirooturl}${this.BaseUrlCompoundlandmarks}${compoundId}`
     );
   }
 
-  DownloadFile(id: any) {
+  DownloadFile(id: any): Observable<any> {
     return this.http.get(
       `${env.apirooturl}${this.BaseUrlDownLoadFile}${id}`
     );
