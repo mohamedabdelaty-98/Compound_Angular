@@ -53,15 +53,9 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
-import { CookieService } from 'ngx-cookie-service';
-import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
-import { NewunitComponent } from './Components/Admin/Unit/newunit/newunit.component';
-import { EditunitComponent } from './Components/Admin/Unit/editunit/editunit.component';
-import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallunit.component';
-
+import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-buildings/get-all-buildings.component';
+import { EditBuildingComponent } from './Components/Admin/Building/edit-building/edit-building.component';
+import { DeleteBuildingComponent } from './Components/Admin/Building/delete-building/delete-building.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,8 +94,9 @@ import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallun
     GetallunitComponent,
 
     NewbuildingComponent,
-    AuthInterceptorComponent,
-
+    GetAllBuildingsComponent,
+    EditBuildingComponent,
+    DeleteBuildingComponent,
   ],
   imports: [
     BrowserModule,

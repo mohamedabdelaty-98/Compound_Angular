@@ -6,8 +6,6 @@ export interface Building {
   status: string;
   dateAdded: Date;
   sizeArea: number;
-  latitude: number;
-  longitude: number;
   compoundId: number;
   buildingimages: string[];
 }
