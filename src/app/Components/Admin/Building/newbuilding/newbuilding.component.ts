@@ -19,19 +19,19 @@ export class NewbuildingComponent implements OnInit {
     private addnewbuilding: AddNewBuildingService
   ) {
     this.BuildingForm = this.formBuilder.group({
-      buildingnumber: ['', [Validators.required]],
-      Description: ['', [Validators.required]],
-      floors: ['', [Validators.required]],
-      area: ['', [Validators.required]],
-      status: ['', [Validators.required]],
-      compound: ['', [Validators.required]],
-      DateAdded: ['', [Validators.required]],
+      bulidingNumber: ['', Validators.required],
+      Description: ['', Validators.required],
+      numberOfFloor: ['', Validators.required],
+      sizeArea: [, Validators.required],
+      status: ['', Validators.required],
+      compoundId: ['', Validators.required],
+      dateAdded: ['', Validators.required],
     });
   }
-
   ngOnInit(): void {
     this.servicecompund.getallcompounds().subscribe((data: any) => {
       this.compounddata = data.data;
+      console.log(this.compounddata);
     });
   }
 

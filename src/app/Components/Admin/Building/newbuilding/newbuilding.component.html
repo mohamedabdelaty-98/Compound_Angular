@@ -64,10 +64,10 @@
           <div class="row">
             <div class="col-md-6" style="direction: rtl">
               <div class="form-group" style="display: grid">
-                <label for="buildingnumber">رقم المبني</label>
-                <input type="number" id="buildingnumber" formControlName="buildingnumber" />
+                <label for="bulidingNumber">رقم المبني</label>
+                <input type="number" id="bulidingNumber" formControlName="bulidingNumber" />
                 <div
-                  *ngIf="BuildingForm.get('buildingnumber')?.hasError('required')"
+                  *ngIf="BuildingForm.get('bulidingNumber')?.hasError('required')"
                   style="color: red"
                 >
                   مطلوب رقم المبني .
@@ -95,10 +95,10 @@
           <div class="row">
             <div class="col-md-6" >
               <div class="form-group" style="display: grid">
-                <label for="floors">عدد الادوار</label>
-                <input type="number" id="floors" formControlName="floors" />
+                <label for="numberOfFloor">عدد الادوار</label>
+                <input type="number" id="numberOfFloor" formControlName="numberOfFloor" />
                 <div
-                  *ngIf="BuildingForm.get('floors')?.hasError('required')"
+                  *ngIf="BuildingForm.get('numberOfFloor')?.hasError('required')"
                   style="color: red"
                 >
                 عدد الادوار مطلوب .
@@ -122,11 +122,11 @@
           <div class="row">
             <div class="col-md-6" style="direction: rtl">
               <div class="form-group" style="display: grid">
-                <label for="area">مساحة المبني  </label>
-                <input type="number" id="area"
-                formControlName="area" />
+                <label for="sizeArea">مساحة المبني  </label>
+                <input type="number" id="sizeArea"
+                formControlName="sizeArea" />
                 <div
-                  *ngIf="BuildingForm.get('area')?.hasError('required')"
+                  *ngIf="BuildingForm.get('sizeArea')?.hasError('required')"
                   style="color: red"
                 >
                   مساحة المبني مطلوبة.
@@ -135,12 +135,12 @@
             </div>
             <div class="col-md-6">
   <div class="form-group" style="display: grid">
-    <label for="compound">اسم المشروع</label>
-    <select class="form-select" aria-label="Default select example" id="compound" formControlName="compound">
+    <label for="compoundId">اسم المشروع</label>
+    <select class="form-select" aria-label="Default select example" id="compoundId" formControlName="compoundId">
       <option value="" disabled selected>Select a project</option>
       <option *ngFor="let compound of compounddata" [value]="compound.id">{{ compound.name }}</option>
     </select>
-    <div *ngIf="BuildingForm.get('compound')?.hasError('required')" style="color: red">
+    <div *ngIf="BuildingForm.get('compoundId')?.hasError('required')" style="color: red">
       اسم المشروع مطلوب
     </div>
   </div>
@@ -150,14 +150,14 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="DateAdded">توقيت الإضافه</label>
+                <label for="dateAdded">توقيت الإضافه</label>
                 <input
                   type="datetime-local"
-                  id="DateAdded"
-                  formControlName="DateAdded"
+                  id="dateAdded"
+                  formControlName="dateAdded"
                 />
                 <div
-                  *ngIf="BuildingForm.get('DateAdded')?.hasError('required')"
+                  *ngIf="BuildingForm.get('dateAdded')?.hasError('required')"
                   style="color: red"
                 >
                   التوقيت مطلوب
