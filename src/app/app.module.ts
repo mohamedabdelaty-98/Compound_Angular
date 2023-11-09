@@ -54,6 +54,8 @@ import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
 import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-buildings/get-all-buildings.component';
+import { EditBuildingComponent } from './Components/Admin/Building/edit-building/edit-building.component';
+import { DeleteBuildingComponent } from './Components/Admin/Building/delete-building/delete-building.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +90,8 @@ import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-bu
     GetCompoundsComponent,
     NewbuildingComponent,
     GetAllBuildingsComponent,
+    EditBuildingComponent,
+    DeleteBuildingComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,9 +20,11 @@
     <td>{{building.sizeArea}}</td>
     <td>{{building.compoundId}}</td>
     <td><button class="btn btn-outline-primary">Edit Building</button></td>
-
+    <td>
+    <button class="btn btn-outline-danger" (click)="deleteBuilding(building.id)">Delete Building</button>
+    </td>
   </tr>
-  <button class="btn btn-outline-success me-2">Add Building</button>
-  <button class="btn btn-outline-danger">Delete Building</button>
+  <!-- <button class="btn btn-outline-success" (click)="RouteAddBuilding()">Add Building</button> -->
+  <a class="btn btn-outline-success" [routerLink]="['addBuilding']">Add Building</a>
 </table>
 </div>

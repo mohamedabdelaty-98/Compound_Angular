@@ -7,6 +7,7 @@ import { ApplicationComponent } from './Components/application/application.compo
 import { BuildingComponent } from './Components/BuildingPage/building/building.component';
 import { DashBoardComponent } from './DashBoard/app.component';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
+import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'CompoundPage/:id', component: CmpoundComponent },
@@ -17,9 +18,14 @@ const routes: Routes = [
     component: BuildingComponent,
   },
   {
+    path:'addBuilding',
+    component:NewbuildingComponent
+  },
+  {
     path: 'admin',
     component: DashboardadminComponent,
   },
+
 ];
 
 @NgModule({
