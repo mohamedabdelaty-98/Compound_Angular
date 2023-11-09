@@ -57,13 +57,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-<<<<<<< HEAD
-import { BuildingImagesComponent } from './Components/building-images/building-images.component';
+
 import { NewunitComponent } from './Components/Admin/Unit/newunit/newunit.component';
 import { EditunitComponent } from './Components/Admin/Unit/editunit/editunit.component';
 import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallunit.component';
-=======
->>>>>>> 80d4d682e385f5d262312ed081a34edcaba9b2f7
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,14 +94,14 @@ import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallun
     DashboardadminComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
-<<<<<<< HEAD
+
     NewunitComponent,
     EditunitComponent,
     GetallunitComponent,
-=======
+
     NewbuildingComponent,
     AuthInterceptorComponent,
->>>>>>> 80d4d682e385f5d262312ed081a34edcaba9b2f7
+
   ],
   imports: [
     BrowserModule,

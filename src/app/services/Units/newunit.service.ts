@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class NewunitService {
-  BaseUrl: string = '/api/Unit/InsertUnit/';
+  BaseUrl: string = '/api/Unit/InsertUnit';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -17,8 +17,7 @@ export class NewunitService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-   
-
+       
     return this.httpClient.post(
       `${env.apirooturl}${this.BaseUrl}`,
       UnitData,httpOptions 

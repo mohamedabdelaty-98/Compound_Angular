@@ -9,7 +9,7 @@ import { NewunitService } from 'src/app/services/Units/newunit.service';
   templateUrl: './newunit.component.html',
   styleUrls: ['./newunit.component.scss']
 })
-export class NewunitComponent implements OnInit {
+export class NewunitComponent {
   UnitForm: FormGroup;
   
 
@@ -26,12 +26,11 @@ export class NewunitComponent implements OnInit {
       status: ['', Validators.required],
       price: [0, Validators.required],
       area: [0, Validators.required],
-      bulidingNumber: [0, Validators.required],
-     
+      bulidingNumber: [0, Validators.required],     
     });
   }
   
-  ngOnInit(): void {};
+  
   onSubmit() {
     console.log('hello');
     if (this.UnitForm.valid) {
