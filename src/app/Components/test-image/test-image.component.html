@@ -6,12 +6,13 @@
       </div>
       <form #imageForm="ngForm">
 
-        <div class="row">
+        <div class="row py-2">
           <div class="input-field col s12">
             <input type="text" ngModel name="Id" #Id="ngModel" [(ngModel)]="formData.Id">
-            <label for="Id">Building ID</label>
+            <label for="Id">Compound Id</label>
           </div>
         </div>
+        
 
         <img style="width: 250px; height: 200px" [src]="imageUrl">
         <br>
@@ -20,6 +21,17 @@
         <input type="file" ngModel name="image" #image="ngModel" (change)="onFileSelected($event)">
         <br>
         <br>
+
+        <div class="col-md-6">
+          <div class="form-group" style="display: grid">
+            <label for="compoundId">اسم المشروع</label>
+            <select class="form-select" aria-label="Default select example" id="compoundId" formControlName="compoundId">
+              <option value="" disabled selected>Select a project</option>
+              <option *ngFor="let compound of compounddata"  [value]="compound.id"  [(ngModel)]="compoundId">{{ compound.name }}</option>
+            </select>
+ 
+          </div>
+        </div>
 
         <button type="submit" class="btn-large btn-submit" (click)="handleFileInput()">Submit</button>
       </form>

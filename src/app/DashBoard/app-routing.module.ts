@@ -12,6 +12,7 @@ import { DisplayCompoundsComponent } from './AdminSahboard/display-compounds/dis
 import { NewCompoundComponent } from './AdminSahboard/new-compound/new-compound.component';
 import { GetAllBuildingsComponent } from '../Components/Admin/Building/get-all-buildings/get-all-buildings.component';
 import { NewbuildingComponent } from '../Components/Admin/Building/newbuilding/newbuilding.component';
+import { TestImageComponent } from '../Components/test-image/test-image.component';
 
 const routes: Routes = [
   // {
@@ -86,6 +87,7 @@ const routes: Routes = [
       { path: 'AddCompound', component: NewCompoundComponent },
       { path: 'Buildings', component:GetAllBuildingsComponent },
       { path: 'AddBuilding', component: NewbuildingComponent},
+      { path: 'ImgCompound', component: TestImageComponent},
 
     ],
 

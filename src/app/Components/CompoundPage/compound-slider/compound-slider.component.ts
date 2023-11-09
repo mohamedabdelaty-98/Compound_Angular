@@ -62,15 +62,7 @@ export class CompoundSliderComponent implements OnInit {
     });
   }
   public download(): void {
-    /*  this.downloadService.DownloadFile(this.compoundId).subscribe(response=>{
-    let fileName = response.headers.get('content-disposition')?.split(';')[1].split('=')[1];
-    let blob:Blob= response.body as Blob;
-    let a = document.createElement('a');
-    a.download=fileName;
-    a.href=window.URL.createObjectURL(blob);
-    a.click();
-  })
-} */
+  
     console.log(this.compoundId);
 
     this.downloadService.DownloadFile(this.compoundId).subscribe((response) => {
