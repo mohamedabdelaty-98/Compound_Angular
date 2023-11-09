@@ -10,6 +10,8 @@ import { ApplicationComponent } from '../Components/application/application.comp
 import { DisplayApplicationsComponent } from './AdminSahboard/display-applications/display-applications.component';
 import { DisplayCompoundsComponent } from './AdminSahboard/display-compounds/display-compounds.component';
 import { NewCompoundComponent } from './AdminSahboard/new-compound/new-compound.component';
+import { GetAllBuildingsComponent } from '../Components/Admin/Building/get-all-buildings/get-all-buildings.component';
+import { NewbuildingComponent } from '../Components/Admin/Building/newbuilding/newbuilding.component';
 
 const routes: Routes = [
   // {
@@ -82,6 +84,8 @@ const routes: Routes = [
       { path: 'Application', component: DisplayApplicationsComponent },
       { path: 'Compound', component: DisplayCompoundsComponent },
       { path: 'AddCompound', component: NewCompoundComponent },
+      { path: 'Buildings', component:GetAllBuildingsComponent },
+      { path: 'AddBuilding', component: NewbuildingComponent},
 
     ],
 

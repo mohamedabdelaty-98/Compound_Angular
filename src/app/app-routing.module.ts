@@ -19,10 +19,6 @@ const routes: Routes = [
     component: BuildingComponent,
   },
   {
-    path:'addBuilding',
-    component:NewbuildingComponent
-  },
-  {
     path: 'admin',
     component: DashboardadminComponent,
   },
