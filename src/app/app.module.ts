@@ -57,6 +57,7 @@ import { EditBuildingComponent } from './Components/Admin/Building/edit-building
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AddreviewsComponent } from './Components/Reviews/addreviews/addreviews.component';
 import { NewCompoundComponent } from './DashBoard/AdminSahboard/new-compound/new-compound.component';
 
 @NgModule({
@@ -92,6 +93,8 @@ import { NewCompoundComponent } from './DashBoard/AdminSahboard/new-compound/new
     EditCompoundComponent,
     GetCompoundsComponent,
     NewbuildingComponent,
+    AuthInterceptorComponent,
+    AddreviewsComponent,
     GetAllBuildingsComponent,
     EditBuildingComponent,
     AuthInterceptorComponent,
@@ -116,7 +119,8 @@ import { NewCompoundComponent } from './DashBoard/AdminSahboard/new-compound/new
       multi: true,
     },
     DownloadFileService,
-    CookieService],
+    CookieService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

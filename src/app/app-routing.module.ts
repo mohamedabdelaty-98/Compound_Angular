@@ -9,6 +9,8 @@ import { DashBoardComponent } from './DashBoard/app.component';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
 import { RegisterComponent } from './Components/Account/register/register.component';
 import { LoginComponent } from './Components/Account/login/login.component';
+import { AuthGuard } from './Guards/auth.guard';
+import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'CompoundPage/:id', component: CmpoundComponent },
@@ -18,17 +20,19 @@ const routes: Routes = [
     path: 'CompoundPage/:id/BuildingPage/:buildingid',
     component: BuildingComponent,
   },
+  { path: 'addBuilding', component: NewbuildingComponent },
   {
     path: 'admin',
     component: DashboardadminComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'register',
-    component:RegisterComponent,
+    component: RegisterComponent,
   },
   {
     path: 'login',
-    component:LoginComponent,
+    component: LoginComponent,
   },
 ];
 
