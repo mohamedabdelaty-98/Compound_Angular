@@ -30,6 +30,7 @@
             tabindex="-1"
             aria-disabled="true"
             (click)="getrouter()"
+            *ngIf="isauthenticated() && getrole()"
           >
             الإدارة</a
           >

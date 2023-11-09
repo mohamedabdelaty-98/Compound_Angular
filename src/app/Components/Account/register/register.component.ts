@@ -39,8 +39,8 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private registerService: RegisterService
-    , private router: Router
+    private registerService: RegisterService,
+    private router: Router
   ) {
     this.loginForm = this.fb.group(
       {
@@ -86,7 +86,8 @@ export class RegisterComponent {
           next: (data) => {
             console.log(data);
             this.router.navigate(['login']);
-          },error: (error) => {
+          },
+          error: (error) => {
             // Handle registration errors
             this.registrationError = 'An error occurred during registration.';
           },
@@ -118,5 +119,8 @@ export class RegisterComponent {
         this.confirmPasswordRequired = true;
       }
     }
+  }
+  gotorouterlogin() {
+    this.router.navigate(['login']);
   }
 }

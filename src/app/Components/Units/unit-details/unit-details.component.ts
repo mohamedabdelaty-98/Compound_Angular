@@ -37,7 +37,7 @@ export class UnitDetailsComponent implements OnInit {
   }
   getunitcomponentbyunit() {
     this.unitcomponentservices
-      .getunitcompounentbyunit(1039)
+      .getunitcompounentbyunit(1)
       .subscribe((data: any) => {
         this.unitcomponentdata = data.data;
         console.log(this.unitcomponentdata);

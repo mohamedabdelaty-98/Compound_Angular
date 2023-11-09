@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Building } from 'src/app/Models/building';
-import { GetAllBuildingsService } from 'src/app/services/Building/get-all-buildings.service';
-import { DeleteBuildingService } from 'src/app/services/Building/delete-building.service';
+import { GetAllBuildingsService } from 'src/app/Services/Building/get-all-buildings.service';
+import { DeleteBuildingService } from 'src/app/Services/Building/delete-building.service';
 
 @Component({
   selector: 'app-get-all-buildings',
   templateUrl: './get-all-buildings.component.html',
-  styleUrls: ['./get-all-buildings.component.scss']
+  styleUrls: ['./get-all-buildings.component.scss'],
 })
 export class GetAllBuildingsComponent {
   buildingdata: Building[] = [];
@@ -23,7 +23,7 @@ export class GetAllBuildingsComponent {
   }
 
   deleteBuilding(buildingid: number) {
-    console.log("inside delete");
+    console.log('inside delete');
     this.deletebuilding.DeleteBuilding(buildingid).subscribe(
       (response) => {
         console.log(response);

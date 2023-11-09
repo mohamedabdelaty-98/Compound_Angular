@@ -87,4 +87,7 @@ export class LoginComponent {
   check() {
     console.log(this.authService.getTokenDecoded());
   }
+  gotoroutesignup() {
+    this.router.navigate(['register']);
+  }
 }

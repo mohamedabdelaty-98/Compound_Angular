@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import * as AOS from 'aos';
+import { elementAt } from 'rxjs';
 import { AuthService } from 'src/app/account/auth.service';
 
 @Component({
@@ -48,5 +49,10 @@ export class NavBarComponent implements OnInit {
   }
   getrouter() {
     this.router.navigate(['x/dashboard']);
+  }
+  getrole(): boolean {
+    const role = this.authService.getUserRoles();
+    if (role.includes('Admin')) return true;
+    else return false;
   }
 }

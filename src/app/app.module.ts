@@ -56,6 +56,7 @@ import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/ne
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AddreviewsComponent } from './Components/Reviews/addreviews/addreviews.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     GetCompoundsComponent,
     NewbuildingComponent,
     AuthInterceptorComponent,
+    AddreviewsComponent,
   ],
   imports: [
     BrowserModule,
