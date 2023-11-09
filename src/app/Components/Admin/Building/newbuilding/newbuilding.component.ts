@@ -30,13 +30,13 @@ BuildingForm: FormGroup;
 
 constructor(private servicecompund:CompoundService,private formBuilder: FormBuilder,private addnewbuilding : AddNewBuildingService) {
   this.BuildingForm = this.formBuilder.group({
-    buildingnumber: ['', Validators.required],
+    bulidingNumber: ['', Validators.required],
     Description: ['', Validators.required],
-    floors: ['', Validators.required],
-    area: [, Validators.required],
+    numberOfFloor: ['', Validators.required],
+    sizeArea: [, Validators.required],
     status: ['', Validators.required],
-    compound: ['', Validators.required],
-    DateAdded: ['', Validators.required],
+    compoundId: ['', Validators.required],
+    dateAdded: ['', Validators.required],
 
 });
 }
