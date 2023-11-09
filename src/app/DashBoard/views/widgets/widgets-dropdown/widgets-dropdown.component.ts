@@ -14,8 +14,8 @@ import { CompoundService } from 'src/app/Services/CompoundServices/compound.serv
 import { Building } from 'src/app/Models/building';
 import { Reviews } from 'src/app/Models/reviews';
 import { BuildingService } from 'src/app/Services/Building/building.service';
-import { UsersService } from 'src/app/Services/Admin/users.service';
-import { ApplicationsService } from 'src/app/Services/Admin/applications.service';
+import { ApplicationsService } from 'src/app/services/Admin/applications.service';
+import { UsersService } from 'src/app/services/Admin/users.service';
 
 @Component({
   selector: 'app-widgets-dropdown',

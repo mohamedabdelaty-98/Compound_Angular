@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddreviewService } from 'src/app/Services/Reviews/addreview.service';
 import { AuthService } from 'src/app/account/auth.service';
+import { AddreviewService } from 'src/app/services/Reviews/addreview.service';
 
 @Component({
   selector: 'app-addreviews',
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/account/auth.service';
 })
 export class AddreviewsComponent {
   reviewgroup: FormGroup;
-  dateAdded = Date.now();
+  now = new Date().toISOString().slice(0, 19);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,9 +20,9 @@ export class AddreviewsComponent {
     this.reviewgroup = this.formBuilder.group({
       rating: ['', Validators.required],
       reviewText: ['', Validators.required],
+      datePosted: [this.now, Validators.required],
     });
   }
-  now = new Date().toISOString();
   AddnewReview() {
     const reviewdata = new FormData();
     for (const key in this.reviewgroup.value) {
@@ -32,8 +32,7 @@ export class AddreviewsComponent {
     const username = this.authservice.getUserName();
     reviewdata.append('userId020', userid);
     reviewdata.append('userName', username);
-    // reviewdata.append('datePosted', now);
-    // reviewdata.append('datePosted', dateAdded);
+
     this.reviewservice.addreviews(reviewdata).subscribe(
       (response) => {
         console.log('review created:', response);
@@ -42,6 +41,5 @@ export class AddreviewsComponent {
         console.error('Error creating review:', error);
       }
     );
-    // console.log(now);
   }
 }
