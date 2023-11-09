@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewCompoundService } from 'src/app/Services/CompoundServices/new-compound.service';
 import * as L from 'leaflet';
 import { ActivatedRoute } from '@angular/router';
+import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
@@ -15,7 +15,7 @@ export class NewCompoundComponent implements OnInit {
   private marker!: L.Marker;
 
   constructor(
-    private compoundService: NewCompoundService,
+    private compoundService:NewCompoundService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute
   ) {

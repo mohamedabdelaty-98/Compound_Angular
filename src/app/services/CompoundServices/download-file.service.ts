@@ -22,4 +22,12 @@ export class DownloadFileService {
       `${env.apirooturl}/api/Compound/DownloadFile/${id}`,{observe:'response',responseType:'blob'}
     );
   }
+
+
+  public delete(id:number){
+    return this.http.delete(
+      `${env.apirooturl}/api/Compound/RemoveCompound/${id}`
+    );
+  }
+
 }

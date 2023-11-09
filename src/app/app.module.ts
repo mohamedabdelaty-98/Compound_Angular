@@ -42,7 +42,6 @@ import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
 import { BuildingDescriptionComponent } from './Components/BuildingPage/building-description/building-description.component';
 import { ApplicationComponent } from './Components/application/application.component';
 import { FormsModule } from '@angular/forms';
-import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import * as L from 'leaflet';
 
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
@@ -56,6 +55,7 @@ import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/ne
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NewCompoundComponent } from './DashBoard/AdminSahboard/new-compound/new-compound.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +85,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ApplicationComponent,
     CompoundbuildingComponent,
     ServiceBuildingComponent,
-    NewCompoundComponent,
+   NewCompoundComponent,
     DashboardadminComponent,
     EditCompoundComponent,
     GetCompoundsComponent,

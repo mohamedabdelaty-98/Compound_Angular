@@ -6,6 +6,10 @@ import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
+import { ApplicationComponent } from '../Components/application/application.component';
+import { DisplayApplicationsComponent } from './AdminSahboard/display-applications/display-applications.component';
+import { DisplayCompoundsComponent } from './AdminSahboard/display-compounds/display-compounds.component';
+import { NewCompoundComponent } from './AdminSahboard/new-compound/new-compound.component';
 
 const routes: Routes = [
   // {
@@ -27,6 +31,7 @@ const routes: Routes = [
             (m) => m.DashboardModule
           ),
       },
+  
       {
         path: 'theme',
         loadChildren: () =>
@@ -74,7 +79,12 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/pages/pages.module').then((m) => m.PagesModule),
       },
+      { path: 'Application', component: DisplayApplicationsComponent },
+      { path: 'Compound', component: DisplayCompoundsComponent },
+      { path: 'AddCompound', component: NewCompoundComponent },
+
     ],
+
   },
   {
     path: '404',
