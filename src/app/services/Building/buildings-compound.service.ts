@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class BuildingsCompoundService {
   compoundid: number = 0;
-  BaseUrl: string = '/api/Building/BuildingsUnitActive/';
+  BaseUrl: string = '/api/Building/BuildingsInCompound/';
   BaseUrl_floor: string = '/api/Building/BuildingsBasedUnitFloor/';
   BaseUrl_buildings: string = '/api/Building/getBuildingsByBuildingNumber/';
   BaseUrl_buildings_bedroom: string = '/api/Building/BuildingsUnitNumBedRooms/';
