@@ -15,9 +15,9 @@ export class GetallunitComponent implements OnInit {
     private deleteunit: DeleteunitService
 
     ) {}
-    Deleteunit(Id: number) {
+    Deleteunit(id: number) {
       console.log("inside delete");
-      this.deleteunit.Deleteunit(Id).subscribe(
+      this.deleteunit.Deleteunit(id).subscribe(
         (response) => {
           console.log(response);
           // After successful deletion, refresh the data
