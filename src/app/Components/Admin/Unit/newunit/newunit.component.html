@@ -17,10 +17,10 @@
             <div class="row">
               <div class="col-md-6" style="direction: rtl">
                 <div class="form-group" style="display: grid">
-                  <label for="unitNumber">رقم الوحدة</label>
-                  <input type="number" id="unitNumber" formControlName="unitNumber" />
+                  <label for="UnitNumber">رقم الوحدة</label>
+                  <input type="number" id="UnitNumber" formControlName="UnitNumber" />
                   <div
-                    *ngIf="UnitForm.get('unitNumber')?.hasError('required')"
+                    *ngIf="UnitForm.get('UnitNumber')?.hasError('required')"
                     style="color: red"
                   >
                     مطلوب رقم الوحدة.
@@ -29,14 +29,14 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group" style="display: grid">
-                  <label for="floor">الطابق</label>
+                  <label for="Floor">الطابق</label>
                   <textarea
                     rows="1"
                     id="Floor"
-                    formControlName="floor"
+                    formControlName="Floor"
                   ></textarea>
                   <div
-                    *ngIf="UnitForm.get('floor')?.hasError('required')"
+                    *ngIf="UnitForm.get('Floor')?.hasError('required')"
                     style="color: red"
                   >
                   الطابق مطلوب
@@ -47,10 +47,10 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group" style="display: grid">
-                  <label for="description">الوصف</label>
-                  <input type="text" id="description" formControlName="description" />
+                  <label for="Description">الوصف</label>
+                  <input type="text" id="Description" formControlName="Description" />
                   <div
-                    *ngIf="UnitForm.get('description')?.hasError('required')"
+                    *ngIf="UnitForm.get('Description')?.hasError('required')"
                     style="color: red"
                   >
                     الوصف مطلوب.
@@ -59,14 +59,14 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group" style="display: grid">
-                  <label for="numberOfBedrooms">عدد غرف النوم</label>
+                  <label for="NumberOfBedrooms">عدد غرف النوم</label>
                   <input
                     type="number"
-                    id="numberOfBedrooms"
-                    formControlName="numberOfBedrooms"
+                    id="NumberOfBedrooms"
+                    formControlName="NumberOfBedrooms"
                   />
                   <div
-                    *ngIf="UnitForm.get('numberOfBedrooms')?.hasError('required')"
+                    *ngIf="UnitForm.get('NumberOfBedrooms')?.hasError('required')"
                     style="color: red"
                   >
                     مطلوب عدد غرف النوم
@@ -95,14 +95,14 @@
   
               <div class="col-md-6">
                 <div class="form-group" style="display: grid">
-                  <label for="price"> السعر</label>
+                  <label for="Price"> السعر</label>
                   <input
                     type="number"
                     id="Price"
-                    formControlName="price"
+                    formControlName="Price"
                   />
                   <div
-                    *ngIf="UnitForm.get('price')?.hasError('required')"
+                    *ngIf="UnitForm.get('Price')?.hasError('required')"
                     style="color: red"
                   >
                     مطلوب السعر
@@ -113,24 +113,24 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="area">المساحة</label>
+                  <label for="Area">المساحة</label>
                   <input
                     type="number"
-                    id="area"
-                    formControlName="area"
+                    id="Area"
+                    formControlName="Area"
                   />
                   <div
-                    *ngIf="UnitForm.get('area')?.hasError('required')"
+                    *ngIf="UnitForm.get('Area')?.hasError('required')"
                     style="color: red"
                   >
                     مطلوب المساحة
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="bulidingNumber">رقم المبني</label>
-                  <input type="number" id="bulidingNumber" formControlName="bulidingNumber" />
+                  <label for="BulidingNumber">رقم المبني</label>
+                  <input type="number" id="BulidingNumber" formControlName="BulidingNumber" />
                   <div
-                    *ngIf="UnitForm.get('bulidingNumber')?.hasError('required')"
+                    *ngIf="UnitForm.get('BulidingNumber')?.hasError('required')"
                     style="color: red"
                   >
                     مطلوب رقم المبني

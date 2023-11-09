@@ -19,14 +19,14 @@ export class NewunitComponent {
     private route: ActivatedRoute
   ) {
     this.UnitForm = this.formBuilder.group({
-      unitNumber: [0, Validators.required],
-      floor: [0, Validators.required],
-      description: ['', Validators.required],
-      numberOfBedrooms: [0, Validators.required],
+      UnitNumber: [0, Validators.required],
+      Floor: [0, Validators.required],
+      Description: ['', Validators.required],
+      NumberOfBedrooms: [0, Validators.required],
       status: ['', Validators.required],
-      price: [0, Validators.required],
-      area: [0, Validators.required],
-      bulidingNumber: [0, Validators.required],     
+      Price: [0, Validators.required],
+      Area: [0, Validators.required],
+      BulidingNumber: [0, Validators.required],     
     });
   }
   

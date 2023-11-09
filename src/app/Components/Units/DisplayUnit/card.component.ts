@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { UnitDetailsComponent } from '../unit-details/unit-details.component';
-import { GetunitsService } from 'src/app/Services/Units/getunits.service';
 import { Unit } from 'src/app/Models/unit';
 import { FilterServiceService } from 'src/app/Services/FilterServices/filter-service.service';
-import { BuildingsCompoundService } from 'src/app/Services/Building/buildings-compound.service';
 import { ActivatedRoute } from '@angular/router';
+import { GetunitsService } from 'src/app/services/Units/getunits.service';
+import { BuildingsCompoundService } from 'src/app/Services/Building/buildings-compound.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',

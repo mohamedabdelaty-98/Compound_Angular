@@ -5,7 +5,7 @@
     [style.display]="card.page === currentPage ? 'block' : 'none'"
   >
     <div class="head">
-      <h3>{{ unitdata[card.id - 1].bulidingNumber }}</h3>
+      <h3>{{ unitdata[card.id - 1].BulidingNumber }}</h3>
       <button>متاح</button>
     </div>
     <div class="icons">
@@ -17,14 +17,14 @@
           width="30px"
           height="30px"
         />
-        <p>{{ unitdata[card.id - 1].floor }}</p>
+        <p>{{ unitdata[card.id - 1].Floor }}</p>
       </div>
       <div class="icon ico1">
         <img src="assets/Images/1.png" alt="" width="30px" height="30px" />
 
         <img src="assets/images/1.png" alt="" width="30px" height="30px" />
 
-        <p>{{ unitdata[card.id - 1].area }}</p>
+        <p>{{ unitdata[card.id - 1].Area }}</p>
       </div>
       <!-- <div class="icon ico1">
         <span class="material-symbols-outlined"> bed </span>
@@ -32,7 +32,7 @@
       </div> -->
     </div>
     <div class="details">
-      <button mat-button (click)="openDialog(unitdata[card.id - 1].id)">
+      <button mat-button (click)="openDialog(unitdata[card.id - 1].Id)">
         اضغط لتفصيل اكثر
         <!-- <span class="material-symbols-outlined"> arrow_back </span> -->
       </button>

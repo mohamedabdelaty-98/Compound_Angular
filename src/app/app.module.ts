@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {
   FormControl,
   FormGroup,
@@ -56,6 +56,12 @@ import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/ne
 import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-buildings/get-all-buildings.component';
 import { EditBuildingComponent } from './Components/Admin/Building/edit-building/edit-building.component';
 import { DeleteBuildingComponent } from './Components/Admin/Building/delete-building/delete-building.component';
+import { DeleteunitComponent } from './Components/Admin/Unit/deleteunit/deleteunit.component';
+import { NewunitComponent } from './Components/Admin/Unit/newunit/newunit.component';
+import { EditunitComponent } from './Components/Admin/Unit/editunit/editunit.component';
+import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallunit.component';
+import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +95,7 @@ import { DeleteBuildingComponent } from './Components/Admin/Building/delete-buil
     EditCompoundComponent,
     GetCompoundsComponent,
 
- NewunitComponent,
+    NewunitComponent,
     EditunitComponent,
     GetallunitComponent,
 
@@ -97,6 +103,7 @@ import { DeleteBuildingComponent } from './Components/Admin/Building/delete-buil
     GetAllBuildingsComponent,
     EditBuildingComponent,
     DeleteBuildingComponent,
+    DeleteunitComponent,
   ],
   imports: [
     BrowserModule,

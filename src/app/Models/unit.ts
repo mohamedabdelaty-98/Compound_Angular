@@ -4,14 +4,14 @@ import { Unitcomponent } from "./unitcomponent";
 
 
 export interface Unit {
-  id: number;
-  unitNumber: number;
-  floor: number;
-  description: string;
-  numberOfBedrooms: number;
-  price: number;
-  area: number;
+  Id: number;
+  UnitNumber: number;
+  Floor: number;
+  Description: string;
+  NumberOfBedrooms: number;
+  Price: number;
+  Area: number;
   status: string;
-  bulidingNumber: number;
+  BulidingNumber: number;
 
 }

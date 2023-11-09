@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Unitcomponent } from 'src/app/Models/unitcomponent';
-import { UnitdetailsService } from 'src/app/Services/unitscomponent/unitdetails.service';
+import { UnitdetailsService } from 'src/app/services/unitscomponent/unitdetails.service';
 
 @Component({
   selector: 'app-unit-details',
