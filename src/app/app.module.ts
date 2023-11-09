@@ -89,7 +89,7 @@ import { DeleteBuildingComponent } from './Components/Admin/Building/delete-buil
     EditCompoundComponent,
     GetCompoundsComponent,
 
-    NewunitComponent,
+ NewunitComponent,
     EditunitComponent,
     GetallunitComponent,
 
