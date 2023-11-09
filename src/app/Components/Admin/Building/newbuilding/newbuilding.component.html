@@ -1,1 +1,186 @@
-<p>newbuilding works!</p>
+<!-- <div class="container">
+  <form onsubmit="AddNewBuilding()"
+  [formGroup]="compoundForm"
+  enctype="multipart/form-data">
+    <div class="mb-3 w-50">
+      <label for="buildingNumber" class="form-label">Building Number</label>
+      <input type="number" class="form-control" id="buildingNumber">
+    </div>
+
+    <div class="mb-3 w-50">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" id="description">
+    </div>
+
+    <div class="mb-3 w-50">
+      <label for="floors" class="form-label"> Number of Floors</label>
+      <input type="number" class="form-control" id="floors">
+    </div>
+
+    <div class="mb-3 w-50">
+      <label for="status" class="form-label">Status</label>
+      <input type="text" class="form-control" id="status">
+    </div>
+
+    <div class="mb-3 w-50">
+      <label for="dateAdded" class="form-label">Date Added</label>
+      <input type="date" class="form-control" id="dateAdded">
+    </div>
+
+    <div class="mb-3 w-50">
+      <label for="area" class="form-label">Area of the building</label>
+      <input type="number" class="form-control" id="area">
+    </div>
+    <div class="mb-3 w-50">
+      <select class="form-select " aria-label="Default select example">
+          <option selected>Compound Name</option>
+          <option *ngFor="let compound of compounddata" value=[compound.id]>{{compound.name}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Add</button>
+  </form>
+</div> -->
+
+<div style="display: flex; justify-content: center">
+  <div
+    class="container"
+    style="align-items: center; margin-bottom: 5%; margin-top: 5%"
+  >
+    <div class="row" style="display: flex; justify-content: center">
+      <div class="child col-lg-5 mb-9" id="map">
+        <div class="map" style="margin-top: 10%">
+          <div id="map" style="width: 50%; height: 400px"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <form
+          style="width: -webkit-fill-available; margin: 3%"
+          (submit)="AddnewBuilding()"
+            [formGroup]="BuildingForm"
+          enctype="multipart/form-data"
+          dir="rtl"
+        >
+          <div class="row">
+            <div class="col-md-6" style="direction: rtl">
+              <div class="form-group" style="display: grid">
+                <label for="bulidingNumber">رقم المبني</label>
+                <input type="number" id="bulidingNumber" formControlName="bulidingNumber" />
+                <div
+                  *ngIf="BuildingForm.get('bulidingNumber')?.hasError('required')"
+                  style="color: red"
+                >
+                  مطلوب رقم المبني .
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" style="display: grid">
+                <label for="Description">الوصف</label>
+                <textarea
+                  rows="1"
+                  id="Description"
+                  formControlName="Description"
+                ></textarea>
+                <div
+                  *ngIf="BuildingForm.get('Description')?.hasError('required')"
+                  style="color: red"
+                >
+                  الوصف مطلوب.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6" >
+              <div class="form-group" style="display: grid">
+                <label for="numberOfFloor">عدد الادوار</label>
+                <input type="number" id="numberOfFloor" formControlName="numberOfFloor" />
+                <div
+                  *ngIf="BuildingForm.get('numberOfFloor')?.hasError('required')"
+                  style="color: red"
+                >
+                عدد الادوار مطلوب .
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" style="display: grid">
+                <label for="status">الحاله</label>
+                <input type="text" id="status" formControlName="status" />
+                <div
+                  *ngIf="BuildingForm.get('status')?.hasError('required')"
+                  style="color: red"
+                >
+                حالة المبني مطلوبة .
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6" style="direction: rtl">
+              <div class="form-group" style="display: grid">
+                <label for="sizeArea">مساحة المبني  </label>
+                <input type="number" id="sizeArea"
+                formControlName="sizeArea" />
+                <div
+                  *ngIf="BuildingForm.get('sizeArea')?.hasError('required')"
+                  style="color: red"
+                >
+                  مساحة المبني مطلوبة.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+  <div class="form-group" style="display: grid">
+    <label for="compoundId">اسم المشروع</label>
+    <select class="form-select" aria-label="Default select example" id="compoundId" formControlName="compoundId">
+      <option value="" disabled selected>Select a project</option>
+      <option *ngFor="let compound of compounddata" [value]="compound.id">{{ compound.name }}</option>
+    </select>
+    <div *ngIf="BuildingForm.get('compoundId')?.hasError('required')" style="color: red">
+      اسم المشروع مطلوب
+    </div>
+  </div>
+</div>
+            </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="dateAdded">توقيت الإضافه</label>
+                <input
+                  type="datetime-local"
+                  id="dateAdded"
+                  formControlName="dateAdded"
+                />
+                <div
+                  *ngIf="BuildingForm.get('dateAdded')?.hasError('required')"
+                  style="color: red"
+                >
+                  التوقيت مطلوب
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <button
+              type="submit"
+              style="
+                border-radius: 40px;
+                background-color: rgba(133, 104, 73, 1);
+                width: 30%;
+              "
+            >
+              تاكيد
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

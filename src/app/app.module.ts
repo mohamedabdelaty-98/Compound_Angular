@@ -52,6 +52,9 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
+import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-buildings/get-all-buildings.component';
+import { EditBuildingComponent } from './Components/Admin/Building/edit-building/edit-building.component';
+import { DeleteBuildingComponent } from './Components/Admin/Building/delete-building/delete-building.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -90,6 +93,9 @@ import { NewCompoundComponent } from './DashBoard/AdminSahboard/new-compound/new
     EditCompoundComponent,
     GetCompoundsComponent,
     NewbuildingComponent,
+    GetAllBuildingsComponent,
+    EditBuildingComponent,
+    DeleteBuildingComponent,
     AuthInterceptorComponent,
   ],
   imports: [
