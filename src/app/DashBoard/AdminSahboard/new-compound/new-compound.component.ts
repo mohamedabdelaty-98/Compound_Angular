@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewCompoundService } from 'src/app/Services/CompoundServices/new-compound.service';
 import * as L from 'leaflet';
 import { ActivatedRoute } from '@angular/router';
+import { NewCompoundService } from 'src/app/services/CompoundServices/new-compound.service';
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
@@ -47,44 +47,42 @@ export class NewCompoundComponent implements OnInit {
       } else {
         this.marker = L.marker(e.latlng).addTo(this.map);
       }
+  // Access latitude and longitude from e.latlng.lat and e.latlng.lng
+  const latitude = e.latlng.lat;
+  const longitude = e.latlng.lng;
+});
+}
 
-      // Access latitude and longitude from e.latlng.lat and e.latlng.lng
-      const latitude = e.latlng.lat;
-      const longitude = e.latlng.lng;
-      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-    });
-  }
+onFileChange(event: any) {
+this.File = event.target.files[0];
+}
 
-  onFileChange(event: any) {
-    this.File = event.target.files[0];
-  }
+onSubmit() {
+console.log('hello');
+if (this.compoundForm.valid) {
+  console.log('valid');
 
-  onSubmit() {
-    console.log('hello');
-    if (this.compoundForm.valid) {
-      console.log('valid');
-
-      const compoundData = new FormData();
-      for (const key in this.compoundForm.value) {
-        if (key !== 'File') {
-          compoundData.append(key, this.compoundForm.value[key]);
-        }
-      }
-      if (this.File) {
-        compoundData.append('File', this.File);
-      }
-      console.log(compoundData);
-
-      this.compoundService.createCompound(compoundData).subscribe(
-        (response) => {
-          console.log('Compound created:', response);
-        },
-        (error) => {
-          console.error('Error creating compound:', error);
-        }
-      );
-    } else {
-      console.log('notValid');
+  const compoundData = new FormData();
+  for (const key in this.compoundForm.value) {
+    if (key !== 'File') {
+      compoundData.append(key, this.compoundForm.value[key]);
     }
   }
+  if (this.File) {
+    compoundData.append('File', this.File);
+  }
+  console.log(compoundData);
+  console.log(compoundData);
+
+  this.compoundService.createCompound(compoundData).subscribe(
+    (response) => {
+      console.log('Compound created:', response);
+    },
+    (error) => {
+      console.error('Error creating compound:', error);
+    }
+  );
+} else {
+  console.log('notValid');
+}}
 }

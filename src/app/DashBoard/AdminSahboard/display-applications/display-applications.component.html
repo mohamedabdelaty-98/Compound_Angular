@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 style="direction: rtl;">الطلبات المقدمة</h2>
+    <table class="table table-bordered table-hover table-responsive py-5" style="direction: rtl;">
+      <thead>
+        <tr class="bg-success">
+          <th style="font-family: 'Almarai', sans-serif !important;">الرقم</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">رقم الهوية</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">الإسم</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">رقم الهاتف</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">الميزانية</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">رقم الدور</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">رقم المستخدم التعريفي</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">البريد الالكتروني</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of applications">
+          <td>{{application.id}}</td>
+          <td>{{application.ssn}}</td>
+          <td>{{application.name}}</td>
+          <td>{{application.phoneNumber}}</td>
+          <td>{{application.budget}}</td>
+          <td>{{application.floorNumber}}</td>
+          <td>{{application.userId}}</td>
+          <td>{{application.contactEmail}}</td>
+
+        </tr>      
+      </tbody>
+    </table>
+  </div>

@@ -45,6 +45,8 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { DisplayApplicationsComponent } from './AdminSahboard/display-applications/display-applications.component';
+import { DisplayCompoundsComponent } from './AdminSahboard/display-compounds/display-compounds.component';
 
 const APP_CONTAINERS = [
   DefaultHeaderComponent,
@@ -52,7 +54,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [DashBoardComponent, ...APP_CONTAINERS],
+  declarations: [DashBoardComponent, ...APP_CONTAINERS, DisplayApplicationsComponent, DisplayCompoundsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,0 +1,44 @@
+<div class="container">
+    <h2 style="direction: rtl;">المشاريع</h2>
+    <table class="table table-bordered table-hover table-responsive py-5" style="direction: rtl;">
+      <thead>
+        <tr class="bg-success">
+          <th style="font-family: 'Almarai', sans-serif !important;">الرقم</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">الإسم</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">التوصيف</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">العنوان</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">خطوط الطول</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">خطوط العرض</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">تاريخ الإضافه</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">الفايل</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">مساحة الشوارع</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">المساحات الخضراء</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">المساحات المبنية</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">المدينة</th>
+          <th style="font-family: 'Almarai', sans-serif !important;">الحذف</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compounds of compounds">
+          <td>{{compounds.id}}</td>
+          <td>{{compounds.name}}</td>
+          <td>{{compounds.description}}</td>
+          <td>{{compounds.address}}</td>
+          <td>{{compounds.latitude}}</td>
+          <td>{{compounds.longitute}}</td>
+          <td>{{compounds.dateAdded}}</td>
+          <td>
+            <button (click)="download(compounds.id)" class="btn btn1 btn-success">الملف</button>
+        </td>
+          <td>{{compounds.street_area}}</td>
+          <td>{{compounds.greenArea}}</td>
+          <td>{{compounds.buildingArea}}</td>
+          <td>{{compounds.location}}</td>
+          <td>
+            <button (click)="delete(compounds.id)" class="btn btn1 btn-success">حذف</button>
+        </td>
+            </tr>      
+      </tbody>
+    </table>
+  </div>

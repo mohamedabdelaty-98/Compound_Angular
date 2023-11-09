@@ -1,37 +1,29 @@
 <div class="container">
-  <table class="table table-striped table-hover">
-    <tr>
-      <th>ID</th>
-      <th>Building Number</th>
-      <th>Description</th>
-      <th>Number Of Floors</th>
-      <th>Status</th>
-      <th>Date Added</th>
-      <th>Building Area</th>
-      <th>Compound</th>
-    </tr>
-    <tr *ngFor="let building of buildingdata">
-      <td>{{ building.id }}</td>
-      <td>{{ building.bulidingNumber }}</td>
-      <td>{{ building.description }}</td>
-      <td>{{ building.numberOfFloor }}</td>
-      <td>{{ building.status }}</td>
-      <td>{{ building.dateAdded }}</td>
-      <td>{{ building.sizeArea }}</td>
-      <td>{{ building.compoundId }}</td>
-      <td><button class="btn btn-outline-primary">Edit Building</button></td>
-      <td>
-        <button
-          class="btn btn-outline-danger"
-          (click)="deleteBuilding(building.id)"
-        >
-          Delete Building
-        </button>
-      </td>
-    </tr>
-    <!-- <button class="btn btn-outline-success" (click)="RouteAddBuilding()">Add Building</button> -->
-    <a class="btn btn-outline-success" (click)="RouteAddBuilding()"
-      >Add Building</a
-    >
-  </table>
+  <h2 style="direction: rtl;">المباني</h2>
+
+<table class="table table-bordered table-hover table-responsive py-5" style="direction: rtl;">
+  <tr class="bg-success">
+      <th style="font-family: 'Almarai', sans-serif !important;">الرقم</th>
+      <th style="font-family: 'Almarai', sans-serif !important;"> رقم المبنى</th>
+      <th style="font-family: 'Almarai', sans-serif !important;">التوصيف</th>
+      <th style="font-family: 'Almarai', sans-serif !important;"> عدد الأدوار</th>
+      <th style="font-family: 'Almarai', sans-serif !important;">الحالة</th>
+      <th style="font-family: 'Almarai', sans-serif !important;"> تاريخ الإضافة</th>
+      <th style="font-family: 'Almarai', sans-serif !important;"> مساحة المبنى</th>
+      <th style="font-family: 'Almarai', sans-serif !important;">المشروع</th>
+  </tr>
+  <tr *ngFor="let building of buildingdata">
+    <td>{{building.id}}</td>
+    <td>{{building.bulidingNumber}}</td>
+    <td>{{building.description}}</td>
+    <td>{{building.numberOfFloor}}</td>
+    <td>{{building.status}}</td>
+    <td>{{building.dateAdded}}</td>
+    <td>{{building.sizeArea}}</td>
+    <td>{{building.compoundId}}</td>
+    <td>
+    <button class="btn btn1 btn-success" (click)="deleteBuilding(building.id)">Delete Building</button>
+    </td>
+  </tr>
+</table>
 </div>

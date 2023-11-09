@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ClassToggleService, HeaderComponent } from '@coreui/angular';
 import { Compound } from 'src/app/Models/compound';
@@ -19,7 +20,7 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit {
   public newTasks = new Array(5)
   public newNotifications = new Array(5)
 
-  constructor(private classToggler: ClassToggleService, private compoundService: CompoundService) {
+  constructor(private classToggler: ClassToggleService, private compoundService: CompoundService ,private router:Router) {
     super();
   }
   ngOnInit(): void {
@@ -31,4 +32,6 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit {
 
 
   }
+
+
 }

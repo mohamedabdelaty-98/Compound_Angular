@@ -42,7 +42,6 @@ import { RyalcurrencyPipe } from './Pipes/ryalcurrency.pipe';
 import { BuildingDescriptionComponent } from './Components/BuildingPage/building-description/building-description.component';
 import { ApplicationComponent } from './Components/application/application.component';
 import { FormsModule } from '@angular/forms';
-import { NewCompoundComponent } from './Components/Admin/Compound/new-compound/new-compound.component';
 import * as L from 'leaflet';
 
 import { CompoundbuildingComponent } from './Components/BuildingPage/compoundbuilding/compoundbuilding.component';
@@ -53,10 +52,13 @@ import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashb
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
+import { GetAllBuildingsComponent } from './Components/Admin/Building/get-all-buildings/get-all-buildings.component';
+import { EditBuildingComponent } from './Components/Admin/Building/edit-building/edit-building.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddreviewsComponent } from './Components/Reviews/addreviews/addreviews.component';
+import { NewCompoundComponent } from './DashBoard/AdminSahboard/new-compound/new-compound.component';
 
 @NgModule({
   declarations: [
@@ -86,13 +88,16 @@ import { AddreviewsComponent } from './Components/Reviews/addreviews/addreviews.
     ApplicationComponent,
     CompoundbuildingComponent,
     ServiceBuildingComponent,
-    NewCompoundComponent,
+   NewCompoundComponent,
     DashboardadminComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
     NewbuildingComponent,
     AuthInterceptorComponent,
     AddreviewsComponent,
+    GetAllBuildingsComponent,
+    EditBuildingComponent,
+    AuthInterceptorComponent,
   ],
   imports: [
     BrowserModule,

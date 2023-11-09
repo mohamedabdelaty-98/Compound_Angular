@@ -3,49 +3,23 @@
 <main class="sm-col-8">
   <!-- <h2 mat-dialog-title>Install Angular</h2> -->
   <mat-dialog-content class="mat-typography">
-    <div class="card sm-col-8" data-page="1">
+    <div class="card sm-col-8 p-2" data-page="1">
       <div class="head d-flex justify-content-between">
         <button class="btn btn-success rounded-1 h-25">متاح</button>
         <div>
-          <h2 class="text-dark fw-bold m-0 p-0">A1</h2>
-          <h3 class="text-dark fw-bold">
+          <h3 class=" fw-bold me-auto p-0" style="color: #38271E !important;">A1</h3>
+          <h3 class=" fw-bold ps-2"  style="color: #38271E !important;"> 
             {{ 1500 | ryalcurrency }}
           </h3>
         </div>
       </div>
       <!-- /////////////////////////////unit component/////////////////////////////////////// -->
       <div class="row">
-        <h3 class="text-dark fw-bold" dir="rtl">مكونات الوحدة</h3>
+        <h3 class="fw-bold" dir="rtl"  style="color: #38271E !important;">مكونات الوحدة:</h3>
+        <h3 class=" fw-bold" dir="rtl"  style="color: #38271E !important;">مجلس نساء + مجلس رجال + غرفة معيشة + 2 غرفة نوم + دورة مياه + مطبخ</h3>
+
       </div>
-      <div class="icons container" dir="rtl">
-        <div class="row">
-          <div class="icon ico1 col-sm-6">
-            <img
-              src="assets/images/iconunit_2.jpg"
-              alt=""
-              width="30px"
-              height="30px"
-            />
-            <p>{{ unitcomponentdata[0].name }}</p>
-            <p col-sm-2></p>
-          </div>
-          <div class="icon ico1 col-sm-6">
-            <img
-              src="assets/images/iconunit_1.png"
-              alt=""
-              width="30px"
-              height="30px"
-            />
-            <p>{{ unitcomponentdata[0].name }}:</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="icon ico1 col-sm-6">
-            <!-- <span class="material-symbols-outlined"> </span> -->
-            <p>غرف النوم:</p>
-          </div>
-        </div>
-      </div>
+ 
 
       <!-- ////////////////////////////////////Form//////////////////////////////////////////////////////// -->
       <div class="row">
@@ -57,7 +31,7 @@
         >
           <div class="row">
             <div class="mb-3 col-lg-6 col-sm-8">
-              <label for="name" class="form-label ms-5">الاسم</label>
+              <label for="name" class="form-label ms-5"  style="color: #38271E !important;">الاسم</label>
               <input
                 type="text"
                 class="form-control w-75 ms-5"
@@ -80,24 +54,25 @@
               </div>
             </div>
             <div class="mb-3 col-lg-6 col-sm-8">
-              <label for="PhoneNumber" class="form-label ms-5"
+              <label for="phoneNumber" class="form-label ms-5"
                 >رقم الجوال</label
               >
               <input
                 type="tel"
                 class="form-control w-75 ms-5"
-                id="PhoneNumber"
-                formControlName="PhoneNumber"
+                id="phoneNumber"
+                formControlName="phoneNumber"
+                style="color: #38271E !important;"
               />
               <div
-                *ngIf="form.get('PhoneNumber')?.hasError('required')"
+                *ngIf="form.get('phoneNumber')?.hasError('required')"
                 style="color: red"
                 class="ms-5"
               >
                 الرقم مطلوب
               </div>
               <div
-                *ngIf="form.get('PhoneNumber')?.hasError('pattern')"
+                *ngIf="form.get('phoneNumber')?.hasError('pattern')"
                 style="color: red"
                 class="ms-5"
               >
@@ -105,26 +80,65 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="mb-3 col-lg-6 col-sm-8">
-              <label for="email" class="form-label ms-5"
+              <label for="ssn" class="form-label ms-5"  style="color: #38271E !important;">الرقم الشخصي</label>
+              <input
+                type="text"
+                class="form-control w-75 ms-5"
+                id="ssn"
+                formControlName="ssn"
+              />
+              <div
+                *ngIf="form.get('ssn')?.hasError('required')"
+                style="color: red"
+                class="ms-5"
+              >
+            الرقم الشخصي مطلوب 
+             </div>
+            </div>
+            <div class="mb-3 col-lg-6 col-sm-8">
+              <label for="floorNumber" class="form-label ms-5"  style="color: #38271E !important;"
+                >عدد الأدوار</label
+              >
+              <input
+                type="tel"
+                class="form-control w-75 ms-5"
+                id="floorNumber"
+                formControlName="floorNumber"
+              />
+              <div
+                *ngIf="form.get('floorNumber')?.hasError('required')"
+                style="color: red"
+                class="ms-5"
+              >
+                عدد الأدوار مطلوب
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="mb-3 col-lg-6 col-sm-8">
+              <label for="contactEmail" class="form-label ms-5"  style="color: #38271E !important;"
                 >البريد الإلكتروني</label
               >
               <input
                 type="email"
                 class="form-control w-75 ms-5"
-                id="email"
-                formControlName="email"
+                id="contactEmail"
+                formControlName="contactEmail"
               />
               <div
-                *ngIf="form.get('email')?.hasError('required')"
+                *ngIf="form.get('contactEmail')?.hasError('required')"
                 style="color: red"
                 class="ms-5"
               >
                 البريد الإلكتروني مطلوب
               </div>
               <div
-                *ngIf="form.get('email')?.hasError('email')"
+                *ngIf="form.get('contactEmail')?.hasError('email')"
                 style="color: red"
                 class="ms-5"
               >
@@ -132,7 +146,7 @@
               </div>
             </div>
             <div class="mb-3 col-lg-6 col-sm-8">
-              <label for="budget" class="form-label ms-5">الميزانية</label>
+              <label for="budget" class="form-label ms-5"  style="color: #38271E !important;">الميزانية</label>
               <input
                 type="text"
                 class="form-control w-75 ms-5"
@@ -158,15 +172,17 @@
           <div class="d-flex justify-content-center">
             <button
               type="submit"
-              [disabled]="form.invalid"
               class="btn btn-outline-warning w-25"
+              style="color: #38271E !important;"
             >
               سجل
             </button>
             <button
+            style="color: #38271E !important;"
               class="btn btn-outline-warning ms-3 w-25"
               mat-button
               mat-dialog-close
+              
             >
               اغلاق
             </button>

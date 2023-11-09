@@ -26,6 +26,14 @@
   font-size: 17px;
 }
 .rtl-text {
-  direction: rtl; /* Apply right-to-left text direction */
-  text-align: left; /* Set text alignment to left (start) */
+  direction: rtl; 
+  text-align: left;
+}
+
+
+*{
+  font-family: 'Almarai', sans-serif;
+  color: #38271E;
+
+
 }
