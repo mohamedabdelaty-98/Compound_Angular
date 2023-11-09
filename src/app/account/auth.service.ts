@@ -34,6 +34,14 @@ export class AuthService {
         ] || ''
       : '';
   }
+  getUserName(): string {
+    const decodedToken = this.getTokenDecoded();
+    return decodedToken
+      ? (decodedToken as any)[
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'
+        ] || ''
+      : '';
+  }
 
   // get all user roles
   getUserRoles(): string[] {

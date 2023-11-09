@@ -24,7 +24,7 @@ export class LoginComponent {
   PasswordRequired = false;
   confirmPasswordRequired = false;
   user!: UserLogin;
-  role: string[] = this.authService.getUserRoles();
+
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
@@ -57,9 +57,12 @@ export class LoginComponent {
               expires: tokenExpiration,
               path: '',
             });
-            if (this.role.includes('Admin'))
-              this.router.navigate(['x/dashboard']);
-            else this.router.navigate(['']);
+            let role: string[] = this.authService.getUserRoles();
+            if (role.includes('Admin')) this.router.navigate(['x/dashboard']);
+            else {
+              this.check();
+              this.router.navigate(['']);
+            }
           },
           error: (err) => {
             this.errorMessage =
@@ -80,5 +83,8 @@ export class LoginComponent {
       //   this.confirmPasswordRequired=true;
       // }
     }
+  }
+  check() {
+    console.log(this.authService.getTokenDecoded());
   }
 }

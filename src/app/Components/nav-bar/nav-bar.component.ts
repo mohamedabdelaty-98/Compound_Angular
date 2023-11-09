@@ -4,7 +4,9 @@ import {
   ElementRef,
   Renderer2,
   OnInit,
+  ChangeDetectorRef,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import * as AOS from 'aos';
 import { AuthService } from 'src/app/account/auth.service';
 
@@ -15,16 +17,16 @@ import { AuthService } from 'src/app/account/auth.service';
 })
 export class NavBarComponent implements OnInit {
   scrolled: boolean = false;
-  isAuthenticated: boolean = this.authService.isAuthenticated();
+  username: string | undefined;
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
-    private authService: AuthService
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {}
   ngOnInit(): void {
     AOS.init();
-    console.log(this.isAuthenticated);
-    console.log(this.authService.getToken());
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -33,7 +35,18 @@ export class NavBarComponent implements OnInit {
       window.pageYOffset || document.documentElement.scrollTop;
     this.scrolled = scrollPosition > 0;
   }
-  logout() {
+  logoutgg() {
     this.authService.logout();
+    // Manually trigger change detection to update isAuthenticated
+    this.cdr.detectChanges();
+  }
+  isauthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+  getusernamefromtoken(): string {
+    return this.authService.getUserName();
+  }
+  getrouter() {
+    this.router.navigate(['x/dashboard']);
   }
 }
