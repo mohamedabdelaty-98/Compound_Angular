@@ -12,7 +12,7 @@ import { GitFloorsService } from 'src/app/Services/Units/git-floors.service';
 })
 export class FilterComponent {
   compoundid: number = 0;
-  floorsdata: string[] = ['-الكل-'];
+  floorsdata: string[] = [];
   buildingnumberdata: string[] = [];
   bedroomsnumberdata: string[] = [];
   unitareadata: string[] = [

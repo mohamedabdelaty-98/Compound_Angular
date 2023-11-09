@@ -52,11 +52,18 @@ import { DashBoardModule } from './DashBoard/app.module';
 import { DashboardadminComponent } from './Components/Admin/dashboardadmin/dashboardadmin.component';
 import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound/edit-compound.component';
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
+import { NewbuildingComponent } from './Components/Admin/Building/newbuilding/newbuilding.component';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthInterceptorComponent } from './account/auth-interceptor/auth-interceptor.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+<<<<<<< HEAD
 import { BuildingImagesComponent } from './Components/building-images/building-images.component';
 import { NewunitComponent } from './Components/Admin/Unit/newunit/newunit.component';
 import { EditunitComponent } from './Components/Admin/Unit/editunit/editunit.component';
 import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallunit.component';
+=======
+>>>>>>> 80d4d682e385f5d262312ed081a34edcaba9b2f7
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,12 +94,16 @@ import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallun
     ServiceBuildingComponent,
     NewCompoundComponent,
     DashboardadminComponent,
-    BuildingImagesComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
+<<<<<<< HEAD
     NewunitComponent,
     EditunitComponent,
     GetallunitComponent,
+=======
+    NewbuildingComponent,
+    AuthInterceptorComponent,
+>>>>>>> 80d4d682e385f5d262312ed081a34edcaba9b2f7
   ],
   imports: [
     BrowserModule,
@@ -107,7 +118,14 @@ import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallun
     FormsModule,
     DashBoardModule,
   ],
-  providers: [DownloadFileService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorComponent,
+      multi: true,
+    },
+    DownloadFileService,
+    CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

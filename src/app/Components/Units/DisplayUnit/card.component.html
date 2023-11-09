@@ -5,7 +5,7 @@
     [style.display]="card.page === currentPage ? 'block' : 'none'"
   >
     <div class="head">
-      <h3>{{ currentPage }}</h3>
+      <h3>{{ unitdata[card.id - 1].bulidingNumber }}</h3>
       <button>متاح</button>
     </div>
     <div class="icons">
@@ -17,14 +17,14 @@
           width="30px"
           height="30px"
         />
-        <p>الارضي</p>
+        <p>{{ unitdata[card.id - 1].floor }}</p>
       </div>
       <div class="icon ico1">
         <img src="assets/Images/1.png" alt="" width="30px" height="30px" />
 
         <img src="assets/images/1.png" alt="" width="30px" height="30px" />
 
-        <p>180.03</p>
+        <p>{{ unitdata[card.id - 1].area }}</p>
       </div>
       <!-- <div class="icon ico1">
         <span class="material-symbols-outlined"> bed </span>
@@ -32,21 +32,13 @@
       </div> -->
     </div>
     <div class="details">
-      <button mat-button (click)="openDialog()">
+      <button mat-button (click)="openDialog(unitdata[card.id - 1].id)">
         اضغط لتفصيل اكثر
         <!-- <span class="material-symbols-outlined"> arrow_back </span> -->
       </button>
     </div>
   </div>
 </main>
-
-<div class="pagination">
-  <a id="before" (click)="previousPage()">السابق</a>
-  <a id="page-1" [class.active]="currentPage === 1" (click)="showPage(1)">1</a>
-  <a id="page-2" [class.active]="currentPage === 2" (click)="showPage(2)">2</a>
-  <a id="page-3" [class.active]="currentPage === 3" (click)="showPage(3)">3</a>
-  <a id="next" (click)="nextPage()">التالي</a>
-</div>
 
 <div class="pagination">
   <a id="before" (click)="previousPage()">السابق</a>

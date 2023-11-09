@@ -1,158 +1,105 @@
-
-
-
-<!-- <div class="d-flex justify-content-center " style="margin-bottom:2% ;margin-top: 8%;">
-    <div class="container_reg col-7 mt-4 mb-6" style="padding-bottom:2% ;background-color: #E1AF62;
-    color: #38271E">
-        <div class="title" style="color: #38271E">التسجيل</div>
-        <div class="content">
-            <form method="post" [formGroup]="RegisterationValidation" (ngSubmit)="Add()">
-               
-                <input type="hidden" name="ReturnUrl"  />
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
-                        <label class="details" for="SSN">رقم المستخدم</label>
-                        <input style="grid-auto-rows: min-content;" formControlName="SSN" name="SSN" placeholder="أدخل رقم المستخدم الخاص بك" required>
-                        <div *ngIf="!SSNValid" class="error-message">رقم المستخدم غير صالح</div>
-                    </div>
-                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
-                            <label class="details" for="Email">بريد إلكتروني</label>
-                            <input style="grid-auto-rows: min-content;" formControlName="email" for="Email" placeholder="أدخل بريد إلكتروني الخاص بك" required>
-                            <div *ngIf="!EmailValid" class="error-message">البريد الإلكتروني غير صالح</div>
-                        </div>
-                    </div>
-                    
-
-                  
-                    <div class="row">
-                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
-                            <label class="details" for="name">الاسم</label>
-                            <input style="grid-auto-rows: min-content;" formControlName="name" for="name" placeholder="أدخل كلمة المرور الخاص بك" required>
-                            <div *ngIf="!NameValid" class="error-message">الاسم غير صالح</div>
-                        </div>
-                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
-                            <label class="details" for="Budget"> ميزانية </label>
-                            <input [value]="0" style="grid-auto-rows: min-content;" formControlName="Budget" for="Budget"  placeholder="أدخل ميزانية الخاص بك" required>
-                            <div *ngIf="!BudgetValid" class="error-message"> الميزانية غير صالحة</div>
-                        </div>
-                    </div>
-
-
-                  
-
-                    <div class="row">
-                        <div class="col-md-6" style="display: grid;margin-bottom: 3%;">
-                            <label class="details"for="PhoneNumber">رقم التليفون</label>
-                            <input [value]="0" style="grid-auto-rows: min-content;" formControlName="number" for="PhoneNumber" placeholder="أدخل رقم التليفون الخاص بك" required>
-                            <div *ngIf="!NumberValid" class="error-message">الرقم غير صالح</div>
-                        </div>
-                        <div class="col-md-6"style="display: grid;margin-bottom: 3%;">
-                            <label class="details" for="DateOfBirth">رقم الدور</label>
-                        <input [value]="0" style="grid-auto-rows: min-content;" formControlName="FON" for="DateOfBirth" placeholder="أدخل رقم الدور المهتم به" required>
-                            <div *ngIf="!FONValid" class="error-message">رقم الدور غير صالح</div>
-                     </div>
-                    </div>
-
-                    
+<div id="booking" class="section">
+    <div class="section-center">
+      <div class="container">
+        <div class="row">
+          <div class="booking-form" style="background: rgba(133, 104, 73, 0.33)">
+            <div class="booking-bg">
+              <div class="form-header">
+                <h2>قم بحجز وحدة متميزة</h2>
+              </div>
+            </div>
+            <form [formGroup]="ApplicationForm" (ngSubmit)="Add()">
+              <div class="row">
+                <div class="col-md-6" style="direction: rtl">
+                  <label class="details" for="ssn">الرقم الشخصى</label>
+                  <input
+                    type="text"
+                    style="transition: all 0.2s; grid-auto-rows: min-content; border-radius: 5%;"
+                    formControlName="ssn"
+                    name="ssn"
+                    id="ssn"
+                    placeholder="أدخل الرقم الشخصى الخاص بك"
+                  />
+                  <div *ngIf="ApplicationForm.get('ssn')?.hasError('required')" style="color:red" class="ms-5">الاسم غير صالح يجب أن لا يقل عن 3 حروف</div>
+                  <div *ngIf="ApplicationForm.get('ssn')?.hasError('maxlength')" style="color:red" class="ms-5">الاسم غير صالح يجب أن لا يقل عن 3 حروف</div>
                 </div>
 
 
+                <div class="col-md-6" style="direction: rtl">
+                  <label class="details" for="contactEmail">بريد إلكتروني</label>
+                  <input
+                    type="email"
+                    style="transition: all 0.2s; grid-auto-rows: min-content; border-radius: 5%;"
+                    formControlName="contactEmail"
+                    for="contactEmail"
+                    placeholder="أدخل بريد إلكتروني الخاص بك"
+                  />
+                  <div *ngIf="ApplicationForm.get('contactEmail')?.hasError('required')" style="color:red" class="ms-5">البريد الإلكتروني مطلوب</div>
+                  <div *ngIf="ApplicationForm.get('contactEmail')?.hasError('email')" style="color:red" class="ms-5">البريد الإلكتروني مطلوب</div>
 
-
-
-
-
-           <div class="button" style="display: flex;justify-content: center;" >
-                    <input type="submit" value="التسجيل"style="background-color:#38271E; color: #E1AF62;">
-    
                 </div>
-    
-    
+              </div>
+              <div class="row">
+                <div class="col-md-6" style="direction: rtl">
+                  <label class="details" for="name">الاسم</label>
+                  <input
+                    type="text"
+                    style="transition: all 0.2s; grid-auto-rows: min-content; border-radius: 5%;"
+                    formControlName="name"
+                    for="name"
+                    placeholder="أدخل اسمك"
+                  />
+                  <div *ngIf="ApplicationForm.get('name')?.hasError('required')" style="color:red" class="ms-5">الاسم مطلوب</div>
+                  <div *ngIf="ApplicationForm.get('name')?.hasError('minlength')" style="color:red" class="ms-5">الاسم غير صالح يجب أن لا يقل عن 3 حروف</div>
+                  <div *ngIf="ApplicationForm.get('name')?.hasError('maxlength')" style="color:red" class="ms-5">الاسم غير صالح يجب أن لا يزيد عن 12 حرف</div>
+                </div>
+                <div class="col-md-6" style="direction: rtl">
+                  <label class="details" for="budget">ميزانية</label>
+                  <input
+                    type="number"
+                    style="grid-auto-rows: min-content"
+                    formControlName="budget"
+                    for="budget"
+                    placeholder="أدخل ميزانيتك"
+                  />
+                  <div *ngIf="ApplicationForm.get('budget')?.hasError('required')" style="color:red" class="ms-5">الميزانية مطلوبة</div>
+                  <div *ngIf="ApplicationForm.get('budget')?.hasError('min')" style="color:red" class="ms-5">الميزانية غير صالحة</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6" style="direction: rtl">
+                  <label class="details" for="phoneNumber">رقم التليفون</label>
+                  <input
+                    type="text"
+                    style="transition: all 0.2s; grid-auto-rows: min-content; border-radius: 5%;"
+                    formControlName="phoneNumber"
+                    for="phoneNumber"
+                    placeholder="أدخل رقم التليفون الخاص بك"
+                  />
+                  <div *ngIf="ApplicationForm.get('phoneNumber')?.hasError('required')" style="color:red" class="ms-5">الرقم مطلوب</div>
+                  <div *ngIf="ApplicationForm.get('phoneNumber')?.hasError('pattern')" style="color:red" class="ms-5">الرقم غير صالح</div>
+                </div>
+                <div class="col-md-6" style="direction: rtl">
+                  <label class="details" for="floorNumber">رقم الدور</label>
+                  <input
+                    type="number"
+                    style="transition: all 0.2s; grid-auto-rows: min-content; border-radius: 5%;"
+                    formControlName="floorNumber"
+                    for="floorNumber"
+                    placeholder="أدخل رقم الدور المهتم به"
+                  />
+                  <div *ngIf="ApplicationForm.get('floorNumber')?.hasError('required')" style="color:red" class="ms-5">الرقم مطلوب</div>
+                  <div *ngIf="ApplicationForm.get('floorNumber')?.hasError('minlength')" style="color:red" class="ms-5">أقل عدد للدور الدور الأول</div>
+                  <div *ngIf="ApplicationForm.get('floorNumber')?.hasError('maxlength')" style="color:red" class="ms-5">أقصى عدد للأدوار الدور الخامس</div>
+                </div>
+              </div>
+              <div class="form-btn" style="display: flex; justify-content: center">
+                <button class="submit-btn" style="width: 50%; height: auto" type="submit">التسجيل</button>
+              </div>
             </form>
+          </div>
         </div>
+      </div>
     </div>
-    </div> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-
-    <div id="booking" class="section">
-		<div class="section-center">
-			<div class="container">
-				<div class="row">
-					<div class="booking-form" style=" background: rgba(133, 104, 73, 0.33);">
-						<div class="booking-bg">
-							<div class="form-header">
-								<h2>قم بحجز وحدة  متميزة</h2>
-								<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p> -->
-							</div>
-						</div>
-						<form method="post" [formGroup]="RegisterationValidation" (ngSubmit)="Add()">
-							<div class="row">
-								<div class="col-md-6" style="direction: rtl;">
-                                    <label class="details" for="SSN">الرقم الشخصى</label>
-                                    <input style="   transition: all 0.2s;
-                                    grid-auto-rows: min-content;border-radius: 5%;" formControlName="SSN" name="SSN" placeholder="أدخل الرقم الشخصى الخاص بك" required>
-                                    <div *ngIf="!SSNValid" class="error-message">الرقم الشخصى غير صالح</div>
-                                
-
-
-									</div>
-								<div class="col-md-6" style="direction: rtl;">
-
-                                    <label class="details" for="Email">بريد إلكتروني</label>
-                                    <input style="  transition: all 0.2s;
-                                    grid-auto-rows: min-content;border-radius: 5%;" formControlName="email" for="Email" placeholder="أدخل بريد إلكتروني الخاص بك" required>
-                                    <div *ngIf="!EmailValid" class="error-message">البريد الإلكتروني غير صالح</div>
-                                
-
-
-									</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6" style="direction: rtl;">
-
-
-
-                                    <label class="details" for="name">الاسم</label>
-                            <input style="  transition: all 0.2s;
-                            grid-auto-rows: min-content;border-radius: 5%;" formControlName="name" for="name" placeholder="أدخل كلمة المرور الخاص بك" required>
-                            <div *ngIf="!NameValid" class="error-message">الاسم غير صالح</div>
-                        
-				        </div>
-								<div class="col-md-6" style="direction: rtl;">
-
-                                    <label class="details" for="Budget"> ميزانية </label>
-                            <input [value]="0" style="grid-auto-rows: min-content;" formControlName="Budget" for="Budget"  placeholder="أدخل ميزانية الخاص بك" required>
-                            <div *ngIf="!BudgetValid" class="error-message"> الميزانية غير صالحة</div>
-                        
-									</div>
-							</div>
-                            <div class="row">
-                                <div class="col-md-6" style="direction: rtl;">
-                                    <label class="details"for="PhoneNumber">رقم التليفون</label>
-                                    <input [value]="0" style="  transition: all 0.2s;
-                                    grid-auto-rows: min-content;border-radius: 5%;" formControlName="number" for="PhoneNumber" placeholder="أدخل رقم التليفون الخاص بك" required>
-                                    <div *ngIf="!NumberValid" class="error-message">الرقم غير صالح</div>
-                               
-                                </div>
-                                <div class="col-md-6" style="direction: rtl;">
-                                    <label class="details" for="DateOfBirth">رقم الدور</label>
-                        <input [value]="0" style="  transition: all 0.2s;
-                        grid-auto-rows: min-content;border-radius: 5%;" formControlName="FON" for="DateOfBirth" placeholder="أدخل رقم الدور المهتم به" required>
-                            <div *ngIf="!FONValid" class="error-message">رقم الدور غير صالح</div>
-                     
-                                </div>
-                            </div>
-							
-							<div class="form-btn" style="display: flex;justify-content: center;">
-								<button class="submit-btn" style="width: 50%;height: auto;">التسجيل</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-    
+  </div>
+  
