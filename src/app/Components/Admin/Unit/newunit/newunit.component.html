@@ -1,0 +1,169 @@
+<div style="display: flex; justify-content: center">
+    <div
+      class="container"
+      style="align-items: center; margin-bottom: 5%; margin-top: 5%"
+    >
+      <div class="row" style="display: flex; justify-content: center">
+        
+        </div>
+  
+        <div class="col-md-6">
+          <form
+            style="width: -webkit-fill-available; margin: 3%"
+            (ngSubmit)="onSubmit()"
+            [formGroup]="UnitForm"
+            enctype="multipart/form-data"
+          >
+            <div class="row">
+              <div class="col-md-6" style="direction: rtl">
+                <div class="form-group" style="display: grid">
+                  <label for="unitNumber">رقم الوحدة</label>
+                  <input type="number" id="unitNumber" formControlName="unitNumber" />
+                  <div
+                    *ngIf="UnitForm.get('unitNumber')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب رقم الوحدة.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group" style="display: grid">
+                  <label for="floor">الطابق</label>
+                  <textarea
+                    rows="1"
+                    id="Floor"
+                    formControlName="floor"
+                  ></textarea>
+                  <div
+                    *ngIf="UnitForm.get('floor')?.hasError('required')"
+                    style="color: red"
+                  >
+                  الطابق مطلوب
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group" style="display: grid">
+                  <label for="description">الوصف</label>
+                  <input type="text" id="description" formControlName="description" />
+                  <div
+                    *ngIf="UnitForm.get('description')?.hasError('required')"
+                    style="color: red"
+                  >
+                    الوصف مطلوب.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group" style="display: grid">
+                  <label for="numberOfBedrooms">عدد غرف النوم</label>
+                  <input
+                    type="number"
+                    id="numberOfBedrooms"
+                    formControlName="numberOfBedrooms"
+                  />
+                  <div
+                    *ngIf="UnitForm.get('numberOfBedrooms')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب عدد غرف النوم
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row" style="display: grid">
+              <div class="col-md-6">
+                <div class="form-group" style="display: grid">
+                  <label for="status">الحالة</label>
+                  <input
+                    type="text"
+                    id="status"
+                    formControlName="status"
+                  />
+                  <div
+                    *ngIf="UnitForm.get('status')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب الحالة
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group" style="display: grid">
+                  <label for="price"> السعر</label>
+                  <input
+                    type="number"
+                    id="Price"
+                    formControlName="price"
+                  />
+                  <div
+                    *ngIf="UnitForm.get('price')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب السعر
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="area">المساحة</label>
+                  <input
+                    type="number"
+                    id="area"
+                    formControlName="area"
+                  />
+                  <div
+                    *ngIf="UnitForm.get('area')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب المساحة
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="bulidingNumber">رقم المبني</label>
+                  <input type="number" id="bulidingNumber" formControlName="bulidingNumber" />
+                  <div
+                    *ngIf="UnitForm.get('bulidingNumber')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب رقم المبني
+                  </div>
+                </div>
+                <!-- <div class="form-group">
+                  <label for="unitcomponents">مكونات الوحدة</label>
+                  <input type="text" id="unitcomponents" formControlName="unitcomponents" />
+                  <div
+                    *ngIf="UnitForm.get('unitcomponents')?.hasError('required')"
+                    style="color: red"
+                  >
+                    مطلوب مكونات الوحدة
+                  </div>
+                </div> -->
+            </div>
+            <div
+              style="display: flex; justify-content: center; align-items: center"
+            >
+              <button
+                type="submit"
+                style="
+                  border-radius: 40px;
+                  background-color: rgba(133, 104, 73, 1);
+                  width: 30%;
+                "
+              >
+                تاكيد
+              </button>
+            </div>
+        </div>
+        </form>  
+        </div>
+    </div>
+  </div>
+  

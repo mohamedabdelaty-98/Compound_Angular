@@ -54,6 +54,9 @@ import { EditCompoundComponent } from './Components/Admin/Compound/edit-compound
 import { GetCompoundsComponent } from './Components/Admin/Compound/get-compounds/get-compounds.component';
 
 import { BuildingImagesComponent } from './Components/building-images/building-images.component';
+import { NewunitComponent } from './Components/Admin/Unit/newunit/newunit.component';
+import { EditunitComponent } from './Components/Admin/Unit/editunit/editunit.component';
+import { GetallunitComponent } from './Components/Admin/Unit/getallunit/getallunit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +90,9 @@ import { BuildingImagesComponent } from './Components/building-images/building-i
     BuildingImagesComponent,
     EditCompoundComponent,
     GetCompoundsComponent,
+    NewunitComponent,
+    EditunitComponent,
+    GetallunitComponent,
   ],
   imports: [
     BrowserModule,

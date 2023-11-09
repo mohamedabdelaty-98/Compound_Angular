@@ -1,14 +1,13 @@
 import { Unitcomponent } from "./unitcomponent";
 
 export interface Unit  {
-    Id: number;
-    UnitNumber: number;
-    Floor:number;
-    Description: string;
-    NumberOfBedrooms: number;
+    id: number;
+    unitNumber: number;
+    floor:number;
+    description: string;
+    numberOfBedrooms: number;
     status:string;
-    Price:number;
-    Area:number;
-    BulidingNumber: number;
-    unitcomponents: Unitcomponent[];
+    price:number;
+    area:number;
+    bulidingNumber: number;
 }
