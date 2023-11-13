@@ -15,9 +15,12 @@ import { ServiceCompoundService } from 'src/app/services/service-compound.servic
 })
 export class EditCompoundComponent implements OnInit {
   compounddata: Compound[] = [];
-  compound: Compound={name:"",id:3,description:"",address:""
-,latitude:0,longitude:0,dateAdded:new Date(23-11-2022),file:""
-,street_area:0,greenArea:0,buildingArea:0,location:""} ;
+  compound: Compound={
+    name: "", id: 3, description: "", address: "",
+    latitude: 0, longitude: 0, dateAdded: new Date(23 - 11 - 2022), file: "",
+    street_area: 0, greenArea: 0, buildingArea: 0, location: "",
+    compoundimages: []
+  } ;
   compoundForm: FormGroup;
   File: File | null = null;
   private map!: L.Map;

@@ -5,15 +5,19 @@ import * as L from 'leaflet';
 import { ActivatedRoute } from '@angular/router';
 import { Compound } from 'src/app/Models/compound';
 import { ServiceCompoundService } from 'src/app/services/service-compound.service';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-new-compound',
   templateUrl: './new-compound.component.html',
   styleUrls: ['./new-compound.component.css'],
 })
 export class NewCompoundComponent implements OnInit {
-  compound: Compound={name:"",id:0,description:"",address:""
-  ,latitude:0,longitude:0,dateAdded:new Date(23-11-2022),file:""
-  ,street_area:0,greenArea:0,buildingArea:0,location:""} ;
+  compound: Compound={
+    name: "", id: 0, description: "", address: "",
+    latitude: 0, longitude: 0, dateAdded: new Date(23 - 11 - 2022), file: "",
+    street_area: 0, greenArea: 0, buildingArea: 0, location: "",
+    compoundimages: []
+  } ;
   // private servicecompoundservice!:ServiceCompoundService;
 
   compoundForm: FormGroup;
@@ -104,31 +108,36 @@ export class NewCompoundComponent implements OnInit {
       }
       console.log(compoundData);
 
-    //   this.compoundService.createCompound(compoundData).subscribe(
+      this.compoundService.createCompound(compoundData).subscribe(
        
-    //     (response) => {
-    //       console.log('Compound created:', response);
-    //     },
-    //     (error) => {
-    //       console.error('Error creating compound:', error);
-    //     }
-    //   );
-    // } else {
-    //   console.log('notValid');
-    // }
+        (response) => {
+          console.log('Compound created:', response);
+          // response.pipe(
+          //   map((response: any) => {
+             response=this.compound;
+              return response; // You can transform the response as needed
+            // }));
+        },
+        (error) => {
+          console.error('Error creating compound:', error);
+        }
+      );
+    } else {
+      console.log('notValid');
+    }
     // //////////////////////////////////////////////////////////
    
     // //////////////////////////////////////////////////////////
     console.log(this.compound.latitude,this.compound.longitude);
     this.compound.latitude=this.latitude;
     this.compound.longitude=this.longitude;
-    this.newCompoundService.createCompound(this.compound,this.longitude,this.latitude)
-    .subscribe((data:any)=>
-    {
-      // this.compound=data;
-      data=this.compound;
-      console.log(this.compound.latitude);
-    });
+    // this.newCompoundService.createCompound(this.compound,this.longitude,this.latitude)
+    // .subscribe((data:any)=>
+    // {
+    //   // this.compound=data;
+    //   data=this.compound;
+    //   console.log(this.compound.latitude);
+    // });
 
 
     
@@ -136,4 +145,4 @@ export class NewCompoundComponent implements OnInit {
 
 
   }
-  }}
+  }
