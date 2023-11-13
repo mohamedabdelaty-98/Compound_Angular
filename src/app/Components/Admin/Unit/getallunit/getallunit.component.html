@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>كل الوحدات </h1>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            
+            <th> الرقم</th>
+            <th>الطابق</th>
+            <th>الوصف</th>
+            <th>عدد غرف النوم</th>
+            <th>الحالة</th>
+            <th>السعر</th>
+            <th>المساحة</th>
+            <th>رقم المبني</th>
+            <th>مكونات الوحدة</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          
+          <tr *ngFor="let item of unitdata">
+            <td>{{item.unitNumber}}</td>
+            <td>{{item.floor}} </td>
+            <td>{{item.description}} </td>
+            <td>{{item.numberOfBedrooms}} </td>
+            <td>{{item.status}} </td>
+            <td>{{item.price}} </td>
+            <td>{{item.area}} </td>
+            <td>{{item.bulidingNumber}} </td>
+          </tr>
+       
+          <!-- Add more rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>

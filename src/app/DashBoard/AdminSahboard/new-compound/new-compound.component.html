@@ -1,0 +1,180 @@
+<div style="display: flex; justify-content: center">
+  <div
+    class="container"
+    style="align-items: center; margin-bottom: 5%; margin-top: 5%"
+  >
+    <div class="row" style="display: flex; justify-content: center">
+      <div class="child col-lg-5 mb-9" id="map">
+        <div class="map" style="margin-top: 10%">
+          <div id="map" style="width: 50%; height: 400px"></div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <form
+          style="width: -webkit-fill-available; margin: 3%"
+          (ngSubmit)="onSubmit()"
+          [formGroup]="compoundForm"
+          enctype="multipart/form-data"
+        >
+          <div class="row">
+            <div class="col-md-6" style="direction: rtl">
+              <div class="form-group" style="display: grid">
+                <label for="Name">اسم</label>
+                <input type="text" id="Name" formControlName="Name" />
+                <div
+                  *ngIf="compoundForm.get('Name')?.hasError('required')"
+                  style="color: red"
+                >
+                مطلوب اسم.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group" style="display: grid">
+              <label for="Description">وصف</label>
+              <textarea
+                rows="1"
+                id="Description"
+                formControlName="Description"
+              ></textarea>
+              <div
+                *ngIf="compoundForm.get('Description')?.hasError('required')"
+                style="color: red"
+              >
+                الوصف مطلوب.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group" style="display: grid">
+              <label for="Address">عنوان</label>
+              <input type="text" id="Address" formControlName="Address" />
+              <div
+                *ngIf="compoundForm.get('Address')?.hasError('required')"
+                style="color: red"
+              >
+              العنوان مطلوب.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group" style="display: grid">
+            <label for="BuildingArea">مساحة المباني</label>
+            <input
+              type="number"
+              id="BuildingArea"
+              formControlName="BuildingArea"
+            />
+            <div
+              *ngIf="compoundForm.get('BuildingArea')?.hasError('required')"
+              style="color: red"
+            >
+              مطلوب مساحة المباني
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="">
+        <div class="col-md-6">
+          <div class="form-group" style="display: grid">
+            <label for="Street_area">مساحة الشوارع</label>
+            <input
+              type="number"
+              id="Street_area"
+              formControlName="Street_area"
+            />
+            <div
+              *ngIf="compoundForm.get('StreetArea')?.hasError('required')"
+              style="color: red"
+            >
+              مطلوب مساحة الشوارع
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group" style="display: grid">
+            <label for="GreenArea">المساحات الخضراء</label>
+            <input
+              type="number"
+              id="GreenArea"
+              formControlName="GreenArea"
+            />
+            <div
+              *ngIf="compoundForm.get('GreenArea')?.hasError('required')"
+              style="color: red"
+            >
+              مطلوب المساحات الخضراء
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="DateAdded">التوقيت</label>
+            <input
+              type="datetime-local"
+              id="DateAdded"
+              formControlName="DateAdded"
+            />
+            <div
+              *ngIf="compoundForm.get('DateAdded')?.hasError('required')"
+              style="color: red"
+            >
+            Datetime is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Location">المكان</label>
+          <input type="text" id="Location" formControlName="Location" />
+          <div
+            *ngIf="compoundForm.get('Location')?.hasError('required')"
+            style="color: red"
+          >
+            Location is required.
+          </div>
+        </div>
+        <div class="form-group" style="display: grid">
+          <label for="File">تحميل الملف</label>
+          <div class="custom-file-input">
+            <label for="File" dir="rtl">اختر ملف</label>
+            <input
+              type="file"
+              id="File"
+              formControlName="File"
+              (change)="onFileChange($event)"
+              class="form-control"
+            />
+          </div>
+          <div
+            *ngIf="compoundForm.get('File')?.hasError('required')"
+            style="color: red"
+          >
+            الملف مطلوب.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center"
+    >
+      <button
+        type="submit"
+        style="
+          border-radius: 40px;
+          background-color: rgba(133, 104, 73, 1);
+          width: 30%;
+        "
+      >
+        تاكيد
+      </button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+<

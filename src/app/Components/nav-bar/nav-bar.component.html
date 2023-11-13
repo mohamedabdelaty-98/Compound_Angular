@@ -24,7 +24,17 @@
             >كومباوند</a
           >
         </li> -->
-
+        <li class="nav-item mx-3">
+          <a
+            class="nav-link btn"
+            tabindex="-1"
+            aria-disabled="true"
+            (click)="getrouter()"
+            *ngIf="isauthenticated() && getrole()"
+          >
+            الإدارة</a
+          >
+        </li>
         <li class="nav-item mx-3">
           <a
             class="nav-link"
@@ -47,7 +57,7 @@
           </a>
         </li>
 
-        <li class="nav-item mx-3">
+        <!--         <li class="nav-item mx-3">
           <a
             class="nav-link"
             routerLink="BuildingPage"
@@ -55,10 +65,31 @@
             aria-disabled="true"
             >المشاريع</a
           >
-        </li>
+        </li> -->
         <li class="nav-item mx-3">
           <a class="nav-link" routerLink="" tabindex="-1" aria-disabled="true"
             >الرئيسية</a
+          >
+        </li>
+
+        <li class="me-auto nav-item mx-3" *ngIf="!isauthenticated()">
+          <a class="nav-link" routerLink="login">تسجيل الدخول</a>
+        </li>
+        <li class="me-auto nav-item" *ngIf="!isauthenticated()">
+          <a class="nav-link" routerLink="register">التسجيل</a>
+        </li>
+        <li class="me-auto nav-item">
+          <a class="nav-link" href="" *ngIf="isauthenticated()"
+            >{{ getusernamefromtoken() }} مرحبا</a
+          >
+        </li>
+        <li class="me-auto nav-item">
+          <a
+            class="nav-link"
+            (click)="logoutgg()"
+            href=""
+            *ngIf="isauthenticated()"
+            >تسجيل الخروج</a
           >
         </li>
       </ul>

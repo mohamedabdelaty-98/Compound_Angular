@@ -14,16 +14,58 @@
     </button>
     <c-header-nav class="d-none d-lg-flex me-auto">
       <c-nav-item>
-        <a cNavLink routerLink="/dashboard" routerLinkActive="active">
-          Dashboard
+        <a cNavLink routerLink="dashboard" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+          الرئيسية
         </a>
       </c-nav-item>
       <c-nav-item>
-        <a cNavLink routerLink="/users" routerLinkActive="active">Users</a>
+        <a cNavLink routerLink="Application" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+         الطلبات المقدمة
+        </a>
       </c-nav-item>
       <c-nav-item>
-        <a cNavLink routerLink="/settings" routerLinkActive="active">
-          Settings
+        <a cNavLink routerLink="Compound" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+          المشاريع
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="AddCompound" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+          اضافة المشاريع
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="Buildings" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+          المباني
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="AddBuilding" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+         إضافة مباني
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="Application" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+          الوحدات
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="Application" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+         إضافة وحدات
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="Application" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+         اضافة صور للمشاريع
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="Application" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+          اضافة صور للمباني
+        </a>
+      </c-nav-item>
+      <c-nav-item>
+        <a cNavLink routerLink="Application" routerLinkActive="active" style="font-family: 'Almarai', sans-serif !important;">
+        اضافة صور للوحدات
         </a>
       </c-nav-item>
     </c-header-nav>
@@ -70,7 +112,7 @@
         cTextColor="primary"
         shape="rounded-1"
         size="md"
-        src="./assets/img/avatars/8.jpg"
+        src="./assets/img/avatars/iconProfile.png"
         status="success"
       >
       </c-avatar>
@@ -82,36 +124,15 @@
       <li>
         <a routerLink="./" cDropdownItem>
           <svg cIcon class="me-2" name="cilBell"></svg>
-          Updates
-          <c-badge class="ms-2 float-end" color="info">
-            42
-          </c-badge>
+          Applications
         </a>
       </li>
       <li>
         <a routerLink="./" cDropdownItem>
-          <svg cIcon class="me-2" name="cilEnvelopeOpen"></svg>
-          Messages
-          <c-badge class="ms-2 float-end" color="success">
-            42
-          </c-badge>
-        </a>
-      </li>
-      <li>
-        <a routerLink="./" cDropdownItem>
-          <svg cIcon class="me-2" name="cilTask"></svg>
-          Tasks
-          <c-badge class="ms-2 float-end" color="danger">
-            42
-          </c-badge>
-        </a>
-      </li>
-      <li>
-        <a routerLink="./" cDropdownItem>
-          <svg cIcon class="me-2" name='cilCommentSquare'></svg>
-          Comments
-          <c-badge class="ms-auto" color="warning">
-            42
+          <svg cIcon class="me-2" name="cilFile"></svg>
+          Projects
+          <c-badge class="ms-2 float-end" color="primary">
+            {{numOfCompounds}}
           </c-badge>
         </a>
       </li>
@@ -132,30 +153,12 @@
         </a>
       </li>
       <li>
-        <a routerLink="./" cDropdownItem>
-          <svg cIcon class="me-2" name="cilCreditCard"></svg>
-          Payments
-          <c-badge class="ms-2 float-end" color="secondary">
-            42
-          </c-badge>
-        </a>
-      </li>
-      <li>
-        <a routerLink="./" cDropdownItem>
-          <svg cIcon class="me-2" name="cilFile"></svg>
-          Projects
-          <c-badge class="ms-2 float-end" color="primary">
-            42
-          </c-badge>
-        </a>
-      </li>
-      <li>
         <hr cDropdownDivider/>
       </li>
       <li>
         <a routerLink="./" cDropdownItem>
           <svg cIcon class="me-2" name="cilLockLocked"></svg>
-          Lock Account
+          Logout
         </a>
       </li>
       <li></li>

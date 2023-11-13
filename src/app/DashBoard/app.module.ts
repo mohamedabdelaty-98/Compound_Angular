@@ -18,7 +18,7 @@ import { DashBoardComponent } from './app.component';
 
 // Import containers
 import {
-  DefaultFooterComponent,
+ 
   DefaultHeaderComponent,
   DefaultLayoutComponent,
 } from './containers';
@@ -45,15 +45,16 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { DisplayApplicationsComponent } from './AdminSahboard/display-applications/display-applications.component';
+import { DisplayCompoundsComponent } from './AdminSahboard/display-compounds/display-compounds.component';
 
 const APP_CONTAINERS = [
-  DefaultFooterComponent,
   DefaultHeaderComponent,
   DefaultLayoutComponent,
 ];
 
 @NgModule({
-  declarations: [DashBoardComponent, ...APP_CONTAINERS],
+  declarations: [DashBoardComponent, ...APP_CONTAINERS, DisplayApplicationsComponent, DisplayCompoundsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

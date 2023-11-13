@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Building } from 'src/app/Models/building';
-import { BuildingService } from 'src/app/Services/Building/building.service';
+
 import { DisplaybuildingimagesService } from 'src/app/Services/Building/displaybuildingimages.service';
+import { BuildingService } from 'src/app/Services/Building/building.service';
 
 @Component({
   selector: 'app-building-description',
@@ -16,8 +17,6 @@ export class BuildingDescriptionComponent implements OnInit {
     description: '',
     bulidingNumber: 0,
     compoundId: 0,
-    latitude: 0,
-    longitude: 0,
     numberOfFloor: 0,
     sizeArea: 0,
     status: '',

@@ -1,123 +1,78 @@
 import { Component } from '@angular/core';
-import { FormControl, FormBuilder,FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AuthService } from 'src/app/account/auth.service';
+import { CreateApplicationService } from 'src/app/services/Application/create-application.service';
+// import { ApplicationsService } from 'src/app/services/Admin/applications.service';
+// import { CreateApplicationService } from 'src/app/services/Application/create-application.service';
 
 @Component({
   selector: 'app-application',
   templateUrl: './application.component.html',
-  styleUrls: ['./application.component.css']
+  styleUrls: ['./application.component.css'],
 })
 export class ApplicationComponent {
+  ApplicationForm: FormGroup;
 
-  RegisterationValidation = new FormGroup({
-    name: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      this.customTypeValidator('string'),
-    ]),
-    // lname: new FormControl('', [
-    //   Validators.required,
-    //   Validators.minLength(3),
-    // ]),
-    // fname: new FormControl('', [
-    //   Validators.required,
-    //   Validators.minLength(3),
-    // ]),
-    SSN: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.required,Validators.pattern(/^\d{10}$/),
-
-    ]),
-    
-    
-    Budget: new FormControl( null,[
-      Validators.required,
-      Validators.min(10000),
-      this.customTypeValidator('number'),
-    ]),
-    FON: new FormControl( null,[
-      Validators.required,
-      this.customTypeValidator('number'),
-    ]),
-    email: new FormControl('', 
-    [Validators.required,Validators.pattern(/^[a-zA-Z0-9._%+-]+@gmail\.com$/)]),
-    number: new FormControl('', 
-    [Validators.required,Validators.pattern(/^(966|20)\d{3}\d{7}$/)]),
-    // confirmPassword: new FormControl('', [
-    //   Validators.required,
-    //   this.passwordMatchValidator(),
-    // ]),
-       });
-
-
- 
-       customTypeValidator(expectedType: string) {
-        return (control: AbstractControl) => {
-          var value = control.value;
-          console.clear();
-          console.log(typeof value);
-          console.log( control.value);
-          //var de;
-          if(value>0){
-            console.log( control.value);
-            value=parseInt(value);
-          }
-    
-          if (typeof value !== expectedType) {
-            return { invalidType: true };
-          }
-    
-          return null;
-        };
-      }
-  
-  
-  //  passwordMatchValidator(): ValidatorFn {
-  //   return (control: AbstractControl): { [key: string]: any } | null => {
-  //     const passwordControl = control.root.get('password');
-  //     const password = passwordControl ? passwordControl.value : null;
-  //     const confirmPassword = control.value;
-  
-  //     if (password !== null && confirmPassword !== null) {
-  //       return password === confirmPassword ? null : { passwordMismatch: true };
-  //     } else {
-  //       return null;
-  //     }
-  //   };
-  // }
+  constructor(
+    private formBuilder: FormBuilder,
+    private applicationServices: CreateApplicationService,
+    private authService: AuthService
+  ) {
+    this.ApplicationForm = this.formBuilder.group({
+      ssn: ['', [Validators.required, Validators.maxLength(10)]],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(12),
+        ],
+      ],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^1234567$/)]],
+      contactEmail: ['', [Validators.required, Validators.email]],
+      budget: [0, [Validators.required, Validators.min(100000)]],
+      floorNumber: [
+        0,
+        [Validators.required, Validators.min(1), Validators.max(5)],
+      ],
+    });
+  }
 
   Add() {
-    if (this.RegisterationValidation.valid) {
-      console.log('Your object is valid');
+    if (this.ApplicationForm.valid) {
+      console.log('valid');
+
+      const ApplicationData = new FormData();
+      for (const key in this.ApplicationForm.value) {
+        ApplicationData.append(key, this.ApplicationForm.value[key]);
+      }
+      const userId = this.authService.getUserId();
+      ApplicationData.append('UserId', userId);
+
+      console.log(ApplicationData);
+
+      console.log(ApplicationData);
+      this.applicationServices.submitApplication(ApplicationData).subscribe(
+        (respone) => {
+          console.log('Application has been submitted', respone);
+        },
+        (error) => {
+          console.log("Application hasn't been submitted", error);
+
+          if (error && error.error && error.error.errors) {
+            const validationErrors = error.error.errors;
+            console.log(validationErrors);
+          }
+        }
+      );
+    } else {
+      console.log('invalid');
     }
   }
-
-  get NameValid() {
-    return this.RegisterationValidation.controls['name'].valid;
-  }
-  // get PasswordValid() {
-  //   return this.RegisterationValidation.controls['password'].valid;
-  // }
-  // get LNameValid() {
-  //   return this.RegisterationValidation.controls['lname'].valid;
-  // }
-  get NumberValid() {
-    return this.RegisterationValidation.controls['number'].valid;
-  }
-  // get FNameValid() {
-  //   return this.RegisterationValidation.controls['fname'].valid;
-  // }
-  get SSNValid() {
-    return this.RegisterationValidation.controls['SSN'].valid;
-  }
-  get BudgetValid() {
-    return this.RegisterationValidation.controls['Budget'].valid;
-  }
-  get EmailValid() {
-    return this.RegisterationValidation.controls['email'].valid;
-  }
-  get FONValid() {
-    return this.RegisterationValidation.controls['FON'].valid;
-}
 }
